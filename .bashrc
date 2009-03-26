@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Set the TERM to 'emacs' if running inside an emacs shell.
+if [ "$EMACS" == "t" ]; then
+    export TERM="emacs"
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -69,21 +74,17 @@ fi
 
 # Enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
+
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 
-# Enable color support of ls and also add handy aliases for shells
-# inside Emacs ...
-if [ "$EMACS" != "t" ] && [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
 fi
 
 # enable programmable completion features (you don't need to enable
