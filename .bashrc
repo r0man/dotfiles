@@ -94,12 +94,32 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# AMAZON AWS
+if [ -f ~/.aws ]; then
+   . ~/.aws
+fi
+
 # Degrib
 export PATH="$PATH:/home/roman/local/degrib/bin"
 
 # Grads
-export PATH="$PATH:/home/roman/local/grads-2.0.a3/bin"
-export GADDIR="/home/roman/local/grads-2.0.a3/data"
+export PATH="$PATH:~/local/grads-2.0.a7.oga.3/Contents"
+#export GADDIR="/home/roman/local/grads-2.0.a6/data"
 
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+
+# http://wiki.github.com/aslakhellesoy/cucumber/console-colours
+export CUCUMBER_COLORS="undefined=black,italic:pending=black,bold,italic:pending_param=black,bold"
+if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
+
+export EDITOR="emacsclient -t"
+
+# HADOOP & PIG
+export HADOOP_HOME="/home/roman/local/hadoop"
+export PATH="$PATH:$HADOOP_HOME/bin"
+export PATH="$PATH:/home/roman/local/pig/bin"
+
+# rvm-install added line:
+if [[ -s /home/roman/.rvm/scripts/rvm ]] ; then source /home/roman/.rvm/scripts/rvm ; fi
+
