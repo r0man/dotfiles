@@ -2,17 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Set the TERM to 'emacs' if running inside an emacs shell.
-if [ "$EMACS" == "t" ]; then
-    export TERM="emacs"
-fi
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
-# ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
 # check the window size after each command and, if necessary,
@@ -73,8 +66,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
-
+# if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
 
@@ -94,32 +87,47 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-# AMAZON AWS
-if [ -f ~/.aws ]; then
-   . ~/.aws
-fi
-
 # Degrib
 export PATH="$PATH:/home/roman/local/degrib/bin"
 
 # Grads
 export PATH="$PATH:~/local/grads-2.0.a7.oga.3/Contents"
-#export GADDIR="/home/roman/local/grads-2.0.a6/data"
 
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
-# http://wiki.github.com/aslakhellesoy/cucumber/console-colours
-export CUCUMBER_COLORS="undefined=black,italic:pending=black,bold,italic:pending_param=black,bold"
-if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
+# Use Emacs as editor.
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c"
 
-export EDITOR="emacsclient -t"
+# Hadoop
+export HADOOP_HOME="$HOME/local/hadoop"
+export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/ec2/bin"
 
-# HADOOP & PIG
-export HADOOP_HOME="/home/roman/local/hadoop"
-export PATH="$PATH:$HADOOP_HOME/bin"
-export PATH="$PATH:/home/roman/local/pig/bin"
+# EC2
+export EC2_CERT="$HOME/.ec2/cert-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
+export EC2_PRIVATE_KEY="$HOME/.ec2/pk-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
 
-# rvm-install added line:
+# Pig
+export PIG_HOME="$HOME/local/pig"
+export PATH="$PATH:$PIG_HOME/bin"
+
+# Gradle 
+export GRADLE_HOME="$HOME/local/gradle"
+export PATH="$PATH:$GRADLE_HOME/bin"
+
+# Google App Engine SDK
+export GAE_SDK_HOME="$HOME/local/appengine-java-sdk-1.3.0"
+export PATH="$PATH:$GAE_SDK_HOME/bin"
+
+# # http://wiki.github.com/aslakhellesoy/cucumber/console-colours
+# export CUCUMBER_COLORS="undefined=black,italic:pending=black,bold,italic:pending_param=black,bold"
+
+# # Set the TERM to 'emacs' if running inside an emacs shell.
+# if [ "$EMACS" == "t" ]; then
+#     export TERM="emacs"
+# fi
+
+# RVM
 if [[ -s /home/roman/.rvm/scripts/rvm ]] ; then source /home/roman/.rvm/scripts/rvm ; fi
-
+export LC_TYPE="en_US.UTF8"
