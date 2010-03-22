@@ -7,7 +7,7 @@ alias upgrade="sudo aptitude update && sudo aptitude safe-upgrade"
 
 # ls
 alias ll='ls -l'
-alias la='ls -A'
+alias la='ls -la'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
