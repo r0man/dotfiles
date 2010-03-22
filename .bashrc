@@ -6,13 +6,7 @@
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTCONTROL=ignoreboth
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -79,5 +73,38 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH="$HOME/bin:$PATH"
+# Use Emacs as editor.
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c"
 
+# Add own commands to path.
+export PATH="$PATH:$HOME/bin"
+
+# Cucumber
+# http://wiki.github.com/aslakhellesoy/cucumber/console-colours
+export CUCUMBER_COLORS="undefined=black,italic:pending=black,bold,italic:pending_param=black,bold"
+
+# Degrib
+export PATH="$PATH:/home/roman/local/degrib/bin"
+
+# EC2
+export EC2_CERT="$HOME/.ec2/cert-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
+export EC2_PRIVATE_KEY="$HOME/.ec2/pk-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
+
+# Google App Engine SDK
+export GAE_SDK_HOME="$HOME/local/appengine-java-sdk-1.3.0"
+export PATH="$PATH:$GAE_SDK_HOME/bin"
+
+# Grads
+export PATH="$PATH:~/local/grads-2.0.a7.oga.3/Contents"
+
+# Hadoop
+export HADOOP_HOME="$HOME/local/hadoop"
+export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/ec2/bin"
+
+# Java
+export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+
+# Pig
+export PIG_HOME="$HOME/local/pig"
+export PATH="$PATH:$PIG_HOME/bin"
