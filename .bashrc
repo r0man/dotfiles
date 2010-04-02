@@ -73,6 +73,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Ruby Version Manager
+if [[ -f "/usr/local/rvm/scripts/rvm" ]]; then 
+    export rvm_path="/usr/local/rvm"
+    source "/usr/local/rvm/scripts/rvm" 
+fi
+
 # Use Emacs as editor.
 export EDITOR="emacsclient -c"
 export VISUAL="emacsclient -c"
