@@ -74,7 +74,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Ruby Version Manager
-if [[ -f "/usr/local/rvm/scripts/rvm" ]]; then 
+if [[ -f "$HOME/.rvm/scripts/rvm" ]]; then 
+    source "$HOME/.rvm/scripts/rvm"
+elif [[ -f "/usr/local/rvm/scripts/rvm" ]]; then 
     export rvm_path="/usr/local/rvm"
     source "/usr/local/rvm/scripts/rvm" 
 fi
