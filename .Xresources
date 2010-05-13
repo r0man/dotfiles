@@ -1,1 +1,5 @@
 Emacs.font: Inconsolata-8
+Emacs.fontBackend: xft
+Emacs.toolBar: -1
+Emacs.verticalScrollBars: off
+
