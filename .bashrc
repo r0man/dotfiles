@@ -73,14 +73,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Ruby Version Manager
-if [[ -f "$HOME/.rvm/scripts/rvm" ]]; then 
-    source "$HOME/.rvm/scripts/rvm"
-elif [[ -f "/usr/local/rvm/scripts/rvm" ]]; then 
-    export rvm_path="/usr/local/rvm"
-    source "/usr/local/rvm/scripts/rvm" 
-fi
-
 # Use Emacs as editor.
 export EDITOR="emacsclient -c"
 export VISUAL="emacsclient -c"
@@ -111,8 +103,13 @@ export HADOOP_HOME="$HOME/local/hadoop"
 export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/ec2/bin"
 
 # Java
-export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+export JAVA_HOME="/usr/lib/jvm/java-6-openjdk"
 
 # Pig
 export PIG_HOME="$HOME/local/pig"
 export PATH="$PATH:$PIG_HOME/bin"
+
+# Ruby Version Manager
+if [[ -f "$HOME/.rvm/scripts/rvm" ]]; then 
+    source "$HOME/.rvm/scripts/rvm"
+fi
