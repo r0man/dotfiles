@@ -73,14 +73,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Ruby Version Manager
-if [[ -f "$HOME/.rvm/scripts/rvm" ]]; then 
-    source "$HOME/.rvm/scripts/rvm"
-elif [[ -f "/usr/local/rvm/scripts/rvm" ]]; then 
-    export rvm_path="/usr/local/rvm"
-    source "/usr/local/rvm/scripts/rvm" 
-fi
-
 # Use Emacs as editor.
 export EDITOR="emacsclient -c"
 export VISUAL="emacsclient -c"
@@ -100,8 +92,8 @@ export EC2_CERT="$HOME/.ec2/cert-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
 export EC2_PRIVATE_KEY="$HOME/.ec2/pk-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
 
 # Google App Engine SDK
-export GAE_SDK_HOME="$HOME/local/appengine-java-sdk-1.3.0"
-export PATH="$PATH:$GAE_SDK_HOME/bin"
+export GAE_SDK_HOME="$HOME/local/appengine-java-sdk-1.3.5"
+export PATH="$PATH:$GAE_SDK_HOME/bin:$HOME/local/google_appengine"
 
 # Grads
 export PATH="$PATH:~/local/grads-2.0.a7.oga.3/Contents"
@@ -110,9 +102,16 @@ export PATH="$PATH:~/local/grads-2.0.a7.oga.3/Contents"
 export HADOOP_HOME="$HOME/local/hadoop"
 export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/ec2/bin"
 
+# Android
+export ANDROID_HOME="~/local/android-sdk-linux_86"
+export PATH="$PATH:$ANDROID_HOME/tools"
+
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
 # Pig
 export PIG_HOME="$HOME/local/pig"
 export PATH="$PATH:$PIG_HOME/bin"
+
+# RVM
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
