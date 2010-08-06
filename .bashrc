@@ -107,11 +107,11 @@ export ANDROID_HOME="~/local/android-sdk-linux_86"
 export PATH="$PATH:$ANDROID_HOME/tools"
 
 # Java
-export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+export JAVA_HOME="/usr/lib/jvm/java-6-openjdk"
 
 # Pig
 export PIG_HOME="$HOME/local/pig"
 export PATH="$PATH:$PIG_HOME/bin"
 
-# RVM
+# Ruby Version Manager
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
