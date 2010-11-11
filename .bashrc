@@ -110,6 +110,10 @@ export PIG_HOME="$HOME/local/pig"
 export PATH="$PATH:$PIG_HOME/bin"
 
 # Ruby Version Manager
-if [[ -f "$HOME/.rvm/scripts/rvm" ]]; then 
-    source "$HOME/.rvm/scripts/rvm"
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  source "/usr/local/rvm/scripts/rvm"
+else
+  printf "ERROR: An RVM installation was not found.\n"
 fi
