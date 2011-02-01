@@ -88,6 +88,10 @@ export EC2_PRIVATE_KEY="$HOME/.ec2/pk-EF7DZP2B5QTM2A54TDLVLVKYWSDR6H4L.pem"
 export HADOOP_HOME="$HOME/local/hadoop"
 export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/ec2/bin"
 
+# Android
+export ANDROID_HOME="~/local/android-sdk-linux_86"
+export PATH="$PATH:$ANDROID_HOME/tools"
+
 # Java
 export JAVA_HOME="/usr/lib/jvm/java-6-openjdk"
 
