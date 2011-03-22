@@ -1,5 +1,49 @@
-Emacs.font: Inconsolata-9
-Emacs.fontBackend: xft
-Emacs.toolBar: -1
-Emacs.verticalScrollBars: off
+! DZEN2
+dzen2.font: Terminus-7
+dzen2.foreground: white
+dzen2.background: black
 
+! URXVT
+URxvt*transparent: true
+URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=11
+URxvt*scrollBar: false
+
+! Clickable URLs
+
+! You can make URLs in the terminal clickable using the matcher
+! extension. For example, to open links in Firefox add the following
+! to .Xresources
+URxvt.perl-ext-common:  default,matcher
+URxvt.urlLauncher:      /usr/bin/firefox-beta-bin
+URxvt.matcher.button:   1
+
+! ! traditional fonts - a more traditional font setup in lieu of xft
+! !URxvt*font:-*-courier-medium-r-normal-*-*-140-*-*-*-*-iso8859-1
+! !URxvt*boldFont:-*-courier-bold-r-normal-*-*-140-*-*-*-*-iso8859-1
+
+! ! Replace blue folder colors with a lighter shade for clarity. To
+! ! set colored folders and files within urxvt, xterm, and aterm, add
+! ! the following line to your ~/.bashrc ($HOME/.bashrc) file under
+! ! the heading "# User specific aliases and functions":
+! !   alias ls="ls -h --color=auto"
+! URxvt*color4:  black
+! urxvt*color8:  #006400
+! urxvt*color9:  #330000
+! urxvt*color10: red
+! urxvt*color11: #4B0082
+! URxvt*color12: #00009C
+! urxvt*color13: #FF6103
+! urxvt*color14: #5E2605
+! urxvt*color15: black
+
+! ! scrollbar - true (default) or false
+! URxvt*scrollBar:false
+
+! ! scrollbar position - left=false (default) or right=true
+! URxvt*scrollBar_right:true
+
+! ! scrollbar style - rxvt (default), plain, next, or xterm
+! URxvt*scrollstyle:plain
+
+! ! scrollbar color
+! URxvt*scrollColor:#242424
