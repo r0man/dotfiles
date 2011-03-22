@@ -1,9 +1,14 @@
 
 # aptitude
-alias ai="sudo aptitude install"
-alias ar="sudo aptitude remove"
-alias ap="sudo aptitude purge"
-alias upgrade="sudo aptitude update && sudo aptitude safe-upgrade"
+alias apti="sudo aptitude install"
+alias aptr="sudo aptitude remove"
+alias apts="sudo aptitude search"
+alias aptp="sudo aptitude purge"
+alias aptu="sudo aptitude update && sudo aptitude safe-upgrade"
+
+# cd 
+alias ..="cd .."
+alias ...="cd .. && cd.."
 
 # ls
 alias ll='ls -l'

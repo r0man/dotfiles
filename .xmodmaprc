@@ -1,2 +1,13 @@
 keycode  49 = less greater backslash bar bar brokenbar bar brokenbar
 keycode  94 = asciicircum degree grave notsign notsign notsign bar bar
+
+! Forget any previous Caps Lock
+clear Lock
+
+! Make Caps Lock an additional Control
+keycode 37 = Control_L
+keycode 66 = Control_L
+
+! Teach X once again that Control_L really does mean Control
+add Control = Control_L
+
