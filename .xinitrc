@@ -4,6 +4,9 @@
 #
 # Executed by startx (run your window manager from here)
 
+# Enable X restart.
+setxkbmap -option terminate:ctrl_alt_bksp
+
 # Load X resources.
 xrdb -merge ~/.Xresources
 
