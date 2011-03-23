@@ -7,6 +7,9 @@
 # Enable X restart.
 setxkbmap -option terminate:ctrl_alt_bksp
 
+# Fix less/greater than keys.
+xmodmap ~/.xmodmaprc
+
 # Load X resources.
 xrdb -merge ~/.Xresources
 
