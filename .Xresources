@@ -14,7 +14,7 @@ URxvt*scrollBar: false
 ! extension. For example, to open links in Firefox add the following
 ! to .Xresources
 URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/bin/firefox-beta-bin
+URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.matcher.button:   1
 
 ! ! traditional fonts - a more traditional font setup in lieu of xft
