@@ -2,6 +2,9 @@
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
+# Load bash aliases.
+[ -r ~/.bash_aliases ] && . ~/.bash_aliases
+
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
