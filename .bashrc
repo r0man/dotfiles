@@ -14,3 +14,5 @@ export PATH="~/bin:$PATH"
 export HADOOP_HOME="$HOME/local/hadoop"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 
+# Setup AWS credentials.
+[ -r ~/.aws.sh ] && . ~/.aws.sh
