@@ -4,6 +4,12 @@
 #
 # Executed by startx (run your window manager from here)
 
+# Handle the Gnome session settings.
+gnome-settings-daemon &
+
+# Start the gnome keyring daemon.
+eval `gnome-keyring-daemon`
+
 # Load X resources.
 xrdb -merge ~/.Xresources
 
@@ -31,7 +37,7 @@ unclutter -idle 5 -noevents &
 # Start Window Manager.
 exec ck-launch-session xmonad
 
-# exec gnome-session
+#exec ck-launch-session gnome-session
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
