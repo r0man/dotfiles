@@ -1,15 +1,38 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
 
-device="alsa_output.pci-0000_00_08.0.analog-stereo"
+def current
+  c = IO::popen("pacmd \"list-sinks\" | grep volume | head -1").readlines.first
+  return c.split(" ").last.sub("%", "").strip.to_i
+end
 
-case "$1" in
-    "down")  # decrease volume by 1000
-	pacmd dump | awk --non-decimal-data '$1~/set-sink-volume/{if ($2~/'${device}'/) {if ($3-1000 < 0) {system ("pactl "$1" '${device}' "0)} else {system ("pactl "$1" '${device}' "$3-1000)}}}'
-	;;
-    "mute")  # toggle mute
-	pacmd dump|awk --non-decimal-data '$1~/set-sink-mute/{if ($2~/'${device}'/) {system ("pactl "$1" '${device}' "($3=="yes"?"no":"yes"))}}'
-	;;
-    "up")    # increase volume by 1000
-	pacmd dump | awk --non-decimal-data '$1~/set-sink-volume/{if ($2~/'${device}'/) {if ($3+1000 > 65535) {system ("pactl "$1" '${device}' "65535)} else {system ("pactl "$1" '${device}' "$3+1000)}}}'
-	;;
-esac
+def index
+  c = IO::popen("pacmd \"list-sinks\" | grep index | head -1").readlines.first
+  return c.split(" ").last.strip.to_i
+end
+
+def max
+  c = IO::popen("pacmd \"list-sinks\" | grep \"volume steps\" | head -1").readlines.first
+  return c.split(" ").last.strip.to_i - 1
+end
+
+def set(v)
+  IO::popen("pacmd \"set-sink-volume #{index} #{v}\"").readlines
+end
+
+def muted?
+  c = IO::popen("pacmd \"list-sinks\" | grep muted | head -1").readlines.first
+  return c.split(" ").last.strip == "yes"
+end
+
+def toggle
+  IO::popen("pacmd \"set-sink-mute #{index} #{muted? ? 0 : 1}\"").readlines
+end
+
+interval = 5
+
+case ARGV.first
+when "down" then set([current - interval, 0].max * (max / 100.0).round)
+when "up" then set([current + interval, 100].min * (max / 100.0).round)
+when "toggle" then toggle
+else puts current
+end
