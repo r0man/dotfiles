@@ -10,6 +10,9 @@ PS1='[\u@\h \W]\$ '
 
 export PATH="~/bin:$PATH"
 
+# JAVA
+[ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
+
 # Hadoop
 export HADOOP_HOME="$HOME/local/hadoop"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
