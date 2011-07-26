@@ -3,6 +3,13 @@ dzen2.font: Terminus-7
 dzen2.foreground: white
 dzen2.background: black
 
+! XFT
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hinstyle:   hintslight
+
 ! URXVT
 URxvt*transparent: true
 URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=11
