@@ -34,10 +34,14 @@ feh --bg-scale ~/.wallpaper/stop-cutomizing-start-working.jpg
 # Hide mouse cursor when idle.
 unclutter -idle 5 -noevents &
 
+# Start the screensaver
+xscreensaver -no-splash &
+
 # Start Window Manager.
 exec ck-launch-session xmonad
 
-#exec ck-launch-session gnome-session
+# exec ck-launch-session gnome-session
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
+
