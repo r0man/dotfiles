@@ -3,12 +3,16 @@ dzen2.font: Terminus-7
 dzen2.foreground: white
 dzen2.background: black
 
+! EMACS
+Emacs.FontBackend: xft
+Emacs.font: Monospace-9
+
 ! XFT
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hinstyle:   hintslight
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hinstyle: hintslight
 
 ! URXVT
 URxvt*transparent: true
