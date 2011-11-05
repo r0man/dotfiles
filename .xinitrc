@@ -37,6 +37,12 @@ unclutter -idle 5 -noevents &
 # Start the screensaver
 xscreensaver -no-splash &
 
+# Start Emacs.
+emacs &
+
+# Start Firefox.
+firefox &
+
 # Start Window Manager.
 exec ck-launch-session xmonad
 
