@@ -8,7 +8,7 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # AWS
 [ -r ~/.aws.sh ] && . ~/.aws.sh
@@ -18,7 +18,7 @@ export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
 # HADOOP
-export HADOOP_HOME="$HOME/local/hadoop"
+export HADOOP_HOME="/home/hadoop/hadoop-0.20.2-cdh3u1"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 
 # JAVA
