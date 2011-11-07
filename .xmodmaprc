@@ -8,6 +8,12 @@ clear Lock
 keycode 37 = Control_L
 keycode 66 = Control_L
 
+! MEDIA KEYS
+! https://wiki.archlinux.org/index.php/Apple_Keyboard
+keycode 68 = XF86AudioMute
+keycode 87 = XF86AudioLowerVolume
+keycode 88 = XF86AudioRaiseVolume
+
 ! Teach X once again that Control_L really does mean Control
 add Control = Control_L
 

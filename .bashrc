@@ -24,3 +24,9 @@ export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
+# Storm
+if [ -r ~/local/storm ]; then
+    PATH="$PATH:~/local/storm/bin"
+fi
+
+
