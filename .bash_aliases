@@ -6,5 +6,7 @@ alias ...="cd .. && cd.."
 alias ll='ls -lh'
 alias la='ls -lha'
 
-# rake
+# Bundler aliases
+alias cap='bundle exec cap'
 alias rake='bundle exec rake'
+alias spec='bundle exec spec'
