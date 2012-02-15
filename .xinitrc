@@ -37,6 +37,9 @@ unclutter -idle 5 -noevents &
 # Start the screensaver
 xscreensaver -no-splash &
 
+# Start xbindkeys - a grabbing keys program for X.
+xbindkeys
+
 # Start Emacs.
 emacs &
 
@@ -50,4 +53,3 @@ exec ck-launch-session xmonad
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
-
