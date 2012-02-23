@@ -13,6 +13,9 @@ export PATH="$HOME/bin:$PATH"
 # AWS
 [ -r ~/.aws.sh ] && . ~/.aws.sh
 
+# BASH
+HISTSIZE=10000
+
 # CLOJURE SCRIPT
 export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
@@ -33,5 +36,3 @@ export PATH="$NUTCH_HOME/bin:$PATH"
 if [ -d ~/local/storm ]; then
     PATH="$PATH:~/local/storm/bin"
 fi
-
-HISTSIZE=10000
