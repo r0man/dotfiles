@@ -22,6 +22,10 @@ export HADOOP_HOME="/home/hadoop/hadoop-0.20.2-cdh3u1"
 export HADOOP_HOME="/home/roman/local/hadoop"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 
+# NUTCH
+export NUTCH_HOME="/home/roman/local/nutch"
+export PATH="$NUTCH_HOME/bin:$PATH"
+
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
