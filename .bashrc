@@ -29,3 +29,5 @@ export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 if [ -d ~/local/storm ]; then
     PATH="$PATH:~/local/storm/bin"
 fi
+
+HISTSIZE=10000
