@@ -5,7 +5,9 @@
 # Executed by startx (run your window manager from here)
 
 # Handle the Gnome session settings.
-gnome-settings-daemon &
+if [ -x /usr/lib/gnome-settings-daemon/gnome-settings-daemon ]; then
+    /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+fi
 
 # Start the gnome keyring daemon.
 eval `gnome-keyring-daemon`
