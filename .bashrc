@@ -25,6 +25,10 @@ export HADOOP_HOME="/home/hadoop/hadoop-0.20.2-cdh3u1"
 export HADOOP_HOME="/home/roman/local/hadoop"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 
+# MAHOUT
+export MAHOUT_HOME="/home/roman/local/mahout"
+export PATH="$MAHOUT_HOME/bin:$PATH"
+
 # NUTCH
 export NUTCH_HOME="/home/roman/local/nutch"
 export PATH="$NUTCH_HOME/bin:$PATH"
