@@ -21,8 +21,7 @@ export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
 # HADOOP
-export HADOOP_HOME="/home/hadoop/hadoop-0.20.2-cdh3u1"
-export HADOOP_HOME="/home/roman/local/hadoop"
+export HADOOP_HOME="/home/hadoop/hadoop"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 
 # MAHOUT
@@ -31,12 +30,12 @@ export PATH="$MAHOUT_HOME/bin:$PATH"
 
 # NUTCH
 export NUTCH_HOME="/home/roman/local/nutch"
-export PATH="$NUTCH_HOME/bin:$PATH"
+export PATH="$NUTCH_HOME/runtime/local/bin:$PATH"
 
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
-# Storm
+# STORM
 if [ -d ~/local/storm ]; then
     PATH="$PATH:~/local/storm/bin"
 fi
