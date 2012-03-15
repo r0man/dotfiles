@@ -21,7 +21,7 @@ export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
 # HADOOP
-export HADOOP_HOME="/home/hadoop/hadoop"
+export HADOOP_HOME="/home/hadoop/local/hadoop"
 export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
 
 # MAHOUT
