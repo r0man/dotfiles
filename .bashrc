@@ -40,3 +40,8 @@ export PATH="$NUTCH_HOME/runtime/local/bin:$PATH"
 if [ -d ~/local/storm ]; then
     PATH="$PATH:~/local/storm/bin"
 fi
+
+# Keeping bash history in sync on disk and between multiple terminals
+# http://briancarper.net/blog/248/
+shopt -s histappend
+export PROMPT_COMMAND="history -n; history -a"
