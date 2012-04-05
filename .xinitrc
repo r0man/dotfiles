@@ -28,6 +28,9 @@ xmodmap ~/.xmodmaprc
 # Set wallpaper.
 feh --bg-scale ~/.wallpaper/stop-cutomizing-start-working.jpg
 
+# Start Music Player Daemon.
+mpd &
+
 # Hide mouse cursor when idle.
 unclutter -idle 5 -noevents &
 
