@@ -33,6 +33,10 @@ export NUTCH_HOME="/home/roman/local/nutch"
 export PATH="$NUTCH_HOME/runtime/local/bin:$PATH"
 #export PATH="$NUTCH_HOME/runtime/deploy/bin:$PATH"
 
+# PIG
+export PIG_HOME="/home/roman/local/pig"
+export PATH="$PIG_HOME/bin:$PATH"
+
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
