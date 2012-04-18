@@ -43,8 +43,8 @@ xbindkeys
 # Start Emacs.
 emacs &
 
-# Start Firefox.
-firefox &
+# Start chromium.
+chromium &
 
 # Start Window Manager.
 exec ck-launch-session xmonad
