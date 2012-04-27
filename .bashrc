@@ -44,6 +44,5 @@ export PATH="$PIG_HOME/bin:$PATH"
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
 # STORM
-if [ -d ~/local/storm ]; then
-    PATH="$PATH:~/local/storm/bin"
-fi
+export STORM_HOME="/home/roman/local/storm"
+export PATH="$STORM_HOME/bin:$PATH"
