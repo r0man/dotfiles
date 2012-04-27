@@ -46,3 +46,7 @@ export PATH="$PIG_HOME/bin:$PATH"
 # STORM
 export STORM_HOME="/home/roman/local/storm"
 export PATH="$STORM_HOME/bin:$PATH"
+
+# ZOOKEEPER
+export ZOOKEEPER_HOME="/home/roman/local/zookeeper"
+export PATH="$ZOOKEEPER_HOME/bin:$PATH"
