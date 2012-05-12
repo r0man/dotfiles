@@ -40,6 +40,10 @@ export PATH="$NUTCH_HOME/runtime/local/bin:$PATH"
 export PIG_HOME="/home/roman/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
 
+# POSTGRESQL
+# PATH=/usr/local/pgsql/bin:$PATH
+# export PATH
+
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
