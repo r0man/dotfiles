@@ -40,10 +40,17 @@ export PATH="$NUTCH_HOME/runtime/deploy/bin:$PATH"
 export PIG_HOME="/home/roman/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
 
+# POSTGRESQL
+# PATH=/usr/local/pgsql/bin:$PATH
+# export PATH
+
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
 # STORM
-if [ -d ~/local/storm ]; then
-    PATH="$PATH:~/local/storm/bin"
-fi
+export STORM_HOME="/home/roman/local/storm"
+export PATH="$STORM_HOME/bin:$PATH"
+
+# ZOOKEEPER
+export ZOOKEEPER_HOME="/home/roman/local/zookeeper"
+export PATH="$ZOOKEEPER_HOME/bin:$PATH"
