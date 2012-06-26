@@ -33,24 +33,24 @@ keychain --quick --quiet --nogui id_rsa
 [[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
 
 # MAHOUT
-export MAHOUT_HOME="/home/roman/local/mahout"
+export MAHOUT_HOME="$HOME/local/mahout"
 export PATH="$MAHOUT_HOME/bin:$PATH"
 
 # NUTCH
-export NUTCH_HOME="/home/roman/local/nutch"
+export NUTCH_HOME="$HOME/local/nutch"
 export PATH="$NUTCH_HOME/bin:$PATH"
 
 # PIG
-export PIG_HOME="/home/roman/local/pig"
+export PIG_HOME="$HOME/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
 
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
 # STORM
-export STORM_HOME="/home/roman/local/storm"
+export STORM_HOME="$HOME/local/storm"
 export PATH="$STORM_HOME/bin:$PATH"
 
 # ZOOKEEPER
-export ZOOKEEPER_HOME="/home/roman/local/zookeeper"
+export ZOOKEEPER_HOME="$HOME/local/zookeeper"
 export PATH="$ZOOKEEPER_HOME/bin:$PATH"
