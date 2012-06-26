@@ -29,7 +29,7 @@ export PATH="$HADOOP_HOME/bin:$PATH"
 export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
 
 # KEYCHAIN
-keychain -Q -q --nogui ~/.ssh/id_rsa
+keychain --quick --quiet --nogui id_rsa
 [[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
 
 # MAHOUT
