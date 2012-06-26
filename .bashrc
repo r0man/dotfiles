@@ -25,7 +25,11 @@ export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
 # HADOOP
 export HADOOP_HOME="/home/hdfs/local/hadoop"
-export PATH="$HADOOP_HOME/bin:$HADOOP_HOME/src/contrib/cloud/src/py:$PATH"
+export PATH="$HADOOP_HOME/bin:$PATH"
+export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
+
+# KEYCHAIN
+eval $(keychain --eval --agents gpg,ssh -Q --quiet id_rsa)
 
 # MAHOUT
 export MAHOUT_HOME="/home/roman/local/mahout"
@@ -33,16 +37,11 @@ export PATH="$MAHOUT_HOME/bin:$PATH"
 
 # NUTCH
 export NUTCH_HOME="/home/roman/local/nutch"
-export PATH="$NUTCH_HOME/runtime/local/bin:$PATH"
-export PATH="$NUTCH_HOME/runtime/deploy/bin:$PATH"
+export PATH="$NUTCH_HOME/bin:$PATH"
 
 # PIG
 export PIG_HOME="/home/roman/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
-
-# POSTGRESQL
-# PATH=/usr/local/pgsql/bin:$PATH
-# export PATH
 
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
