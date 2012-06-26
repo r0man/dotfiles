@@ -29,8 +29,9 @@ export PATH="$HADOOP_HOME/bin:$PATH"
 export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
 
 # KEYCHAIN
-keychain --quick --quiet --nogui id_rsa
+keychain --quick --quiet --agents ssh,gpg id_rsa
 [[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
+[[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ]] && source $HOME/.keychain/$HOSTNAME-sh-gpg
 
 # MAHOUT
 export MAHOUT_HOME="$HOME/local/mahout"
