@@ -58,4 +58,3 @@ export PATH="$ZOOKEEPER_HOME/bin:$PATH"
 
 # CLOJURESCRIPT TESTS
 export V8_HOME="/usr/bin"
-export SPIDERMONKEY_HOME="/usr/bin"
