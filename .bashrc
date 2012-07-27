@@ -11,6 +11,8 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# PATH
+export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # AWS
