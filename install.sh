@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 
-DOT_FILES="~/.dotfiles"
+DOT_FILES="$HOME/.dotfiles"
 
-function make_symlink () {
+function install () {
     echo "Installing $1 ..."
-    rm -f ~/$1
-    ln -s $DOT_FILES/$1 ~/$1
+    mkdir -p $(dirname $1)
+    rm -f $HOME/$1
+    ln -s $DOT_FILES/$1 $HOME/$1
 }
 
-make_symlink .Xresources
-make_symlink .bash_aliases
-make_symlink .bash_profile
-make_symlink .bashrc
-make_symlink .mpdconf
-make_symlink .wgetrc
-make_symlink .xbindkeysrc
-make_symlink .xinitrc
-make_symlink .xmodmaprc
+install .Xresources
+install .bash_aliases
+install .bash_profile
+install .bashrc
+install .mpdconf
+install .wgetrc
+install .xbindkeysrc
+install .xinitrc
+install .xmodmaprc
