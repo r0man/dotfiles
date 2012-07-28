@@ -26,7 +26,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xmodmap ~/.xmodmaprc
 
 # Set wallpaper.
-feh --bg-scale ~/.wallpaper/stop-cutomizing-start-working.jpg
+feh --bg-scale ~/.xmonad/wallpapers/stop-cutomizing-start-working.jpg
 
 # Start Music Player Daemon.
 mpd &
