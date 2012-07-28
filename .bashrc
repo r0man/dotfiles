@@ -13,6 +13,7 @@ PS1='[\u@\h \W]\$ '
 # PATH
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # AWS
 [ -r ~/.aws.sh ] && . ~/.aws.sh
