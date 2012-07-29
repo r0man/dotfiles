@@ -8,10 +8,12 @@
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
-alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# PATH
+export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # AWS
 [ -r ~/.aws.sh ] && . ~/.aws.sh
@@ -29,9 +31,11 @@ export PATH="$HADOOP_HOME/bin:$PATH"
 export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
 
 # KEYCHAIN
-keychain --quick --quiet --agents ssh,gpg id_rsa
-[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
-[[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ]] && source $HOME/.keychain/$HOSTNAME-sh-gpg
+if [ `which keychain` ]; then
+    keychain --quick --quiet --agents ssh,gpg id_rsa
+    [[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
+    [[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ]] && source $HOME/.keychain/$HOSTNAME-sh-gpg
+fi
 
 # MAHOUT
 export MAHOUT_HOME="$HOME/local/mahout"
