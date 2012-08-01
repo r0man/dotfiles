@@ -4,9 +4,6 @@
 #
 # Executed by startx (run your window manager from here)
 
-# Start the gnome keyring daemon.
-eval `gnome-keyring-daemon`
-
 # Load X resources.
 xrdb -merge ~/.Xresources
 
@@ -39,6 +36,11 @@ xscreensaver -no-splash &
 
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
+
+# Keychain
+keychain ~/.ssh/id_rsa
+[ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
+[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
 
 # Start Emacs.
 emacs &

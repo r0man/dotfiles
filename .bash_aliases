@@ -1,8 +1,13 @@
+#
+# ~/.bash_aliases
+#
+
 # cd
 alias ..='cd ..'
 alias ...='cd .. && cd..'
 
 # ls
+alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -lha'
 
