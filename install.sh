@@ -18,3 +18,6 @@ install .wgetrc
 install .xbindkeysrc
 install .xinitrc
 install .xmodmaprc
+
+# PAKTAHN
+install .paktahn/config.lisp ~/.paktahn/config.lisp
