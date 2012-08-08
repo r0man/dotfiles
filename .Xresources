@@ -5,4 +5,4 @@ dzen2.background: black
 
 ! EMACS
 Emacs.FontBackend: xft
-Emacs.font: Monospace-7
+Emacs.font: Monospace-9
