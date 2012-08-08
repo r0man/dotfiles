@@ -1,5 +1,5 @@
-! keycode  49 = less greater backslash bar bar brokenbar bar brokenbar
-! keycode  94 = asciicircum degree grave notsign notsign notsign bar bar
+keycode  49 = less greater backslash bar bar brokenbar bar brokenbar
+keycode  94 = asciicircum degree grave notsign notsign notsign bar bar
 
 ! Forget any previous Caps Lock
 clear Lock
