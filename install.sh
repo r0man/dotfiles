@@ -13,6 +13,7 @@ install .Xresources ~/.Xresources
 install .bash_aliases ~/.bash_aliases
 install .bash_profile ~/.bash_profile
 install .bashrc ~/.bashrc
+install .gemrc ~/.gemrc
 install .mpdconf ~/.mpdconf
 install .wgetrc ~/.wgetrc
 install .xbindkeysrc ~/.xbindkeysrc
@@ -26,4 +27,4 @@ install bin/lein ~/bin/lein
 install .paktahn/config.lisp ~/.paktahn/config.lisp
 
 # XPROP FOR XMONAD
-install bin/xprop-xmonad ~/bin/xprop-xmonad 
+install bin/xprop-xmonad ~/bin/xprop-xmonad
