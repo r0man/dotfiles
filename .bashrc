@@ -46,6 +46,9 @@ export PATH="$NUTCH_HOME/bin:$PATH"
 export PIG_HOME="$HOME/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
 
+# RVM
+[ -r /etc/profile.d/rvm.sh ] && . /etc/profile.d/rvm.sh
+
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
