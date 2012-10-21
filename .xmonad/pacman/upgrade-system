@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Load the configuration.
+. $(dirname $(readlink -f ${BASH_SOURCE[0]}))/../config
+
+# Upgrade system.
+sudo pacman -Syu
+
+# Remove old package log and create an empty one, so dzen shows that
+# it is up to date.
+[[ -f testfile ]] && sudo rm $PACMAN_UPDATES
+sudo touch $PACMAN_UPDATES
+
+# Wait for input.
+read

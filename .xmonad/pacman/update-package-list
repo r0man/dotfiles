@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Load the configuration.
+. $(dirname $(readlink -f ${BASH_SOURCE[0]}))/../config
+
+pacman -Syup --noprogressbar | sed -ne "s/^.*$ARCHITECTURE\/\([a-z-]*\)-.*$/\1/p" > $PACMAN_UPDATES

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Find the current screen resolution via xrandr.
+SCREEN_WIDTH=$(xrandr 2> /dev/null | grep '*' | sed -e 's/\s\+\([0-9]\+\)x\([0-9]\+\).*/\1/g')
+SCREEN_HEIGHT=$(xrandr 2> /dev/null | grep '*' | sed -e 's/\s\+\([0-9]\+\)x\([0-9]\+\).*/\2/g')
+
+# The system's architecture.
+ARCHITECTURE=`uname -m`
+
+# DZEN
+DZEN_BG="#111111"
+DZEN_BAR_BG="gray40"
+DZEN_BAR_FG="white"
+DZEN_HEIGHT=18
+
+# The directory containing the xpm icons.
+ICONS="$HOME/.xmonad/icons"
+
+# The mixer.
+MIXER="Master"
+
+# The file containing packages which can be upgraded.
+PACMAN_UPDATES="/var/log/pacman-updates.log"
