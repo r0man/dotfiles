@@ -19,6 +19,7 @@ install .wgetrc ~/.wgetrc
 install .xbindkeysrc ~/.xbindkeysrc
 install .xinitrc ~/.xinitrc
 install .xmodmaprc ~/.xmodmaprc
+install .xmonad ~/.xmonad
 
 # LEININGEN
 install bin/lein ~/bin/lein

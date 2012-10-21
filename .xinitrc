@@ -5,7 +5,7 @@
 # Executed by startx (run your window manager from here)
 
 # Load X resources.
-xrdb -merge ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Use a better mouse pointer.
 xsetroot -cursor_name left_ptr
