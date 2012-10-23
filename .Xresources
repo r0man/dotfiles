@@ -8,7 +8,7 @@ Emacs.FontBackend: xft
 Emacs.font: Monospace-6
 
 ! URXVT
-URxvt.font: xft:terminus:pixelsize=7:antialias=false
+URxvt.font: xft:Terminus-7
 
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
