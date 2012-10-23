@@ -6,4 +6,4 @@
 DZEN_X=0
 DZEN_Y=0
 
-dzen2 -ta 'l' -h $DZEN_HEIGHT -fn 'Terminus-8' -x $DZEN_X -y $DZEN_Y -bg $DZEN_BG
+dzen2 -ta 'l' -h $DZEN_HEIGHT -x $DZEN_X -y $DZEN_Y -bg $DZEN_BG
