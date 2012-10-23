@@ -8,21 +8,58 @@ Emacs.FontBackend: xft
 Emacs.font: Monospace-7
 
 ! URXVT
-URxvt.background: white
-URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=20
-URxvt.foreground: white
-URxvt.inheritPixmap: true
-URxvt.saveLines: 10000
-URxvt.scrollBar: false
-URxvt.secondaryScroll: true
-URxvt.shading: 40
-URxvt.urlLauncher: firefox
+URxvt.font: xft:terminus:pixelsize=7:antialias=false
 
-URxvt.tabbed.tabbar-fg: 3
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 1
-URxvt.tabbed.secondaryScroll: true
-URxvt.tabbed.font: xft:Bitstream Vera Sans Mono:pixelsize=12
-URxvt.tabbed.perl-ext-common: mark-urls
-URxvt.tabbed.urlLauncher: firefox
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+
+URxvt.url-select.launcher: chromium
+URxvt.url-select.underline: true
+URvxt.url-select.button: 2
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+URxvt.scrollBar: false
+URxvt.skipBuiltinGlyphs: true
+URxvt.boldMode: false
+URxvt.imLocale: en_US.UTF-8
+URxvt.loginShell: true
+URxvt.borderless: true
+URxvt.jumpScroll: true
+
+URxvt.internalBorder: 0
+URxvt.cursorBlink: false
+
+URxvt.cursorColor: #dd9900
+URxvt.cursorColor2: #000000
+URxvt.background: #FFFFFF
+URxvt.foreground: #ddccbb
+URxvt.colorBD: #ffffff
+URxvt.colorIT: #bbbbbb
+URxvt.colorUL: #999999
+URxvt.underlineColor: #999999
+URxvt.inheritPixmap: true
+URxvt.tintColor: white
+URxvt.shading: 40
+
+URxvt*background: #000000
+URxvt*foreground: #bfbdc0
+URxvt*color0: #000000
+URxvt*color1: #8a110e
+URxvt*color2: #669f3d
+URxvt*color3: #b3751e
+URxvt*color4: #493d9f
+URxvt*color5: #9216a3
+URxvt*color6: #198a9c
+URxvt*color7: #bfbdc0
+URxvt*color8: #686773
+URxvt*color9: #fc5166
+URxvt*color10: #63ff54
+URxvt*color11: #ffd75c
+URxvt*color12: #766eff
+URxvt*color13: #e151ff
+URxvt*color14: #57ffec
+URxvt*color15: #ffffff
