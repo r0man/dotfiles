@@ -52,6 +52,9 @@ export PATH="$PIG_HOME/bin:$PATH"
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
+# PERL
+export PATH="/usr/bin/site_perl:$PATH"
+
 # STORM
 export STORM_HOME="$HOME/local/storm"
 export PATH="$STORM_HOME/bin:$PATH"
