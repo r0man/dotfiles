@@ -49,9 +49,4 @@ emacs &
 chromium &
 
 # Start Window Manager.
-exec ck-launch-session xmonad
-
-# exec ck-launch-session gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
+exec xmonad
