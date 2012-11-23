@@ -30,9 +30,13 @@ export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
 # HADOOP
-export HADOOP_HOME="/home/hdfs/local/hadoop"
+export HADOOP_HOME="/home/hdfs/hadoop"
 export PATH="$HADOOP_HOME/bin:$PATH"
 export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
+
+# HIVE
+export HIVE_HOME="/home/hdfs/hive"
+export PATH="$HIVE_HOME/bin:$PATH"
 
 # MAHOUT
 export MAHOUT_HOME="$HOME/local/mahout"
