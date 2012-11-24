@@ -12,38 +12,37 @@ URxvt.font: xft:Terminus-7
 
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 
+URvxt.url-select.button: 2
 URxvt.url-select.launcher: chromium
 URxvt.url-select.underline: true
-URvxt.url-select.button: 2
 
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
-URxvt.scrollBar: false
-URxvt.skipBuiltinGlyphs: true
-URxvt.boldMode: false
-URxvt.imLocale: en_US.UTF-8
-URxvt.loginShell: true
-URxvt.borderless: true
-URxvt.jumpScroll: true
-
-URxvt.internalBorder: 0
-URxvt.cursorBlink: false
-
-URxvt.cursorColor: #dd9900
-URxvt.cursorColor2: #000000
 URxvt.background: #FFFFFF
-URxvt.foreground: #ddccbb
+URxvt.boldMode: false
+URxvt.borderless: true
 URxvt.colorBD: #ffffff
 URxvt.colorIT: #bbbbbb
 URxvt.colorUL: #999999
-URxvt.underlineColor: #999999
+URxvt.cursorBlink: false
+URxvt.cursorColor2: #000000
+URxvt.cursorColor: #dd9900
+URxvt.foreground: #ddccbb
+URxvt.imLocale: en_US.UTF-8
 URxvt.inheritPixmap: true
-URxvt.tintColor: white
+URxvt.internalBorder: 0
+URxvt.jumpScroll: true
+URxvt.loginShell: true
+URxvt.scrollBar: false
 URxvt.shading: 40
+URxvt.skipBuiltinGlyphs: true
+URxvt.termName: xterm
+URxvt.tintColor: white
+URxvt.underlineColor: #999999
 
 URxvt*background: #000000
 URxvt*foreground: #bfbdc0
