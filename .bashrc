@@ -43,7 +43,7 @@ export HIVE_HOME="/home/hdfs/hive"
 export PATH="$HIVE_HOME/bin:$PATH"
 
 # MAHOUT
-export MAHOUT_HOME="$HOME/local/mahout"
+export MAHOUT_HOME="/home/hdfs/mahout"
 export PATH="$MAHOUT_HOME/bin:$PATH"
 
 # NUTCH
