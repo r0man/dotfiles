@@ -5,4 +5,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Keychain
-eval $(keychain --eval id_rsa deploy)
+eval $(keychain --eval id_rsa)
