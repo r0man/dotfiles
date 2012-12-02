@@ -23,7 +23,8 @@ export PATH="/usr/local/sbin:$PATH"
 [ -r ~/.aws.sh ] && . ~/.aws.sh
 
 # BASH
-HISTSIZE=10000
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 # CLOJURE SCRIPT
 export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
