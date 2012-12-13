@@ -13,6 +13,9 @@ xsetroot -cursor_name left_ptr
 # Use the German keyboard layout.
 setxkbmap -layout de
 
+# Make CAPS-LOCK an additional control.
+setxkbmap -option ctrl:nocaps
+
 # Use the CAPS-LOCK key as an additional control.
 setxkbmap -option "ctrl:nocaps"
 
