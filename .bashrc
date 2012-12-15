@@ -10,6 +10,11 @@ PS1='[\u@\h \W]\$ '
 # Load bash aliases.
 [ -r ~/.bash_aliases ] && . ~/.bash_aliases
 
+# SOLARIZED
+export SOLARIZED="light"
+[ $SOLARIZED = "dark" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-dark`
+[ $SOLARIZED = "light" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-light`
+
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
