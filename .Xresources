@@ -10,7 +10,7 @@ Emacs.font: Monospace-6
 ! URXVT
 URxvt.font: xft:Terminus-7
 URxvt.transparent: false
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
 URxvt.url-select.launcher: chromium
