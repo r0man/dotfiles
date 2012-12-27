@@ -40,8 +40,8 @@ xscreensaver -no-splash &
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
 
-# Start Emacs.
-emacs &
+# Start Emacs in terminal.
+urxvt -e emacs -nw &
 
 # Start chromium.
 chromium &
