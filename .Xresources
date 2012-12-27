@@ -9,7 +9,6 @@ Emacs.font: Monospace-6
 
 ! URXVT
 URxvt.font: xft:Terminus-7
-URxvt.transparent: false
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
@@ -26,15 +25,20 @@ URxvt.boldMode: false
 URxvt.borderless: true
 URxvt.cursorBlink: false
 URxvt.imLocale: en_US.UTF-8
-URxvt.inheritPixmap: true
 URxvt.internalBorder: 0
 URxvt.jumpScroll: true
 URxvt.loginShell: true
 URxvt.scrollBar: false
-URxvt.shading: 40
 URxvt.skipBuiltinGlyphs: true
+
+! Specifies the terminal type name to be set in the TERM environment variable
 URxvt.termName: xterm
-URxvt.tintColor: white
+
+! Turn on/off pseudo-transparency by using the root pixmap as background.
+URxvt*.transparent: true
+
+! Darken (0 .. 99) or lighten (101 .. 200) the transparent background. A value of 100 means no shading.
+URxvt*.shading: 40
 
 !! SOLARIZED COLORSCHEME
 
