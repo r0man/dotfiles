@@ -3,29 +3,33 @@
 # ~/.xprofile
 #
 
-# Load X resources.
+HOSTNAME=`hostname -s`
+
+# Load default .XResources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# Use a better mouse pointer.
+# Load default .XResources by hostname
+XRESOURCES="~/.dotfiles/$HOSTNAME/.Xresources"
+[[ -f $XRESOURCES ]] && xrdb -merge $XRESOURCES
+
+# Set wallpaper
+feh --bg-scale ~/.xmonad/wallpapers/stop-customizing-start-working.jpg
+
+# Use a better mouse pointer
 xsetroot -cursor_name left_ptr
 
-# Use the German keyboard layout.
+# Use the German keyboard layout
 setxkbmap -layout de
 
-# Make CAPS-LOCK an additional control.
-setxkbmap -option ctrl:nocaps
-
-# Use the CAPS-LOCK key as an additional control.
+# Use the CAPS-LOCK key as an additional control
 setxkbmap -option "ctrl:nocaps"
 
-# Enable X restart.
+# Enable X restart with CTRL-ALT-BACKSPACE
 setxkbmap -option terminate:ctrl_alt_bksp
 
-# Fix less/greater than keys.
-xmodmap ~/.xmodmaprc
-
-# Set wallpaper.
-feh --bg-scale ~/.xmonad/wallpapers/stop-customizing-start-working.jpg
+# Load .xmodmaprc by hostname
+XMODMAPRC="~/.dotfiles/$HOSTNAME/.xmodmaprc"
+[[ -f $XMODMAPRC ]]; && xmodmap $$XMODMAPRC
 
 # Start Music Player Daemon.
 mpd &
