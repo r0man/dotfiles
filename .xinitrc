@@ -13,6 +13,9 @@ xsetroot -cursor_name left_ptr
 # Use the German keyboard layout.
 setxkbmap -layout de
 
+# Make CAPS-LOCK an additional control.
+setxkbmap -option ctrl:nocaps
+
 # Use the CAPS-LOCK key as an additional control.
 setxkbmap -option "ctrl:nocaps"
 
@@ -37,11 +40,6 @@ xscreensaver -no-splash &
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
 
-# Keychain
-keychain ~/.ssh/id_rsa
-[ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
-[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
-
 # Start Emacs.
 emacs &
 
@@ -49,9 +47,5 @@ emacs &
 chromium &
 
 # Start Window Manager.
-exec ck-launch-session xmonad
-
-# exec ck-launch-session gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
+exec xmonad
+#exec gnome-session --session=xmonad

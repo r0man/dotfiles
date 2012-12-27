@@ -64,7 +64,7 @@ myModMask = mod4Mask
 -- A tagging example:
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
-myWorkspaces = ["1:Emacs","2:Chromium","3:Firefox","4","5","6","7:Gimp","8:Chat","9:Media"]
+myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7:Gimp","8:Chat","9:Media"]
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#000000"
@@ -245,8 +245,8 @@ myManageHook = composeAll . concat $
    [ [isFullscreen --> doFullFloat]
    , [isDialog --> doCenterFloat]
    , [ className =? "Emacs" --> doShift "1:Emacs"]
-   , [ className =? "Chromium" --> doShift "2:Chromium"]
-   , [ className =? "Firefox" --> doShift "3:Firefox" ]
+   , [ className =? "Chromium" --> doShift "2:Web"]
+   , [ className =? "Firefox" --> doShift "2:Web"]
    , [ className =? "Gimp" --> doShift "7:Gimp"]
    , [ className =? "Skype" --> doShift "8:Chat" ]
    , [ className =? "Last.fm" --> doShift "9:Media" ]

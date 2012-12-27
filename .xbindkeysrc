@@ -1,10 +1,10 @@
 # Increase volume
-"amixer -D hw:0 set Master playback 1+"
+"amixer -D hw:0 set Master playback 5+"
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
 # Decrease volume
-"amixer -D hw:0 set Master playback 1-"
+"amixer -D hw:0 set Master playback 5-"
     m:0x0 + c:122
     XF86AudioLowerVolume
 
