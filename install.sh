@@ -20,6 +20,7 @@ install .xbindkeysrc ~/.xbindkeysrc
 install .xinitrc ~/.xinitrc
 install .xmodmaprc ~/.xmodmaprc
 install .xmonad ~/.xmonad
+install .xprofile ~/.xprofile
 
 # LEININGEN
 install bin/lein ~/bin/lein

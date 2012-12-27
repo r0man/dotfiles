@@ -11,7 +11,7 @@ PS1='[\u@\h \W]\$ '
 [ -r ~/.bash_aliases ] && . ~/.bash_aliases
 
 # SOLARIZED
-export SOLARIZED="light"
+export SOLARIZED="dark"
 [ $SOLARIZED = "dark" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-dark`
 [ $SOLARIZED = "light" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-light`
 
