@@ -5,10 +5,10 @@
 
 HOSTNAME=`hostname -s`
 
-# Load default .XResources
+# Load default .Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# Load default .XResources by hostname
+# Load default .Xresources by hostname
 XRESOURCES="~/.dotfiles/$HOSTNAME/.Xresources"
 [[ -f $XRESOURCES ]] && xrdb -merge $XRESOURCES
 
@@ -29,7 +29,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 
 # Load .xmodmaprc by hostname
 XMODMAPRC="~/.dotfiles/$HOSTNAME/.xmodmaprc"
-[[ -f $XMODMAPRC ]]; && xmodmap $$XMODMAPRC
+[[ -f $XMODMAPRC ]] && xmodmap $XMODMAPRC
 
 # Start Music Player Daemon.
 mpd &
