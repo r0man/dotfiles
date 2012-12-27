@@ -12,7 +12,7 @@ while true ; do
     if [[ $(mpd_status_playing) == 1 ]]; then
         printf "^i($ICONS/music.xpm)$(mpd_progress_percentage)$(mpd_progress) $(mpd_title)\n"
     else
-        printf "^i($ICONS/arch.xpm) $(kernel_release)  ^ca(1,gnome-terminal -e '$HOME/.xmonad/pacman/upgrade-system')^i($ICONS/pacman.xpm) $(pacman)^ca()\n"
+        printf "^i($ICONS/arch.xpm) $(kernel_release)  ^ca(1,urxvt -e '$HOME/.xmonad/pacman/upgrade-system')^i($ICONS/pacman.xpm) $(pacman)^ca()\n"
     fi
     sleep 1
 done | dzen2 -ta c -x $DZEN_X -y $DZEN_Y -h $DZEN_HEIGHT -w $DZEN_WIDTH -bg $DZEN_BG
