@@ -15,11 +15,15 @@ URvxt.url-select.button: 2
 URxvt.url-select.launcher: chromium
 URxvt.url-select.underline: true
 
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.keysym.M-v: perl:clipboard:paste
+
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+
+! Disable Keycap Picture insert mode
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 URxvt.boldMode: false
 URxvt.borderless: true
