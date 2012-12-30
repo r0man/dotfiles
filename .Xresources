@@ -36,7 +36,7 @@ URxvt.scrollBar: false
 URxvt.skipBuiltinGlyphs: true
 
 ! Specifies the terminal type name to be set in the TERM environment variable
-URxvt.termName: xterm
+URxvt.termName: rxvt-256color
 
 ! Turn on/off pseudo-transparency by using the root pixmap as background.
 URxvt*.transparent: true
