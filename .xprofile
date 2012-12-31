@@ -3,7 +3,7 @@
 # ~/.xprofile
 #
 
-HOSTNAME=`hostname -s`
+HOSTNAME=`hostname`
 
 # Load default .Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
