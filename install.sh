@@ -21,11 +21,5 @@ install .xinitrc ~/.xinitrc
 install .xmonad ~/.xmonad
 install .xprofile ~/.xprofile
 
-# LEININGEN
-install bin/lein ~/bin/lein
-
 # PAKTAHN
 install .paktahn/config.lisp ~/.paktahn/config.lisp
-
-# XPROP FOR XMONAD
-install bin/xprop-xmonad ~/bin/xprop-xmonad
