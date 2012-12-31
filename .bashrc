@@ -20,6 +20,7 @@ export SOLARIZED="dark"
 
 # PATH
 export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
