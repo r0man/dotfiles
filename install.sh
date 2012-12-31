@@ -18,7 +18,6 @@ install .mpdconf ~/.mpdconf
 install .wgetrc ~/.wgetrc
 install .xbindkeysrc ~/.xbindkeysrc
 install .xinitrc ~/.xinitrc
-install .xmodmaprc ~/.xmodmaprc
 install .xmonad ~/.xmonad
 install .xprofile ~/.xprofile
 

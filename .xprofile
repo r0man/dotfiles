@@ -1,15 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # ~/.xprofile
 #
 
 HOSTNAME=`hostname`
+HOSTCONF="$HOME/.dotfiles/$HOSTNAME"
 
 # Load default .Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Load default .Xresources by hostname
-XRESOURCES="~/.dotfiles/$HOSTNAME/.Xresources"
+XRESOURCES="$HOSTCONF/.Xresources"
 [[ -f $XRESOURCES ]] && xrdb -merge $XRESOURCES
 
 # Set wallpaper
@@ -28,8 +29,8 @@ setxkbmap -option "ctrl:nocaps"
 setxkbmap -option terminate:ctrl_alt_bksp
 
 # Load .xmodmaprc by hostname
-XMODMAPRC="~/.dotfiles/$HOSTNAME/.xmodmaprc"
-[[ -f $XMODMAPRC ]] && xmodmap $XMODMAPRC
+XMODMAPRC="$HOSTCONF/.xmodmaprc"
+[ -f "$XMODMAPRC" ] && xmodmap $XMODMAPRC
 
 # Start Music Player Daemon.
 mpd &
