@@ -73,7 +73,7 @@ myFocusedBorderColor = myNormalBorderColor
 -- Promp style.
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig {
-  font = "xft:Terminus-8"
+  font = "xft:Terminus-13"
   , position = Bottom
   , bgColor = "#000000"
   , bgHLight = "#000000"
