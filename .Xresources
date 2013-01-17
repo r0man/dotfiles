@@ -1,14 +1,14 @@
 ! DZEN2
-dzen2.font: Terminus-6
+dzen2.font: Terminus-13
 dzen2.foreground: white
 dzen2.background: black
 
 ! EMACS
 Emacs.FontBackend: xft
-Emacs.font: Monospace-6
+Emacs.font: Monospace-13
 
 ! URXVT
-URxvt.font: xft:Terminus-7
+URxvt.font: xft:Terminus-13
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
