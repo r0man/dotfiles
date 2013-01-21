@@ -8,16 +8,16 @@ Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! DZEN2
-dzen2.font: Terminus-10
+dzen2.font: Terminus-12
 dzen2.foreground: white
 dzen2.background: black
 
 ! EMACS
 Emacs.FontBackend: xft
-Emacs.font: Monospace-10
+Emacs.font: Monospace-12
 
 ! URXVT
-URxvt.font: xft:Terminus-10
+URxvt.font: xft:Terminus-12
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
@@ -77,7 +77,7 @@ URxvt*.shading: 40
 ! #define S_base02        #073642
 
 ! Use black as background
-#define S_base03        #000000
+#define S_base03        #111111
 #define S_base02        #111111
 
 #define S_base01        #586e75
@@ -95,7 +95,7 @@ URxvt*.shading: 40
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-*background:            S_base03
+!*background:            S_base03
 *foreground:            S_base00
 *fading:                40
 *fadeColor:             S_base03
