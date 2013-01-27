@@ -1,6 +1,5 @@
 ! Applications without fontconfig support
 Xft.antialias: 1
-Xft.dpi: 96
 Xft.autohint: 0
 Xft.hinting: 1
 Xft.hintstyle: hintfull
@@ -8,16 +7,16 @@ Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! DZEN2
-dzen2.font: Terminus-14
+dzen2.font: Terminus-7
 dzen2.foreground: white
 dzen2.background: black
 
 ! EMACS
-Emacs.FontBackend: xft
-Emacs.font: Monospace-14
+! Emacs.FontBackend: xft
+! Emacs.font: Monospace-7
 
 ! URXVT
-URxvt.font: xft:Terminus-14
+URxvt.font: xft:Terminus-7
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
