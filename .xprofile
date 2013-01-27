@@ -7,11 +7,11 @@ HOSTNAME=`hostname`
 HOSTCONF="$HOME/.dotfiles/$HOSTNAME"
 
 # Load default .Xresources
-[[ -f ~/.Xresources ]] && xrdb -all -merge ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -all -load ~/.Xresources
 
 # Load default .Xresources by hostname
 XRESOURCES="$HOSTCONF/.Xresources"
-[[ -f $XRESOURCES ]] && xrdb -all -merge $XRESOURCES
+[[ -f $XRESOURCES ]] && xrdb -all -load $XRESOURCES
 
 # Set wallpaper
 feh --bg-scale ~/.xmonad/wallpapers/stop-customizing-start-working.jpg
