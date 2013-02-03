@@ -12,8 +12,9 @@ PS1='[\u@\h \W]\$ '
 
 # SOLARIZED
 export SOLARIZED="dark"
-[ $SOLARIZED = "dark" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-dark`
-[ $SOLARIZED = "light" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-light`
+if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
+    eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
+fi
 
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
