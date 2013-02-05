@@ -46,6 +46,10 @@ export HADOOP_HOME="/home/hdfs/hadoop"
 export PATH="$HADOOP_HOME/bin:$PATH"
 export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
 
+export HADOOP_HDFS_HOME="/home/hdfs/hadoop-2.0.0-cdh4.1.2"
+export PATH="$HADOOP_HDFS_HOME/bin:$PATH"
+export PATH="$HADOOP_HDFS_HOME/sbin:$PATH"
+
 # HIVE
 export HIVE_HOME="/home/hdfs/hive"
 export PATH="$HIVE_HOME/bin:$PATH"
