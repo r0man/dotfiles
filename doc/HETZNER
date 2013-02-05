@@ -1,0 +1,44 @@
+
+ARCH LINUX AT HETZNER
+---------------------
+
+mkswap /dev/md0
+mkfs.ext4 /dev/md1
+mkfs.ext4 /dev/md3
+
+mkdir /arch
+mount /dev/md3 /arch
+
+wget http://tokland.googlecode.com/svn/trunk/archlinux/arch-bootstrap.sh
+bash arch-bootstrap.sh -a x86_64 /arch
+
+mount --bind /dev/ /arch/dev/
+mount -t sysfs none /arch/sys
+mount -t proc none /arch/proc
+mount -t devpts /dev/pts /arch/dev/pts
+
+apt-get install haveged ; haveged -w 1024
+
+chroot /arch
+pacman-key --init
+pacman-key --populate archlinux
+
+exit
+killall haveged
+
+chroot /arch
+mount /dev/md1 /boot
+
+pacman -S base base-devel linux grub-bios
+grub-install /dev/sda
+grub-install /dev/sdb
+
+pacman -S openssh
+systemctl enable sshd.service
+systemctl enable netcfg.service
+
+passwd
+
+# /etc/default/grub
+# GRUB_CMDLINE_LINUX="root=/dev/md3"
+# GRUB_PRELOAD_MODULES="part_gpt part_msdos mdraid"
