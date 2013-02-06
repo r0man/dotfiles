@@ -6,6 +6,8 @@
 HOSTNAME=`hostname`
 HOSTCONF="$HOME/.dotfiles/$HOSTNAME"
 
+monitor-setup
+
 # Load default .Xresources
 [[ -f ~/.Xresources ]] && xrdb -all -merge ~/.Xresources
 
