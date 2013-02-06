@@ -22,6 +22,7 @@ update_interval 1.0
 use_spacer none
 
 TEXT
+^i(.xmonad/icons/battery.xpm) ${battery_percent}% \
 ^ca(1,gnome-terminal -e htop)^i(.xmonad/icons/cpu.xpm) ${cpu 0}%^ca() \
 ^i(.xmonad/icons/mem.xpm) $mem^fg(grey)/^fg(white)$memmax \
 ${if_existing /sys/class/net/eth0/operstate up}^i(.xmonad/icons/net-eth.xpm) ${downspeed eth0}${color grey}/$color${upspeed eth0}${endif}\
