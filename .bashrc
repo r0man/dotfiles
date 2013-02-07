@@ -12,8 +12,9 @@ PS1='[\u@\h \W]\$ '
 
 # SOLARIZED
 export SOLARIZED="dark"
-[ $SOLARIZED = "dark" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-dark`
-[ $SOLARIZED = "light" ] && eval `dircolors ~/.dotfiles/dircolors.ansi-light`
+if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
+    eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
+fi
 
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
@@ -45,6 +46,10 @@ export HADOOP_HOME="/home/hdfs/hadoop"
 export PATH="$HADOOP_HOME/bin:$PATH"
 export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
 
+export HADOOP_HDFS_HOME="/home/hdfs/hadoop-2.0.0-cdh4.1.2"
+export PATH="$HADOOP_HDFS_HOME/bin:$PATH"
+export PATH="$HADOOP_HDFS_HOME/sbin:$PATH"
+
 # HIVE
 export HIVE_HOME="/home/hdfs/hive"
 export PATH="$HIVE_HOME/bin:$PATH"
@@ -74,9 +79,13 @@ export PATH="/usr/bin/site_perl:$PATH"
 export STORM_HOME="$HOME/local/storm"
 export PATH="$STORM_HOME/bin:$PATH"
 
+# V8
+export V8_HOME="/usr/bin"
+
+# VERTICA
+export VERTICA_HOME="/opt/vertica"
+export PATH="$VERTICA_HOME/bin:$PATH"
+
 # ZOOKEEPER
 export ZOOKEEPER_HOME="$HOME/local/zookeeper"
 export PATH="$ZOOKEEPER_HOME/bin:$PATH"
-
-# CLOJURESCRIPT TESTS
-export V8_HOME="/usr/bin"

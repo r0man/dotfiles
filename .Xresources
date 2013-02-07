@@ -1,6 +1,5 @@
 ! Applications without fontconfig support
 Xft.antialias: 1
-Xft.dpi: 96
 Xft.autohint: 0
 Xft.hinting: 1
 Xft.hintstyle: hintfull
@@ -48,7 +47,7 @@ URxvt.skipBuiltinGlyphs: true
 URxvt*.transparent: true
 
 ! Darken (0 .. 99) or lighten (101 .. 200) the transparent background. A value of 100 means no shading.
-URxvt*.shading: 40
+URxvt*.shading: 30
 
 !! SOLARIZED COLORSCHEME
 
