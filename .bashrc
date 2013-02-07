@@ -79,9 +79,13 @@ export PATH="/usr/bin/site_perl:$PATH"
 export STORM_HOME="$HOME/local/storm"
 export PATH="$STORM_HOME/bin:$PATH"
 
+# V8
+export V8_HOME="/usr/bin"
+
+# VERTICA
+export VERTICA_HOME="/opt/vertica"
+export PATH="$VERTICA_HOME/bin:$PATH"
+
 # ZOOKEEPER
 export ZOOKEEPER_HOME="$HOME/local/zookeeper"
 export PATH="$ZOOKEEPER_HOME/bin:$PATH"
-
-# CLOJURESCRIPT TESTS
-export V8_HOME="/usr/bin"
