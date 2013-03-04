@@ -16,3 +16,5 @@ alias cap='bundle exec cap'
 alias rake='bundle exec rake'
 alias rails='bundle exec rails'
 alias spec='bundle exec spec'
+
+alias emacs='emacs -nw'
