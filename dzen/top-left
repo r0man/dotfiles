@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+. ~/.dotfiles/functions
+
+dzen2 -ta 'l' -h $DZEN_HEIGHT

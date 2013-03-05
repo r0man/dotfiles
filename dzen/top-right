@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+. ~/.dotfiles/functions
+
+SCREEN_WIDTH=$(screen_width)
+SCREEN_HEIGHT=$(screen_height)
+
+DZEN_WIDTH=$(expr $SCREEN_WIDTH / 2)
+DZEN_X=$(expr $SCREEN_WIDTH - $DZEN_WIDTH)
+
+cd ~ && conky -c ~/.xmonad/conky/top-right | dzen2 -x $DZEN_X -h $DZEN_HEIGHT -w $DZEN_WIDTH -ta r
