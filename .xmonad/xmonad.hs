@@ -311,13 +311,13 @@ myLogHook = fadeInactiveLogHook fadeAmount
 --
 myStartupHook = do
               setWMName "LG3D"
-              spawn "~/.xmonad/dzen/top-right"
-              spawn "~/.xmonad/dzen/bottom"
+              spawn "~/.dotfiles/dzen/top-right"
+              spawn "~/.dotfiles/dzen/bottom"
               spawn "xcompmgr -C"
 
 ------------------------------------------------------------------------
 -- Dzen
-myDzenBar = "~/.xmonad/dzen/top-left"
+myDzenBar = "~/.dotfiles/dzen/top-left"
 myDzenBarPP = dzenPP
             { ppCurrent  = dzenColor "#ffffff" "#54728e" . pad
             , ppVisible  = dzenColor "#484848" "#111111" . pad
