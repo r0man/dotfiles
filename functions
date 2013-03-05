@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# The directory containing the xpm icons.
+ICONS="$HOME/.xmonad/icons"
+
+# DZEN
+DZEN_BG="#111111"
+DZEN_BAR_BG="gray40"
+DZEN_BAR_FG="white"
+DZEN_HEIGHT=30
+
+# SCREENS
+INTERNAL="eDP1"
+EXTERNAL="DP2"
+
+# MUSIC PLAYER DAEMON
+
+function mpd_progress () {
+    POS=`mpc | sed -ne 's/^.*(\([0-9]*\)%).*$/\1/p'`
+    if [ $POS != "0" ]; then
+        echo -n "$POS 100" | gdbar -h 8 -w 60 -fg '$DZEN_BAR_FG' -bg '$DZEN_BAR_BG' -s o
+    fi
+}
+
+function mpd_progress_percentage () {
+    PERCENT=`mpc | grep playing | sed 's/.*(\(.*\)%).*/\1/'`
+    if [ $PERCENT != "0" ]; then
+        echo " $PERCENT%% "
+    fi
+}
+
+function mpd_status_playing () {
+    PLAYING=`! mpc | grep 'playing'`
+    echo -n "$?"
+}
+
+function mpd_title () {
+    echo -n "`mpc | head -n 1`"
+}
+
+function mpd_volume () {
+    echo -n "`mpc | grep volume | sed 's/volume: \([0-9]*\).*/\1/'`"
+}
+
+# PACMAN
+
+function pacman_packages () {
+    pacman -Qu | wc -l
+}
+
+function pacman_status () {
+    local packages=$(pacman_packages)
+    if [ $packages == 0 ]; then
+        echo -n "pacman up to date"
+    else
+        echo -n "pacman needs more fruit ($packages new packages)"
+    fi
+}
+
+# XRANDR
+
+function xrandr_spec {
+    xrandr | grep connected | grep -v disconnected | grep $1
+}
+
+function xrandr_width {
+    echo $(xrandr_spec $1) | sed -e 's/.*\s\+\([0-9]\+\)x\([0-9]\+\).*/\1/g'
+}
+
+function xrandr_height {
+    echo $(xrandr_spec $1) | sed -e 's/.*\s\+\([0-9]\+\)x\([0-9]\+\).*/\2/g'
+}
+
+function screen_name {
+    local spec=$(xrandr_spec $EXTERNAL)
+    if [ -n "$spec" ]; then
+        echo $EXTERNAL
+    else
+        echo $INTERNAL
+    fi
+}
+
+function screen_width {
+    xrandr_width $(screen_name)
+}
+
+function screen_height {
+    xrandr_height $(screen_name)
+}
