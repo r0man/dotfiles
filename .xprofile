@@ -6,6 +6,9 @@
 HOSTNAME=`hostname`
 HOSTCONF="$HOME/.dotfiles/$HOSTNAME"
 
+# Configure external monitor.
+~/.dotfiles/bin/external-monitor
+
 # Load default .Xresources
 [[ -f ~/.Xresources ]] && xrdb -all -load ~/.Xresources
 
