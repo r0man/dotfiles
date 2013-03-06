@@ -1,17 +1,6 @@
 #!/usr/bin/env bash
 
-# The directory containing the xpm icons.
-ICONS="$HOME/.xmonad/icons"
-
-# DZEN
-DZEN_BG="#111111"
-DZEN_BAR_BG="gray40"
-DZEN_BAR_FG="white"
-DZEN_HEIGHT=25
-
-# SCREENS
-INTERNAL="DP-2"
-EXTERNAL="DP2"
+. ~/.dotfiles/config
 
 # MUSIC PLAYER DAEMON
 
