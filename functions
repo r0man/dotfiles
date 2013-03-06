@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD
 # The directory containing the xpm icons.
 ICONS="$HOME/.xmonad/icons"
 
@@ -12,6 +13,9 @@ DZEN_HEIGHT=25
 # SCREENS
 INTERNAL="eDP1"
 EXTERNAL="DP2"
+=======
+. ~/.dotfiles/config
+>>>>>>> master
 
 # MUSIC PLAYER DAEMON
 
