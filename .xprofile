@@ -46,3 +46,6 @@ xscreensaver -no-splash &
 
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
+
+# Start Emacs in the background.
+emacs --daemon
