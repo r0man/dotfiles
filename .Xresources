@@ -7,7 +7,7 @@ Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! DZEN2
-dzen2.font: Terminus-7
+dzen2.font: Terminus-6
 dzen2.foreground: white
 dzen2.background: black
 
