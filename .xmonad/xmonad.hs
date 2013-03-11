@@ -42,7 +42,8 @@ myIconDir = "/home/roman/.xmonad/icons"
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
-myTerminal = "urxvt"
+-- myTerminal = "urxvt"
+myTerminal = "urxvt -e emacsclient -t -e '(multi-term)'"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse = True
@@ -73,12 +74,17 @@ myFocusedBorderColor = myNormalBorderColor
 -- Promp style.
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig {
+<<<<<<< HEAD
   font = "xft:Terminus-10"
+=======
+  font = "xft:Terminus-6"
+>>>>>>> master
   , position = Bottom
   , bgColor = "#000000"
   , bgHLight = "#000000"
   , fgHLight = "#ffffff"
   , promptBorderWidth = 0
+  , height = 20
 }
 
 ------------------------------------------------------------------------

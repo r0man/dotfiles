@@ -70,7 +70,6 @@ URxvt*.shading: 40
 !!cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
 !!green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
 
-
 ! Solarized background
 ! #define S_base03        #002b36
 ! #define S_base02        #073642
@@ -94,13 +93,13 @@ URxvt*.shading: 40
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-!*background:            S_base03
-*foreground:            S_base00
-*fading:                40
-*fadeColor:             S_base03
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+*cursorColor:            S_orange
+*fadeColor:              S_base03
+*fading:                 40
+*foreground:             S_base00
+*pointerColorBackground: S_base01
+*pointerColorForeground: S_base1
+
 
 !! black dark/light
 *color0:                S_base02
