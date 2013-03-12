@@ -66,6 +66,10 @@ export PATH="$NUTCH_HOME/bin:$PATH"
 export PIG_HOME="$HOME/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
 
+# RIAK
+export RIAK_HOME="~/local/riak/rel/riak"
+export PATH="$RIAK_HOME/bin:$PATH"
+
 # RVM
 [ -r /etc/profile.d/rvm.sh ] && . /etc/profile.d/rvm.sh
 
