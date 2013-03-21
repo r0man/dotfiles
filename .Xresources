@@ -11,6 +11,9 @@ dzen2.font: Terminus-6
 dzen2.foreground: white
 dzen2.background: black
 
+! Emacs
+emacs.font: Terminus-6
+
 ! URXVT
 URxvt.font: xft:Terminus-6
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
