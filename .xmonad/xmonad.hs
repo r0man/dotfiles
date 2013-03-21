@@ -69,16 +69,12 @@ myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7:Gimp","8:Chat","9:Media"]
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = myNormalBorderColor
+myFocusedBorderColor = "#000000"
 
 -- Promp style.
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig {
-<<<<<<< HEAD
   font = "xft:Terminus-10"
-=======
-  font = "xft:Terminus-6"
->>>>>>> master
   , position = Bottom
   , bgColor = "#000000"
   , bgHLight = "#000000"
