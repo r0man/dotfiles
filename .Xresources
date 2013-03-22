@@ -34,7 +34,7 @@ URxvt.iso14755_52: false
 
 URxvt.boldMode: false
 URxvt.borderless: true
-URxvt.cursorBlink: false
+URxvt.cursorBlink: true
 URxvt.imLocale: en_US.UTF-8
 URxvt.internalBorder: 0
 URxvt.jumpScroll: true
