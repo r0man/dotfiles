@@ -11,10 +11,6 @@ dzen2.font: Terminus-10
 dzen2.foreground: white
 dzen2.background: black
 
-! EMACS
-Emacs.FontBackend: xft
-Emacs.font: Monospace-10
-
 ! URXVT
 URxvt.font: xft:Terminus-10
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
@@ -35,7 +31,7 @@ URxvt.iso14755_52: false
 
 URxvt.boldMode: false
 URxvt.borderless: true
-URxvt.cursorBlink: false
+URxvt.cursorBlink: true
 URxvt.imLocale: en_US.UTF-8
 URxvt.internalBorder: 0
 URxvt.jumpScroll: true
