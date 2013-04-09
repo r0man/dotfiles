@@ -33,6 +33,9 @@ export PATH="/usr/local/sbin:$PATH"
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 
+shopt -s histappend
+PROMPT_COMMAND="history -a"
+
 # CLOJURE SCRIPT
 export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
