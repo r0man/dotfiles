@@ -30,6 +30,7 @@ export PATH="/usr/local/sbin:$PATH"
 [ -r ~/.aws.sh ] && . ~/.aws.sh
 
 # BASH
+export HISTCONTROL="ignoredups"
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 
