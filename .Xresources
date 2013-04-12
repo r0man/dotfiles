@@ -41,6 +41,7 @@ URxvt.jumpScroll: true
 URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.skipBuiltinGlyphs: true
+URxvt.saveLines: 65535;
 
 ! Turn on/off pseudo-transparency by using the root pixmap as background.
 URxvt*.transparent: true
