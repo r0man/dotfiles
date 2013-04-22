@@ -1,0 +1,9 @@
+
+* Wireless
+** b43 drops network access on bcm4312 network card
+
+https://bbs.archlinux.org/viewtopic.php?pid=1253129
+
+/etc/modprobe.d/b43.conf:
+
+options b43 pio=1 qos=0
