@@ -43,7 +43,7 @@ myIconDir = "/home/roman/.xmonad/icons"
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 -- myTerminal = "urxvt"
-myTerminal = "urxvt -e emacsclient -t -e '(multi-term)'"
+myTerminal = "urxvt"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse = True

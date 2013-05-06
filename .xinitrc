@@ -7,8 +7,8 @@
 # Load ~/.xprofile
 [[ -f ~/.xprofile ]] && . ~/.xprofile
 
-# Start Emacs in urxvt terminal.
-urxvt -e emacs -nw &
+# Start Emacs.
+emacs &
 
 # Start chromium.
 chromium &
