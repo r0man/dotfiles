@@ -1,6 +1,5 @@
-#
-# ~/.bash_profile
-#
+# .BASH_PROFILE VS .BASHRC
+# http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

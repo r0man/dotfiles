@@ -1,6 +1,5 @@
-#
-# ~/.bashrc
-#
+# .BASH_PROFILE VS .BASHRC
+# http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
