@@ -7,15 +7,15 @@ Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! DZEN2
-dzen2.font: Terminus-6
+dzen2.font: Terminus-14
 dzen2.foreground: white
 dzen2.background: black
 
 ! Emacs
-emacs.font: Terminus-6
+emacs.font: Terminus-14
 
 ! URXVT
-URxvt.font: xft:Terminus-6
+URxvt.font: xft:Terminus-14
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
