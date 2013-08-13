@@ -12,8 +12,8 @@ DZEN_BAR_FG="white"
 DZEN_HEIGHT=25
 
 # SCREENS
-INTERNAL="DP-2"
-EXTERNAL="DP-3"
+INTERNAL="eDP2-1"
+EXTERNAL="DP-1"
 
 # Load host specific config.
 hostconf="$HOME/.dotfiles/config.$HOSTNAME"
