@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOSTNAME=`hostname -s`
+HOSTNAME=`hostname`
 
 # The directory containing the xpm icons.
 ICONS="$HOME/.xmonad/icons"
