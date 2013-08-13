@@ -49,6 +49,10 @@ URxvt*.transparent: true
 ! Darken (0 .. 99) or lighten (101 .. 200) the transparent background. A value of 100 means no shading.
 URxvt*.shading: 40
 
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
 !! SOLARIZED COLORSCHEME
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB

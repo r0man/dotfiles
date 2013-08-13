@@ -24,7 +24,7 @@ use_spacer none
 TEXT
 ^ca(1,gnome-terminal -e htop)^i(.xmonad/icons/cpu.xpm) ${cpu 0}%^ca() \
 ^i(.xmonad/icons/mem.xpm) $mem^fg(grey)/^fg(white)$memmax \
-${if_existing /sys/class/net/eth0/operstate up}^i(.xmonad/icons/net-eth.xpm) ${downspeed eth0}${color grey}/$color${upspeed eth0}${endif}\
-${if_existing /sys/class/net/wlan0/operstate up}^i(.xmonad/icons/net-wlan.xpm) ${downspeed wlan0}${color grey}/$color${upspeed wlan0}${endif}\
+${if_existing /sys/class/net/enp0s20u1u2/operstate up}^i(.xmonad/icons/net-eth.xpm) ${downspeed enp0s20u1u2}${color grey}/$color${upspeed enp0s20u1u2}${endif}\
+${if_existing /sys/class/net/wlp3s0/operstate up}^i(.xmonad/icons/net-wlan.xpm) ${downspeed wlp3s0}${color grey}/$color${upspeed wlp3s0}${endif}\
 ^ca(1,pavucontrol)^i(.xmonad/icons/volume.xpm) ${mpd_vol}%^ca() \
 ^i(.xmonad/icons/clock.xpm) ${time %a, %d %b %k:%M:%S} \
