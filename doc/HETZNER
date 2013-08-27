@@ -2,9 +2,44 @@
 ARCH LINUX AT HETZNER
 ---------------------
 
-mkswap /dev/md0
+# Stop already running RAID 1.
+
+mdadm --stop /dev/md0
+mdadm --stop /dev/md1
+mdadm --stop /dev/md2
+mdadm --stop /dev/md3
+cat /proc/mdstat
+
+# Partition the hard drives. Start at 2MB, because of Grub2.
+
+for device in /dev/sda /dev/sdb ; do
+    parted $device --script -- mklabel gpt
+    parted $device --script -- mkpart primary 0MB 2MB
+    parted $device --script -- set 1 bios_grub
+    parted $device --script -- mkpart primary ext2 2MB 512MB
+    parted $device --script -- mkpart primary linux-swap 512MB 2150MB
+    parted $device --script -- mkpart primary ext2 2150MB -1
+    parted $device --script -- set 2 raid on
+    parted $device --script -- set 3 raid on
+    parted $device --script -- set 4 raid on
+    parted $device --script -- print
+done
+
+# Create RAID 1.
+
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md0 /dev/sda1 /dev/sdb1
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md1 /dev/sda2 /dev/sdb2
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md2 /dev/sda3 /dev/sdb3
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md3 /dev/sda4 /dev/sdb4
+cat /proc/mdstat
+
+# Create filesystems.
+
 mkfs.ext4 /dev/md1
+mkswap /dev/md2
 mkfs.ext4 /dev/md3
+
+# Bootstrap Arch Linux.
 
 mkdir /arch
 mount /dev/md3 /arch
@@ -29,16 +64,146 @@ killall haveged
 chroot /arch
 mount /dev/md1 /boot
 
-pacman -S base base-devel linux grub-bios
-grub-install /dev/sda
-grub-install /dev/sdb
+pacman --noconfirm -S base base-devel linux grub netctl emacs openssh
 
-pacman -S openssh
 systemctl enable sshd.service
-systemctl enable netcfg.service
+systemctl enable netctl.service
 
 passwd
 
-# /etc/default/grub
+export TERM=xterm
+
+emacs /etc/default/grub
+
 # GRUB_CMDLINE_LINUX="root=/dev/md3"
 # GRUB_PRELOAD_MODULES="part_gpt part_msdos mdraid"
+
+grub-install /dev/sda
+grub-install /dev/sdb
+
+
+-----------------------
+
+# INSTALL FROM EXISTING LINUX
+
+# Stop already running RAID 1.
+
+mdadm --stop /dev/md0
+mdadm --stop /dev/md1
+mdadm --stop /dev/md2
+mdadm --stop /dev/md3
+cat /proc/mdstat
+
+# Partition the hard drives. Start at 2MB, because of Grub2.
+
+for device in /dev/sda /dev/sdb ; do
+    parted $device --script -- mklabel gpt
+    parted $device --script -- mkpart primary 0MB 2MB
+    parted $device --script -- set 1 bios_grub
+    parted $device --script -- mkpart primary ext2 2MB 512MB
+    parted $device --script -- mkpart primary linux-swap 512MB 2150MB
+    parted $device --script -- mkpart primary ext2 2150MB -1
+    parted $device --script -- set 2 raid on
+    parted $device --script -- set 3 raid on
+    parted $device --script -- set 4 raid on
+    parted $device --script -- print
+done
+
+# Create RAID 1.
+
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md0 /dev/sda1 /dev/sdb1
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md1 /dev/sda2 /dev/sdb2
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md2 /dev/sda3 /dev/sdb3
+yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md3 /dev/sda4 /dev/sdb4
+cat /proc/mdstat
+
+# Create filesystems.
+
+mkfs.ext4 /dev/md1
+mkswap /dev/md2
+mkfs.ext4 /dev/md3
+
+# Use squashfs-tools from Debian unstable.
+
+echo "deb http://mirror.hetzner.de/debian/packages unstable main contrib non-free" >> /etc/apt/sources.list
+aptitude update
+aptitude install squashfs-tools
+aptitude install haveged ; haveged -w 1024
+
+# Download the latest root image.
+
+wget http://archlinux.limun.org/iso/2013.08.01/arch/x86_64/root-image.fs.sfs
+
+# Loop mount the root image.
+
+unsquashfs -d /squashfs-root root-image.fs.sfs
+mkdir /arch
+mount -o loop /squashfs-root/root-image.fs /arch
+
+mount -t proc none /arch/proc
+mount -t sysfs none /arch/sys
+mount -o bind /dev /arch/dev
+
+# Important for pacman (for signature check)
+
+mount -o bind /dev/pts /arch/dev/pts
+
+# This is needed to use networking within the chroot
+
+cp -L /etc/resolv.conf /arch/etc
+
+chroot /arch bash
+pacman-key --init
+pacman-key --populate archlinux
+
+# Mount partitions.
+
+mount /dev/md3 /mnt
+
+mkdir -p /mnt/boot
+mount /dev/md1 /mnt/boot
+
+swapon /dev/md2
+
+# Fix "mount point /mnt/dev/shm is a symbolic link to nowhere" error.
+
+mkdir /run/shm
+
+# Install Arch Linux.
+
+pacstrap -i /mnt base
+
+# Generate an fstab.
+
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# Chroot and configure the base system.
+
+arch-chroot /mnt /bin/bash
+
+# Locale & Timezone.
+
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+
+ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
+hwclock --systohc --utc
+
+# Set hostname.
+
+echo arch > /etc/hostname
+
+# Install packages.
+
+pacman --noconfirm -S base base-devel linux grub netctl emacs openssh
+
+# Install Grub.
+
+grub-install --recheck /dev/sda
+grub-install --recheck /dev/sdb
+
+grub-mkconfig -o /boot/grub/grub.cfg
