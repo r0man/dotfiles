@@ -64,7 +64,7 @@ killall haveged
 chroot /arch
 mount /dev/md1 /boot
 
-pacman --noconfirm -S base base-devel linux grub netctl emacs openssh
+pacman --noconfirm -S base base-devel linux grub netctl emacs openssh mdadm
 
 systemctl enable sshd.service
 systemctl enable netctl.service
@@ -80,6 +80,9 @@ emacs /etc/default/grub
 
 grub-install /dev/sda
 grub-install /dev/sdb
+
+# /etc/mkinitcpio.conf
+# HOOKS="base udev autodetect modconf block filesystems keyboard fsck mdadm"
 
 
 -----------------------
