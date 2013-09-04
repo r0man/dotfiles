@@ -41,6 +41,9 @@ export HISTFILESIZE=10000
 shopt -s histappend
 PROMPT_COMMAND="history -a"
 
+# CASK
+export PATH="$HOME/.cask/bin:$PATH"
+
 # CLOJURE SCRIPT
 export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
