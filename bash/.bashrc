@@ -15,6 +15,11 @@ if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
     eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
 fi
 
+HOSTNAME=`hostname`
+if [ -e "$HOME/.bashrc.$HOSTNAME" ]; then
+    source "$HOME/.bashrc.$HOSTNAME"
+fi
+
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
@@ -36,18 +41,17 @@ export HISTFILESIZE=10000
 shopt -s histappend
 PROMPT_COMMAND="history -a"
 
+# CASK
+export PATH="$HOME/.cask/bin:$PATH"
+
 # CLOJURE SCRIPT
 export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
 # HADOOP
-# export HADOOP_HOME="/home/hdfs/hadoop"
-# export PATH="$HADOOP_HOME/bin:$PATH"
-# export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
-
-# export HADOOP_HDFS_HOME="/home/hdfs/hadoop-2.0.0-cdh4.1.2"
-# export PATH="$HADOOP_HDFS_HOME/bin:$PATH"
-# export PATH="$HADOOP_HDFS_HOME/sbin:$PATH"
+export HADOOP_HOME="/home/hdfs/hadoop"
+export PATH="$HADOOP_HOME/bin:$PATH"
+export PATH="$HADOOP_HOME/contrib/fuse-dfs:$PATH"
 
 # HIVE
 export HIVE_HOME="/home/hdfs/hive"
@@ -70,6 +74,10 @@ export PATH="$PIG_HOME/bin:$PATH"
 
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
+
+# OOZIE
+export OOZIE_HOME="/home/hdfs/oozie"
+export PATH="$OOZIE_HOME/bin:$PATH"
 
 # PERL
 export PATH="/usr/bin/site_perl:$PATH"
