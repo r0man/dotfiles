@@ -7,3 +7,9 @@ https://bbs.archlinux.org/viewtopic.php?pid=1253129
 /etc/modprobe.d/b43.conf:
 
 options b43 pio=1 qos=0
+
+* Austin - ClojureScript browser-REP
+** Start REPL in Chromium
+#+BEGIN_SRC clojure
+(cemerick.austin.repls/exec :exec-cmds ["chromium"])
+#+END_SRC
