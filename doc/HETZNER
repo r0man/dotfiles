@@ -39,93 +39,6 @@ mkfs.ext4 /dev/md1
 mkswap /dev/md2
 mkfs.ext4 /dev/md3
 
-# Bootstrap Arch Linux.
-
-mkdir /arch
-mount /dev/md3 /arch
-
-wget http://tokland.googlecode.com/svn/trunk/archlinux/arch-bootstrap.sh
-bash arch-bootstrap.sh -a x86_64 /arch
-
-mount --bind /dev/ /arch/dev/
-mount -t sysfs none /arch/sys
-mount -t proc none /arch/proc
-mount -t devpts /dev/pts /arch/dev/pts
-
-apt-get install haveged ; haveged -w 1024
-
-chroot /arch
-pacman-key --init
-pacman-key --populate archlinux
-
-exit
-killall haveged
-
-chroot /arch
-mount /dev/md1 /boot
-
-pacman --noconfirm -S base base-devel linux grub netctl emacs openssh mdadm
-
-systemctl enable sshd.service
-systemctl enable netctl.service
-
-passwd
-
-export TERM=xterm
-
-emacs /etc/default/grub
-
-# GRUB_CMDLINE_LINUX="root=/dev/md3"
-# GRUB_PRELOAD_MODULES="part_gpt part_msdos mdraid"
-
-grub-install /dev/sda
-grub-install /dev/sdb
-
-# /etc/mkinitcpio.conf
-# HOOKS="base udev autodetect modconf block filesystems keyboard fsck mdadm"
-
-
------------------------
-
-# INSTALL FROM EXISTING LINUX
-
-# Stop already running RAID 1.
-
-mdadm --stop /dev/md0
-mdadm --stop /dev/md1
-mdadm --stop /dev/md2
-mdadm --stop /dev/md3
-cat /proc/mdstat
-
-# Partition the hard drives. Start at 2MB, because of Grub2.
-
-for device in /dev/sda /dev/sdb ; do
-    parted $device --script -- mklabel gpt
-    parted $device --script -- mkpart primary 0MB 2MB
-    parted $device --script -- set 1 bios_grub
-    parted $device --script -- mkpart primary ext2 2MB 512MB
-    parted $device --script -- mkpart primary linux-swap 512MB 2150MB
-    parted $device --script -- mkpart primary ext2 2150MB -1
-    parted $device --script -- set 2 raid on
-    parted $device --script -- set 3 raid on
-    parted $device --script -- set 4 raid on
-    parted $device --script -- print
-done
-
-# Create RAID 1.
-
-yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md0 /dev/sda1 /dev/sdb1
-yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md1 /dev/sda2 /dev/sdb2
-yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md2 /dev/sda3 /dev/sdb3
-yes | mdadm --create --level=1 --metadata=1.2 --raid-devices=2 /dev/md3 /dev/sda4 /dev/sdb4
-cat /proc/mdstat
-
-# Create filesystems.
-
-mkfs.ext4 /dev/md1
-mkswap /dev/md2
-mkfs.ext4 /dev/md3
-
 # Use squashfs-tools from Debian unstable.
 
 echo "deb http://mirror.hetzner.de/debian/packages unstable main contrib non-free" >> /etc/apt/sources.list
@@ -210,3 +123,13 @@ grub-install --recheck /dev/sda
 grub-install --recheck /dev/sdb
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# RESCUE
+mount /dev/md3 /mnt
+mkdir -p /mnt/boot
+mount /dev/md1 /mnt/boot
+mount -o bind /dev /mnt/dev
+mount -o bind /proc /mnt/proc
+mount -o bind /sys /mnt/sys
+cp /etc/resolv.conf /mnt/etc/resolv.conf
+chroot /mnt
