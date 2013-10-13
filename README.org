@@ -13,3 +13,9 @@ options b43 pio=1 qos=0
 #+BEGIN_SRC clojure
 (cemerick.austin.repls/exec :exec-cmds ["chromium"])
 #+END_SRC
+* Piggieback
+** Node REPL
+#+BEGIN_SRC clojure
+(require '[cljs.repl.node :as node])
+(node/run-node-nrepl)
+#+END_SRC
