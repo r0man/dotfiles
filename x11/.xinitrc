@@ -7,6 +7,9 @@
 # Load ~/.xprofile
 [[ -f ~/.xprofile ]] && . ~/.xprofile
 
+#Start Pulse Audio.
+start-pulseaudio-x11
+
 # Start Emacs.
 emacs &
 
