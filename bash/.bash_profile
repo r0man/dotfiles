@@ -4,7 +4,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Keychain
-eval $(keychain --eval id_rsa)
+eval $(keychain --eval --agents "gpg,ssh" --quiet id_rsa)
 
 # Add ssh keys.
 for i in $(ls -1 ~/.ssh/*.pub ); do
