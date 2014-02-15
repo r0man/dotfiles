@@ -12,8 +12,14 @@ options b43 pio=1 qos=0
 ** Start REPL in Chromium
 #+BEGIN_SRC clojure
 (cemerick.austin.repls/exec :exec-cmds ["chromium"])
+(cemerick.piggieback/cljs-repl :repl-env (cemerick.austin/exec-env))
 #+END_SRC
 * Piggieback
+** Browser REPL
+#+BEGIN_SRC clojure
+(require 'cljs.repl.browser)
+(cemerick.piggieback/cljs-repl :repl-env (cljs.repl.browser/repl-env :port 9000))
+#+END_SRC
 ** Node REPL
 #+BEGIN_SRC clojure
 (require '[cljs.repl.node :as node])
