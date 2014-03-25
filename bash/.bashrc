@@ -48,6 +48,9 @@ export PATH="$HOME/.cask/bin:$PATH"
 export CLOJURESCRIPT_HOME="$HOME/workspace/clojurescript"
 export PATH="$CLOJURESCRIPT_HOME/bin:$PATH"
 
+# HEROKU
+export PATH="/usr/local/heroku/bin:$PATH"
+
 # HADOOP
 export HADOOP_HOME="/home/hdfs/hadoop"
 export PATH="$HADOOP_HOME/bin:$PATH"
