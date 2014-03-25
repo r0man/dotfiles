@@ -9,6 +9,8 @@ PS1='[\u@\h \W]\$ '
 # Load bash aliases.
 [ -r ~/.bash_aliases ] && . ~/.bash_aliases
 
+export EDITOR="emacsclient"
+
 # SOLARIZED
 export SOLARIZED="dark"
 if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
