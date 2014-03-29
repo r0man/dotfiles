@@ -20,6 +20,7 @@ import Data.Monoid
 import Data.Ratio ((%))
 import System.Exit
 import XMonad
+import XMonad.Actions.SpawnOn
 import XMonad.Actions.GridSelect
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.DynamicLog
@@ -64,7 +65,7 @@ myModMask = mod4Mask
 -- A tagging example:
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
-myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7:Gimp","8:Chat","9:Media"]
+myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7:Gimp","8:Chat","9:Monitor"]
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#000000"
@@ -250,8 +251,6 @@ myManageHook = composeAll . concat $
    , [ className =? "Firefox" --> doShift "2:Web"]
    , [ className =? "Gimp" --> doShift "7:Gimp"]
    , [ className =? "Skype" --> doShift "8:Chat" ]
-   , [ className =? "Last.fm" --> doShift "9:Media" ]
-   , [ className =? "Totem" --> doShift "9:Media" ]
    , [(className =? "Chromium" <&&> stringProperty "WM_WINDOW_ROLE" =? "pop-up") --> doCenterFloat]
    , [(className =? "Firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "About") --> doCenterFloat]
      -- using list comprehensions and partial matches
@@ -315,6 +314,7 @@ myStartupHook = do
               spawn "~/.dotfiles/dzen/top-right"
               spawn "~/.dotfiles/dzen/bottom"
               spawn "xcompmgr -C"
+              spawnOn "9:Monitor" "urxvt -e 'htop'"
 
 ------------------------------------------------------------------------
 -- Dzen
@@ -360,7 +360,7 @@ defaults = defaultConfig {
   focusedBorderColor = myFocusedBorderColor,
   keys               = myKeys,
   layoutHook         = myLayout,
-  manageHook         = myManageHook <+> manageDocks,
+  manageHook         = myManageHook <+> manageDocks <+> manageSpawn,
   handleEventHook    = myEventHook,
   logHook            = myLogHook,
   startupHook        = myStartupHook
