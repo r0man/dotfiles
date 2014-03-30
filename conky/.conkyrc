@@ -1,0 +1,108 @@
+background yes
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 0.5
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 5
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers no
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+text_buffer_size 256
+
+TEXT
+
+${font openlogos:size=20}${font Arial:size=20}${color Tan1}ARCH${color Ivory}LINUX${font openlogos:size=20}
+
+${voffset -110}
+${color DimGray}
+${font}
+${font Arial:bold:size=10}${color Tan1}SYSTEM ${color DarkSlateGray} ${hr 2}
+$font${color DimGray}$sysname $kernel $alignr $machine
+Intel Pentium D $alignr${freq_g cpu0}Ghz
+Uptime $alignr${uptime}
+File System $alignr${fs_type}
+
+${font Arial:bold:size=10}${color Tan1}PROCESSORS ${color DarkSlateGray}${hr 2}
+$font${color DimGray}CPU1  ${cpu cpu1}% ${cpubar cpu1}
+CPU2  ${cpu cpu2}% ${cpubar cpu2}
+CPU3  ${cpu cpu3}% ${cpubar cpu3}
+CPU4  ${cpu cpu3}% ${cpubar cpu4}
+
+CPU5  ${cpu cpu3}% ${cpubar cpu5}
+CPU6  ${cpu cpu3}% ${cpubar cpu6}
+CPU7  ${cpu cpu3}% ${cpubar cpu7}
+CPU8  ${cpu cpu3}% ${cpubar cpu8}
+
+${font Arial:bold:size=10}${color Tan1}MEMORY ${color DarkSlateGray}${hr 2}
+$font${color DimGray}MEM $alignc $mem / $memmax $alignr $memperc%
+$membar
+
+${font Arial:bold:size=10}${color Tan1}HDD ${color DarkSlateGray}${hr 2}
+$font${color DimGray}/home $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}%
+${fs_bar /home}
+
+${font Arial:bold:size=10}${color Tan2}NETWORK ${color DarkSlateGray}${hr 2}
+$font${color DimGray}IP on wlp4s0 $alignr ${addr wlp4s0}
+
+Down $alignr ${downspeed wlp4s0} kb/s
+Up $alignr ${upspeed wlp4s0} kb/s
+
+Downloaded: $alignr  ${totaldown wlp4s0}
+Uploaded: $alignr  ${totalup wlp4s0}
+
+${font Arial:bold:size=10}${color Tan1}TOP PROCESSES ${color DarkSlateGray}${hr 2}
+${color DimGray}$font${top_mem name 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${alignr}${top mem 3} %
+$font${top_mem name 4}${alignr}${top mem 4} %
+$font${top_mem name 5}${alignr}${top mem 5} %
+$font${top_mem name 6}${alignr}${top mem 6} %
+$font${top_mem name 7}${alignr}${top mem 7} %
+$font${top_mem name 8}${alignr}${top mem 8} %
+$font${top_mem name 9}${alignr}${top mem 9} %
+$font${top_mem name 10}${alignr}${top mem 10} %
+
+# ${font Arial:bold:size=10}${color Tan2}WEATHER ${color DarkSlateGray}${hr 2}
+# ${font}${color DimGray}
+
+# ${voffset -25}${font Weather:size=45}${execi 1800 conkyForecast –location=BEXX0008 –datatype=WF}
+# ${alignc 22}${voffset -60}${font Arial:bold:size=10}${color DimGray}${execi 1800 conkyForecast –location=BEXX0008 –datatype=HT}
+# $font${voffset -55}${alignr}${color DimGray}Wind: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=WS}
+# ${alignr}${color DimGray}Humidity: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=HM}
+# ${alignr}${color DimGray}Precipitation: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=PC}
+
+# ${color DimGray}Sunrise: $alignr${execi 1800 conkyForecast –location=BEXX0008 –datatype=SR}${alignr}
+# Sunset: $alignr${execi 1800 conkyForecast –location=BEXX0008 –datatype=SS}$color
+
+# ${font Arial:bold:size=10}${color Tan2}MUSIC ${color DarkSlateGray}${hr 2}
+# ${color DimGray}$font${if_running mpd}
+# $mpd_smart
+# $mpd_album
+# Bitrate $mpd_bitrate kbits/s
+# $mpd_status $mpd_elapsed/$mpd_length
+
+# ${font Arial:bold:size=10}${color Tan2}TIME ${color DarkSlateGray}${hr 2}
+
+# ${color DarkSlateGray} ${font :size=30}$alignc${time %H:%Mh}
+# ${voffset -30}${font :bold:size=10}$alignc${time %d %b. %Y}
+# ${font :bold:size=8}$alignc${time %A}
+# $endif
