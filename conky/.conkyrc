@@ -5,7 +5,7 @@ xftalpha 0.1
 update_interval 0.5
 total_run_times 0
 own_window yes
-own_window_type normal
+own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
@@ -18,7 +18,7 @@ draw_graph_borders no
 default_color gray
 default_shade_color red
 default_outline_color green
-alignment top_right
+alignment bottom_right
 gap_x 10
 gap_y 10
 no_buffers no
@@ -28,6 +28,32 @@ net_avg_samples 1
 override_utf8_locale yes
 use_spacer yes
 text_buffer_size 256
+
+# ${font Arial:bold:size=10}${color Tan2}WEATHER ${color DarkSlateGray}${hr 2}
+# ${font}${color DimGray}
+
+# ${voffset -25}${font Weather:size=45}${execi 1800 conkyForecast –location=BEXX0008 –datatype=WF}
+# ${alignc 22}${voffset -60}${font Arial:bold:size=10}${color DimGray}${execi 1800 conkyForecast –location=BEXX0008 –datatype=HT}
+# $font${voffset -55}${alignr}${color DimGray}Wind: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=WS}
+# ${alignr}${color DimGray}Humidity: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=HM}
+# ${alignr}${color DimGray}Precipitation: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=PC}
+
+# ${color DimGray}Sunrise: $alignr${execi 1800 conkyForecast –location=BEXX0008 –datatype=SR}${alignr}
+# Sunset: $alignr${execi 1800 conkyForecast –location=BEXX0008 –datatype=SS}$color
+
+# ${font Arial:bold:size=10}${color Tan2}MUSIC ${color DarkSlateGray}${hr 2}
+# ${color DimGray}$font${if_running mpd}
+# $mpd_smart
+# $mpd_album
+# Bitrate $mpd_bitrate kbits/s
+# $mpd_status $mpd_elapsed/$mpd_length
+
+# ${font Arial:bold:size=10}${color Tan2}TIME ${color DarkSlateGray}${hr 2}
+
+# ${color DarkSlateGray} ${font :size=30}$alignc${time %H:%Mh}
+# ${voffset -30}${font :bold:size=10}$alignc${time %d %b. %Y}
+# ${font :bold:size=8}$alignc${time %A}
+# $endif
 
 TEXT
 
@@ -80,29 +106,3 @@ $font${top_mem name 7}${alignr}${top mem 7} %
 $font${top_mem name 8}${alignr}${top mem 8} %
 $font${top_mem name 9}${alignr}${top mem 9} %
 $font${top_mem name 10}${alignr}${top mem 10} %
-
-# ${font Arial:bold:size=10}${color Tan2}WEATHER ${color DarkSlateGray}${hr 2}
-# ${font}${color DimGray}
-
-# ${voffset -25}${font Weather:size=45}${execi 1800 conkyForecast –location=BEXX0008 –datatype=WF}
-# ${alignc 22}${voffset -60}${font Arial:bold:size=10}${color DimGray}${execi 1800 conkyForecast –location=BEXX0008 –datatype=HT}
-# $font${voffset -55}${alignr}${color DimGray}Wind: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=WS}
-# ${alignr}${color DimGray}Humidity: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=HM}
-# ${alignr}${color DimGray}Precipitation: ${execi 1800 conkyForecast –location=BEXX0008 –datatype=PC}
-
-# ${color DimGray}Sunrise: $alignr${execi 1800 conkyForecast –location=BEXX0008 –datatype=SR}${alignr}
-# Sunset: $alignr${execi 1800 conkyForecast –location=BEXX0008 –datatype=SS}$color
-
-# ${font Arial:bold:size=10}${color Tan2}MUSIC ${color DarkSlateGray}${hr 2}
-# ${color DimGray}$font${if_running mpd}
-# $mpd_smart
-# $mpd_album
-# Bitrate $mpd_bitrate kbits/s
-# $mpd_status $mpd_elapsed/$mpd_length
-
-# ${font Arial:bold:size=10}${color Tan2}TIME ${color DarkSlateGray}${hr 2}
-
-# ${color DarkSlateGray} ${font :size=30}$alignc${time %H:%Mh}
-# ${voffset -30}${font :bold:size=10}$alignc${time %d %b. %Y}
-# ${font :bold:size=8}$alignc${time %A}
-# $endif
