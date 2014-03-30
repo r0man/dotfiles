@@ -22,8 +22,8 @@ update_interval 1.0
 use_spacer none
 
 TEXT
-${if_existing /sys/class/net/wlp4s0/operstate up}^i(.xmonad/icons/net-wlan.xpm) ${downspeed wlp4s0}${color grey}/$color${upspeed wlp4s0}${endif} \
-^ca(1,urxvt -e htop)^i(.xmonad/icons/cpu.xpm) ${cpu 0}%^ca() \
+${if_existing /sys/class/net/wlp4s0/operstate up}^i(.xmonad/icons/net-wlan.xpm) ${downspeed wlp4s0}/${upspeed wlp4s0}${endif} \
+^ca(1,urxvt -e htop)^i(.xmonad/icons/cpu.xpm) ${cpubar 1,5} ${cpu 0}%^ca() \
 ^i(.xmonad/icons/mem.xpm) $mem^fg(grey)/^fg(white)$memmax \
 ^ca(1,pavucontrol)^i(.xmonad/icons/volume.xpm) ${mpd_vol}%^ca() \
 ^i(.xmonad/icons/clock.xpm) London ${tztime Europe/London %H:%M} \
