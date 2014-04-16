@@ -20,3 +20,17 @@ promptinit
 prompt redhat
 
 source ~/.bash_aliases
+
+# Solarized color theme
+
+export SOLARIZED="dark"
+if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
+    eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
+fi
+
+# Shell dirtrack by prompt
+
+chpwd() { print -P "\033AnSiTc %d" }
+
+print -P "\033AnSiTu %n"
+print -P "\033AnSiTc %d"
