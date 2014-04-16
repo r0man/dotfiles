@@ -1,6 +1,6 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -10,3 +10,13 @@ zstyle :compinstall filename '/home/roman/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Prevent putting duplicate lines in the history.
+setopt HIST_IGNORE_DUPS
+
+# Prompt
+autoload -U promptinit
+promptinit
+prompt redhat
+
+source ~/.bash_aliases
