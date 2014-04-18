@@ -2,6 +2,8 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch notify correct_all
+unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -28,10 +30,12 @@ if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
     eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
 fi
 
-# Emacs shell dir tracking
-
+# Emacs shell dir tracking.
 if [ -n "$INSIDE_EMACS" ]; then
   chpwd() { print -P "\033AnSiTc %d" }
   print -P "\033AnSiTu %n"
   print -P "\033AnSiTc %d"
 fi
+
+alias -s html=chromium
+alias -s clj="emacsclient -n"
