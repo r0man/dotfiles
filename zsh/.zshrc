@@ -28,9 +28,10 @@ if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
     eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
 fi
 
-# Shell dirtrack by prompt
+# Emacs shell dir tracking
 
-chpwd() { print -P "\033AnSiTc %d" }
-
-print -P "\033AnSiTu %n"
-print -P "\033AnSiTc %d"
+if [ -n "$INSIDE_EMACS" ]; then
+  chpwd() { print -P "\033AnSiTc %d" }
+  print -P "\033AnSiTu %n"
+  print -P "\033AnSiTc %d"
+fi
