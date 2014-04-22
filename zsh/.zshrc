@@ -39,3 +39,14 @@ fi
 
 alias -s html=chromium
 alias -s clj="emacsclient -n"
+alias lein-ancient="lein ancient upgrade :interactive"
+
+# RVM
+[ -r /etc/profile.d/rvm.sh ] && . /etc/profile.d/rvm.sh
+
+# JAVA
+[ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
+
+path+=('/usr/local/bin')
+path+=('/usr/local/heroku/bin')
+export PATH
