@@ -47,6 +47,7 @@ alias lein-ancient="lein ancient upgrade :interactive"
 # JAVA
 [ -r /etc/profile.d/jdk.sh ] && . /etc/profile.d/jdk.sh
 
+path+=('~/bin')
 path+=('/usr/local/bin')
 path+=('/usr/local/heroku/bin')
 export PATH
