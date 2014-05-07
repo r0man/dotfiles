@@ -32,9 +32,6 @@ export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-# AWS
-[ -r ~/.aws.sh ] && . ~/.aws.sh
-
 # BASH
 export HISTCONTROL="ignoredups"
 export HISTSIZE=10000
