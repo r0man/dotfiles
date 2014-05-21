@@ -28,6 +28,6 @@ ${endif} \
 ^i(.xmonad/icons/battery.xpm) ${battery_short} \
 ^ca(1,urxvt -e htop)^i(.xmonad/icons/cpu.xpm) ${cpubar 1,5} ${cpu 0}%^ca() \
 ^i(.xmonad/icons/mem.xpm) $mem^fg(grey)/^fg(white)$memmax \
-^ca(1,pavucontrol)^i(.xmonad/icons/volume.xpm) ${mpd_vol}%^ca() \
+^ca(1,pavucontrol)^i(.xmonad/icons/volume.xpm) ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | sed 's/\(\[\|\]\)//g'}^ca() \
 ^i(.xmonad/icons/clock.xpm) London ${tztime Europe/London %H:%M} \
 ^i(.xmonad/icons/clock.xpm) ${time %a, %d %b %k:%M:%S} \
