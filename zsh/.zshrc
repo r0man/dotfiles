@@ -17,10 +17,10 @@ compinit
 setopt HIST_IGNORE_DUPS
 
 # Append every single command to $HISTFILE immediately after hitting ENTER.
-setopt inc_append_history
+setopt INC_APPEND_HISTORY
 
 # Always import new commands from $HISTFILE.
-setopt share_history
+setopt SHARE_HISTORY
 
 # Prompt
 autoload -U promptinit
