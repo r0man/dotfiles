@@ -1,8 +1,8 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=10000
+HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory autocd extendedglob nomatch notify correct_all
+setopt appendhistory autocd extendedglob
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -14,15 +14,15 @@ compinit
 # End of lines added by compinstall
 
 # Prevent putting duplicate lines in the history.
-setopt HIST_IGNORE_DUPS
+setopt hist_ignore_dups
 
 # Append every single command to $HISTFILE immediately after hitting ENTER.
-setopt INC_APPEND_HISTORY
+setopt inc_append_history
 
 # Always import new commands from $HISTFILE.
-setopt SHARE_HISTORY
+setopt share_history
 
-# Prompt
+# # Prompt
 autoload -U promptinit
 promptinit
 prompt redhat
