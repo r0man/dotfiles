@@ -14,5 +14,4 @@ emacs &
 chromium &
 
 # Start Window Manager.
-exec xmonad
-#exec gnome-session --session=xmonad
+dbus-launch --exit-with-session xmonad
