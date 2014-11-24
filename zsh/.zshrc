@@ -13,16 +13,43 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Prevent putting duplicate lines in the history.
-setopt hist_ignore_dups
 
-# Append every single command to $HISTFILE immediately after hitting ENTER.
-setopt inc_append_history
+# If you type foo, and it isn't a command, and it is a directory in your cdpath, go there
+setopt AUTO_CD
 
-# Always import new commands from $HISTFILE.
-setopt share_history
+# Allow comments even in interactive shells (especially for Muness)
+setopt INTERACTIVE_COMMENTS
 
-# # Prompt
+# HISTORY
+
+# Allow multiple terminal sessions to all append to one zsh command history
+setopt APPEND_HISTORY
+
+# Add comamnds as they are typed, don't wait until shell exit
+setopt INC_APPEND_HISTORY
+
+# Do not write events to history that are duplicates of previous events
+setopt HIST_IGNORE_DUPS
+
+# When searching history don't display results already cycled through twice
+setopt HIST_FIND_NO_DUPS
+
+# Remove extra blanks from each command line being added to history
+setopt HIST_REDUCE_BLANKS
+
+# Include more information about when the command was executed, etc
+setopt EXTENDED_HISTORY
+
+# COMPLETION
+
+# Allow completion from within a word/phrase
+setopt COMPLETE_IN_WORD
+
+# When completing from the middle of a word, move the cursor to the end of the word
+setopt ALWAYS_TO_END
+
+# PROMPT
+
 autoload -U promptinit
 promptinit
 prompt redhat
