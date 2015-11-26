@@ -1,27 +1,30 @@
-# Boolean value, if true, Conky will be forked to background when
-# started.
-background no
+conky.config = {
 
-# Print text to stdout.
-out_to_console yes
+  -- Boolean value, if true, Conky will be forked to background when
+  -- started.
+  background = false,
 
-# When set to no, there will be no output in X (useful when you also
-# use things like out_to_console). If you set it to no, make sure that
-# it's placed before all other X-related setting (take the first line
-# of your configfile to be sure). Default value is yes.
-out_to_x no
+  -- Print text to stdout.
+  out_to_console = true,
 
-# Update interval in seconds.
-update_interval 1.0
+  -- When set to no, there will be no output in X (useful when you also
+  -- use things like out_to_console). If you set it to no, make sure that
+  -- it's placed before all other X-related setting (take the first line
+  -- of your configfile to be sure). Default value is yes.
+  out_to_x = false,
 
-# Adds spaces around certain objects to stop them from moving other
-# things around. Arguments are left, right, and none (default). The
-# old true/false values are deprecated and default to right/none
-# respectively. Note that this only helps if you are using a mono
-# font, such as Bitstream Vera Sans Mono.
-use_spacer none
+  -- Update interval in seconds.
+  update_interval = 1.0,
 
-TEXT
+  -- Adds spaces around certain objects to stop them from moving other
+  -- things around. Arguments are left, right, and none (default). The
+  -- old true/false values are deprecated and default to right/none
+  -- respectively. Note that this only helps if you are using a mono
+  -- font, such as Bitstream Vera Sans Mono.
+  use_spacer = none
+}
+
+conky.text = [[
 ${if_existing /sys/class/net/wlp4s0/operstate up} \
 ^i(.xmonad/icons/net-wlan.xpm) ${addr wlp4s0} | ${downspeed wlp4s0}/${upspeed wlp4s0} \
 ${endif} \
@@ -30,3 +33,4 @@ ${endif} \
 ^i(.xmonad/icons/mem.xpm) $mem^fg(grey)/^fg(white)$memmax \
 ^ca(1,pavucontrol)^i(.xmonad/icons/volume.xpm) ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | sed 's/\(\[\|\]\)//g'}^ca() \
 ^i(.xmonad/icons/clock.xpm) ${time %a, %d %b %k:%M:%S} \
+]]
