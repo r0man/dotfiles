@@ -1,14 +1,26 @@
 # Increase volume
-"amixer -D hw:0 set Master playback 5+"
+"pamixer --sink 1 --increase 5"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
+
+"pamixer --sink 2 --increase 5"
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
 # Decrease volume
-"amixer -D hw:0 set Master playback 5-"
+"pamixer --sink 1 --decrease 5"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+
+"pamixer --sink 2 --decrease 5"
     m:0x0 + c:122
     XF86AudioLowerVolume
 
 # Toggle mute
-"amixer -D hw:0 set Master toggle"
+"pamixer --sink 1 --toggle-mute"
+    m:0x0 + c:121
+    XF86AudioMute
+
+"pamixer --sink 2 --toggle-mute"
     m:0x0 + c:121
     XF86AudioMute
