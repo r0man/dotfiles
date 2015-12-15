@@ -83,7 +83,11 @@ alias lein-ancient="lein ancient upgrade :interactive"
 path+=("$HOME/bin")
 path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
-export PATH
 
 # NVM
 [ -r /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
+
+# OPENEV
+path+=("/usr/local/openev/bin")
+
+export PATH
