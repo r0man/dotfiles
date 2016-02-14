@@ -292,7 +292,7 @@ myEventHook = mempty
 -- combining it with ewmhDesktopsLogHook.
 --
 myLogHook = fadeInactiveLogHook fadeAmount
-          >> updatePointer (Relative 0.5 0.5)
+          >> updatePointer (0.5, 0.5) (1, 1)
           where fadeAmount = 0.8
 
 ------------------------------------------------------------------------
