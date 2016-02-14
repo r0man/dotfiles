@@ -1,0 +1,3 @@
+;; -*- lisp -*-
+(require :stumpwm)
+(stumpwm:stumpwm)
