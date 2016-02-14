@@ -1,0 +1,17 @@
+;; -*- lisp -*-
+(in-package :stumpwm)
+
+;; Mode Line
+(stumpwm:set-fg-color "red")
+(stumpwm:set-bg-color "black")
+
+(defun start-swank-server ()
+  (require :swank)
+  (swank-loader:init)
+  (swank:create-server
+   :port 4005
+   :style swank:*communication-style*
+   :dont-close t))
+
+(start-swank-server)
+
