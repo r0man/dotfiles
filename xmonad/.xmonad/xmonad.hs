@@ -247,11 +247,11 @@ myManageHook = composeAll . concat $
    [ [isFullscreen --> doFullFloat]
    , [isDialog --> doCenterFloat]
    , [ className =? "Emacs" --> doShift "1:Emacs"]
-   , [ className =? "Chromium" --> doShift "2:Web"]
+   , [ className =? "chromium" --> doShift "2:Web"]
    , [ className =? "Firefox" --> doShift "2:Web"]
    , [ className =? "Gimp" --> doShift "7:Gimp"]
    , [ className =? "Skype" --> doShift "8:Chat" ]
-   , [(className =? "Chromium" <&&> stringProperty "WM_WINDOW_ROLE" =? "pop-up") --> doCenterFloat]
+   , [(className =? "chromium" <&&> stringProperty "WM_WINDOW_ROLE" =? "pop-up") --> doCenterFloat]
    , [(className =? "Firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "About") --> doCenterFloat]
      -- using list comprehensions and partial matches
    , [ className =?  c --> doCenterFloat | c <- myCenterFloats ]
