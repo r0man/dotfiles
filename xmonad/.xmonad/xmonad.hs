@@ -65,7 +65,7 @@ myModMask = mod4Mask
 -- A tagging example:
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
-myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7:Gimp","8:Chat","9:Monitor"]
+myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7","8:Chat","9:Monitor"]
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#000000"
@@ -200,14 +200,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = onWorkspace "7:Gimp" gimpLayout $
-           onWorkspace "8:Chat" chatLayout $
+myLayout = onWorkspace "8:Chat" chatLayout $
            standardLayouts
   where
 
     chatLayout = avoidStruts $ smartBorders $ withIM skypeRatio skypeRoster (tiled ||| reflectTiled ||| Grid) where
-
-    gimpLayout = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") Full
 
     -- Percent of screen to increment by when resizing panes
     delta = 3/100
@@ -249,7 +246,6 @@ myManageHook = composeAll . concat $
    , [ className =? "Emacs" --> doShift "1:Emacs"]
    , [ className =? "chromium" --> doShift "2:Web"]
    , [ className =? "Firefox" --> doShift "2:Web"]
-   , [ className =? "Gimp" --> doShift "7:Gimp"]
    , [ className =? "Skype" --> doShift "8:Chat" ]
    , [(className =? "chromium" <&&> stringProperty "WM_WINDOW_ROLE" =? "pop-up") --> doCenterFloat]
    , [(className =? "Firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "About") --> doCenterFloat]
