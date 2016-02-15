@@ -29,4 +29,7 @@
 
 (define-key *root-map* (kbd "c") "terminal")
 
+;; Enable the mode line
+(mode-line)
+
 (start-swank-server)
