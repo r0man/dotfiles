@@ -14,8 +14,13 @@
 
 ;; Mode Line
 (setf *mode-line-background-color* "black")
-(setf *mode-line-foreground-color* "Gray50")
+(setf *mode-line-foreground-color* "white")
 (setf *mode-line-border-color* "black")
+(setf *mode-line-timeout* 1)
+
+(setf *screen-mode-line-format*
+      (list "[^B%n^b] %W | %g | "
+            '(:eval (stumpwm:run-shell-command "date" t))))
 
 ;; Use thin window border.
 (setf *window-border-style* :thin)
@@ -52,21 +57,38 @@
 
 (define-key *root-map* (kbd "c") "terminal")
 
-;; Volume keys
-(define-keysym #x1008ff11 "XF86AudioLowerVolume")
-(define-keysym #x1008ff12 "XF86AudioMute")
-(define-keysym #x1008ff13 "XF86AudioRaiseVolume")
-(define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-lower")
-(define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-raise")
-(define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
-
 ;; Enable the mode line
 (mode-line)
 
 ;; Change prefix key
-;; (set-prefix-key (kbd "F20"))
 (set-prefix-key (kbd "C-z"))
 
-(start-swank-server)
+(run-commands
+ "gnew Emacs"
+ "gnewbg Web")
 
-(refresh-heads)
+;; Rule Based Window Placement
+
+(define-frame-preference "Emacs"
+    (0 nil t :class "Emacs"))
+
+(define-frame-preference "Web"
+    (0 nil t :class "chromium"))
+
+;; Volume keys
+;; (define-keysym #x1008ff11 "XF86AudioLowerVolume")
+;; (define-keysym #x1008ff12 "XF86AudioMute")
+;; (define-keysym #x1008ff13 "XF86AudioRaiseVolume")
+;; (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-lower")
+;; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-raise")
+;; (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
+
+;; (define-key *top-map* (kbd "C-1") "gselect 1")
+;; (define-key *top-map* (kbd "C-2") "gselect 2")
+
+;; (refresh-heads)
+
+(run-shell-command "emacs")
+(run-shell-command "chromium")
+
+(start-swank-server)
