@@ -35,9 +35,21 @@
    :style swank:*communication-style*
    :dont-close t))
 
+;;; COMMANDS
+
 (defcommand terminal () ()
   "Run or raise the urxvt terminal."
   (run-or-raise "urxvt -e screen" '(:class "URxvt")))
+
+(defcommand terminal-new () ()
+  "Run or raise the urxvt terminal."
+  (vsplit)
+  (fnext)
+  (run-shell-command "urxvt"))
+
+(defcommand (fprev tile-group) () ()
+  "Cycle through the frame tree to the prev frame."
+  (focus-prev-frame (current-group)))
 
 (defcommand file-manager () ()
   "Run or raise the file manager."
@@ -75,16 +87,20 @@
 (define-frame-preference "Web"
     (0 nil t :class "chromium"))
 
-;; Volume keys
-;; (define-keysym #x1008ff11 "XF86AudioLowerVolume")
-;; (define-keysym #x1008ff12 "XF86AudioMute")
-;; (define-keysym #x1008ff13 "XF86AudioRaiseVolume")
-;; (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-lower")
-;; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-raise")
-;; (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
+;; Switch to groups with S-[1-9]
+(loop for workspace from 1 to 9
+   do (define-key *top-map* (kbd (format nil "s-~d" workspace))
+        (format nil "gselect ~d" workspace)))
 
-;; (define-key *top-map* (kbd "C-1") "gselect 1")
-;; (define-key *top-map* (kbd "C-2") "gselect 2")
+;;; KEY BINDINGS
+
+(define-key *top-map* (kbd "s-RET") "terminal-new")
+
+;; Move focus to the next window.
+(define-key *top-map* (kbd "s-j") "fnext")
+
+;; Move focus to the previous window.
+(define-key *top-map* (kbd "s-k") "fprev")
 
 ;; (refresh-heads)
 
