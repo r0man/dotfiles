@@ -4,6 +4,9 @@
 
 (in-package :stumpwm)
 
+;; Don't show startup message.
+(setf *startup-message* nil)
+
 ;; Message bar
 (set-fg-color "white")
 (set-bg-color "black")
@@ -67,4 +70,3 @@
 (start-swank-server)
 
 (refresh-heads)
-
