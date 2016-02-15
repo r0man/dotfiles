@@ -55,6 +55,10 @@
   "Run or raise the file manager."
   (run-or-raise "nautilus" '(:class "Nautilus")))
 
+(defcommand htop () ()
+  "Run htop."
+  (run-or-raise "urxvt -e htop" '(:class "htop")))
+
 (defcommand volume-lower () ()
   "Lower the volume."
   (message "Lower volume"))
