@@ -23,4 +23,10 @@
    :style swank:*communication-style*
    :dont-close t))
 
+(defcommand terminal () ()
+  "Run or raise the urxvt terminal."
+  (run-or-raise "urxvt -e screen" '(:class "URxvt")))
+
+(define-key *root-map* (kbd "c") "terminal")
+
 (start-swank-server)
