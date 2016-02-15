@@ -27,6 +27,10 @@
   "Run or raise the urxvt terminal."
   (run-or-raise "urxvt -e screen" '(:class "URxvt")))
 
+(defcommand file-manager () ()
+  "Run or raise the file manager."
+  (run-or-raise "nautilus" '(:class "Nautilus")))
+
 (define-key *root-map* (kbd "c") "terminal")
 
 ;; Enable the mode line
