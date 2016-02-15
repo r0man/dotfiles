@@ -71,7 +71,37 @@
   "Toggle the volume."
   (message "Toggle volume"))
 
-(define-key *root-map* (kbd "c") "terminal")
+(defun shift-windows-forward (frames win)
+  (when frames
+    (let ((frame (car frames)))
+      (shift-windows-forward (cdr frames)
+                             (frame-window frame))
+      (when win
+        (pull-window win frame)))))
+
+(defcommand rotate-windows () ()
+  "Rotate windows"
+  (let* ((frames (group-frames (current-group)))
+         (win (frame-window (car (last frames)))))
+    (shift-windows-forward frames win)))
+
+(defcommand swap-windows () ()
+  (let* ((group (current-group))
+         (cur-frame (tile-group-current-frame group))
+         (frames (group-frames group)))
+    (if (eq (length frames) 2)
+        (progn (if (or (neighbour :left cur-frame frames)
+                       (neighbour :right cur-frame frames))
+                   (progn
+                     (only)
+                     (vsplit))
+                   (progn
+                     (only)
+                     (hsplit))))
+        (message "Works only with 2 frames"))))
+
+(define-key *root-map* (kbd "c") "terminal-new")
+(define-key *root-map* (kbd "C-c") "terminal-new")
 
 ;; Enable the mode line
 (mode-line)
@@ -81,7 +111,8 @@
 
 (run-commands
  "gnew Emacs"
- "gnewbg Web")
+ "gnewbg Web"
+ "gnewbg Top")
 
 ;; Rule Based Window Placement
 
@@ -91,6 +122,9 @@
 (define-frame-preference "Web"
     (0 nil t :class "chromium"))
 
+(define-frame-preference "Top"
+    (0 nil t :class "htop"))
+
 ;; Switch to groups with S-[1-9]
 (loop for workspace from 1 to 9
    do (define-key *top-map* (kbd (format nil "s-~d" workspace))
@@ -98,7 +132,8 @@
 
 ;;; KEY BINDINGS
 
-(define-key *top-map* (kbd "s-RET") "terminal-new")
+(define-key *top-map* (kbd "s-RET") "rotate-windows")
+(define-key *top-map* (kbd "C-s-RET") "swap-windows")
 
 ;; Move focus to the next window.
 (define-key *top-map* (kbd "s-j") "fnext")
