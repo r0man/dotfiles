@@ -13,6 +13,9 @@
 (setf *mode-line-foreground-color* "Gray50")
 (setf *mode-line-border-color* "black")
 
+;; Input focus follows the mouse.
+(setf *mouse-focus-policy* :sloppy)
+
 (defun start-swank-server ()
   (swank-loader:init)
   (swank:create-server
