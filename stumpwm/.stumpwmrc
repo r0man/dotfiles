@@ -31,9 +31,32 @@
   "Run or raise the file manager."
   (run-or-raise "nautilus" '(:class "Nautilus")))
 
+(defcommand volume-lower () ()
+  "Lower the volume."
+  (message "Lower volume"))
+
+(defcommand volume-raise () ()
+  "Raise the volume."
+  (message "Raise volume"))
+
+(defcommand volume-toggle () ()
+  "Toggle the volume."
+  (message "Toggle volume"))
+
 (define-key *root-map* (kbd "c") "terminal")
+
+;; Volume keys
+(define-keysym #x1008ff11 "XF86AudioLowerVolume")
+(define-keysym #x1008ff12 "XF86AudioMute")
+(define-keysym #x1008ff13 "XF86AudioRaiseVolume")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-lower")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-raise")
+(define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
 
 ;; Enable the mode line
 (mode-line)
+
+;; Change prefix key
+(set-prefix-key (kbd "C-z"))
 
 (start-swank-server)
