@@ -73,7 +73,7 @@
 (mode-line)
 
 ;; Change prefix key
-(set-prefix-key (kbd "C-z"))
+(set-prefix-key (kbd "C-t"))
 
 (run-commands
  "gnew Emacs"
