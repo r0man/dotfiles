@@ -27,8 +27,9 @@ conky.config = {
 conky.text = [[
 ${if_existing /sys/class/net/wlp4s0/operstate up} \
 Up: ${downspeed wlp4s0} Down: ${upspeed wlp4s0} \
-^i(.dotfiles/md-icons/ic_network_check_blue_18px.xpm) ${exec ping -c 1 www.google.de | grep time= | awk '{print $8}' | cut -d "=" -f2}ms \
-^i(.dotfiles/md-icons/ic_wifi_blue_18px.xpm) ${addr wlp4s0} \
+^i(.dotfiles/md-icons/ic_wifi_blue_18px.xpm) ${wireless_essid wlp4s0} \
+^i(.dotfiles/md-icons/ic_wifi_tethering_blue_18px.xpm) ${exec ping -c 1 www.google.de | grep time= | awk '{print $8}' | cut -d "=" -f2}ms \
+^i(.dotfiles/md-icons/ic_network_cell_blue_18px.xpm) ${addr wlp4s0} \
 ${endif}\
 ^i(.dotfiles/md-icons/ic_battery_charging_full_blue_18px.xpm) ${battery_short} \
 ^ca(1,urxvt -e htop)^i(.dotfiles/md-icons/ic_view_comfy_blue_18px.xpm) ${cpubar 1,5} ${cpu 0}%^ca() \
