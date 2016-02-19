@@ -25,6 +25,7 @@ conky.config = {
 }
 
 conky.text = [[
+Ping ${exec ping -c 1 www.google.de | grep time= | awk '{print $8}' | cut -d "=" -f2}ms \
 ${if_existing /sys/class/net/wlp4s0/operstate up} \
 ^i(.xmonad/icons/net-wlan.xpm) ${addr wlp4s0} | ${downspeed wlp4s0}/${upspeed wlp4s0} \
 ${endif} \
