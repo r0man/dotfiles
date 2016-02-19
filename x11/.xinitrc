@@ -19,7 +19,7 @@ fi
 # Start Emacs.
 emacs &
 
-# # Start chromium.
+# Start chromium.
 chromium &
 
 # Start XMonad
@@ -27,4 +27,4 @@ dbus-launch --sh-syntax --exit-with-session xmonad
 
 # Start StumpWM
 #dbus-launch --sh-syntax --exit-with-session /home/roman/workspace/stumpwm/stumpwm
-#dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm
+#exec dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm

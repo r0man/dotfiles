@@ -1,0 +1,31 @@
+/* XPM */
+static char *ic_arrow_drop_down_blue_18px[] = {
+/* columns rows colors chars-per-pixel */
+"18 18 7 1 ",
+"  c #111111",
+". c #131414",
+"X c #20272D",
+"o c #303E4B",
+"O c #405569",
+"+ c #42586C",
+"@ c #54728E",
+/* pixels */
+"                  ",
+"                  ",
+"                  ",
+"                  ",
+"                  ",
+"                  ",
+"                  ",
+"     XooooooX     ",
+"     .O@@@@+.     ",
+"      .O@@+.      ",
+"       .O+.       ",
+"        ..        ",
+"                  ",
+"                  ",
+"                  ",
+"                  ",
+"                  ",
+"                  "
+};
