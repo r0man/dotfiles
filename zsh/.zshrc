@@ -84,6 +84,12 @@ path+=("$HOME/bin")
 path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
 path+=("$HOME/.cask/bin")
+
+# Kubernetes
+export KUBERNETES_PROVIDER=vagrant
+path+=("$HOME/workspace/kubernetes/cluster")
+alias kubectl="kubectl.sh"
+
 # NVM
 [ -r /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
 
