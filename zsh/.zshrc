@@ -83,7 +83,7 @@ alias lein-ancient="lein ancient upgrade :interactive"
 path+=("$HOME/bin")
 path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
-
+path+=("$HOME/.cask/bin")
 # NVM
 [ -r /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
 
