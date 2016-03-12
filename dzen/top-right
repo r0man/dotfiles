@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 . ~/.dotfiles/functions
 
 SCREEN_WIDTH=$(screen_width)
 SCREEN_HEIGHT=$(screen_height)
 
-DZEN_WIDTH=$(expr $SCREEN_WIDTH / 2)
+DZEN_WIDTH=$(printf "%i" $(echo "$SCREEN_WIDTH * 0.6" | bc))
 DZEN_X=$(expr $SCREEN_WIDTH - $DZEN_WIDTH)
 
 cd ~ && conky -c ~/.dotfiles/conky/top-right | dzen2 -x $DZEN_X -h $DZEN_HEIGHT -w $DZEN_WIDTH -ta r
