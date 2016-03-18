@@ -65,7 +65,7 @@ myModMask = mod4Mask
 -- A tagging example:
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
-myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7","8:Chat","9:Monitor"]
+myWorkspaces = ["1:Emacs","2:Web","3","4","5","6","7:Chat","8:Logs","9:Monitor"]
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#000000"
@@ -200,8 +200,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = onWorkspace "8:Chat" chatLayout $
-           standardLayouts
+myLayout = onWorkspace "7:Chat" chatLayout $ standardLayouts 
   where
 
     chatLayout = avoidStruts $ smartBorders $ withIM skypeRatio skypeRoster (tiled ||| reflectTiled ||| Grid) where
@@ -246,7 +245,7 @@ myManageHook = composeAll . concat $
    , [ className =? "Emacs" --> doShift "1:Emacs"]
    , [ className =? "chromium" --> doShift "2:Web"]
    , [ className =? "Firefox" --> doShift "2:Web"]
-   , [ className =? "Skype" --> doShift "8:Chat" ]
+   -- , [ className =? "Skype" --> doShift "7:Chat" ]
    , [(className =? "chromium" <&&> stringProperty "WM_WINDOW_ROLE" =? "pop-up") --> doCenterFloat]
    , [(className =? "Firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "About") --> doCenterFloat]
      -- using list comprehensions and partial matches
@@ -310,6 +309,7 @@ myStartupHook = do
               spawn "~/.dotfiles/dzen/top-right"
               spawn "~/.dotfiles/dzen/bottom"
               spawn "xcompmgr -C"
+              spawnOn "8:Logs" "urxvt -name 'Logs' -e sudo journalctl -f -a -n 100"
               spawnOn "9:Monitor" "urxvt -e 'htop'"
 
 ------------------------------------------------------------------------
