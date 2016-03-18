@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+  - name: Install packages
+    tags: pacman
+    pacman: name={{ arch_packages }} state=present
+  - name: Enable use of journalctrl via sudo
+    tags: sudoers
+    template:
+      src=templates/etc/sudoers.d/journalctrl
+      dest=/etc/sudoers.d/journalctrl
+      validate='visudo -cf %s'

@@ -1,0 +1,29 @@
+ansible_python_interpreter: /usr/bin/python2
+
+user: roman
+
+arch_packages:
+- ansible
+- b43-firmware
+- chromium
+- cpanminus
+- curl
+- dmenu
+- docker
+- dzen2
+- emacs
+- feh
+- firefox
+- gnupg
+- htop
+- irssi
+- irssi-scripts
+- jdk8-openjdk
+- keychain
+- mapnik
+- postgis
+- postgresql
+- sbcl
+- xmonad
+- xmonad-contrib
+

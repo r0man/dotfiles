@@ -1,0 +1,1 @@
+{{ user }} ALL = NOPASSWD: /usr/bin/journalctl
