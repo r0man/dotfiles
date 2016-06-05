@@ -85,15 +85,18 @@ path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
 path+=("$HOME/.cask/bin")
 
-# Kubernetes
-export KUBERNETES_PROVIDER=vagrant
-path+=("$HOME/workspace/kubernetes/cluster")
-alias kubectl="kubectl.sh"
-
 # NVM
 [ -r /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
 
 # OPENEV
 path+=("/usr/local/openev/bin")
+
+# SPARK
+path+=("$HOME/local/spark/bin")
+path+=("$HOME/local/spark/ec2")
+
+# VIRTUALENVWRAPPER
+export WORKON_HOME=~/.virtualenv
+[ -r /usr/bin/virtualenvwrapper.sh ] && . /usr/bin/virtualenvwrapper.sh
 
 export PATH
