@@ -72,7 +72,7 @@ fi
 
 alias -s html=chromium
 alias -s clj="emacsclient -n"
-alias lein-ancient="lein ancient upgrade :interactive"
+alias lein-ancient="lein ancient upgrade :interactive :check-clojure :all"
 
 # RVM
 [ -r /etc/profile.d/rvm.sh ] && . /etc/profile.d/rvm.sh
