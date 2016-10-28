@@ -12,7 +12,7 @@ DZEN_BAR_FG="white"
 DZEN_HEIGHT=25
 
 # SCREENS
-INTERNAL="eDP2-1"
+INTERNAL="eDP-2"
 EXTERNAL="DP-1"
 
 # Load host specific config.
