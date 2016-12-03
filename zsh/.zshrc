@@ -92,8 +92,11 @@ path+=("$HOME/.cask/bin")
 path+=("/usr/local/openev/bin")
 
 # SPARK
-path+=("$HOME/local/spark/bin")
-path+=("$HOME/local/spark/ec2")
+path+=("/opt/apache-spark/bin")
+
+# Google Application Default Credentials
+# See: https://developers.google.com/identity/protocols/application-default-credentials
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 
 # VIRTUALENVWRAPPER
 export WORKON_HOME=~/.virtualenv
