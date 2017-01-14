@@ -74,7 +74,7 @@ myFocusedBorderColor = myNormalBorderColor
 -- Promp style.
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig {
-  font = "xft:Terminus-12"
+  font = "xft:Inconsolata-13"
   , position = Bottom
   , bgColor = "#000000"
   , bgHLight = "#000000"
@@ -200,7 +200,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = onWorkspace "7:Chat" chatLayout $ standardLayouts 
+myLayout = onWorkspace "7:Chat" chatLayout $ standardLayouts
   where
 
     chatLayout = avoidStruts $ smartBorders $ withIM skypeRatio skypeRoster (tiled ||| reflectTiled ||| Grid) where
