@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-EXTERNAL="DP2"
-INTERNAL="eDP1"
+EXTERNAL="DP-1"
+INTERNAL="eDP-2"
 
 MONITORS=`xrandr | grep connected | grep -v disconnected | grep -v eDP | wc -l`
 
 if [ "$MONITORS" == 1 ]; then
     echo "External monitor connected."
-    xrandr --output $EXTERNAL --left-of $INTERNAL --auto
+    xrandr --output $EXTERNAL --right-of $INTERNAL --auto
 fi
