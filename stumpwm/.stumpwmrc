@@ -107,7 +107,9 @@
 (mode-line)
 
 ;; Change prefix key
-(set-prefix-key (kbd "C-t"))
+;; (set-prefix-key (kbd "s-,"))
+
+(set-prefix-key (kbd "C-z"))
 
 (run-commands
  "gnew Emacs"
