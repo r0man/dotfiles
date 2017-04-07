@@ -26,5 +26,5 @@ chromium &
 dbus-launch --sh-syntax --exit-with-session xmonad
 
 # Start StumpWM
-#dbus-launch --sh-syntax --exit-with-session /home/roman/workspace/stumpwm/stumpwm
-#exec dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm
+# dbus-launch --sh-syntax --exit-with-session /home/roman/workspace/stumpwm/stumpwm
+# exec dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm
