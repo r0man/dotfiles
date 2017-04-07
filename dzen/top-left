@@ -2,4 +2,4 @@
 
 . ~/.dotfiles/functions
 
-dzen2 -ta 'l' -h $DZEN_HEIGHT
+dzen2 -dock -ta 'l' -h $DZEN_HEIGHT

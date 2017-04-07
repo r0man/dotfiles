@@ -12,4 +12,4 @@ while true ; do
         printf "^i($ICONS/arch.xpm) $(uname -r)  ^ca(1,urxvt -e '$HOME/.xmonad/pacman/upgrade-system')^i($ICONS/pacman.xpm) $(pacman_status)^ca()\n"
     fi
     sleep 1
-done | dzen2 -ta c -y $(expr $SCREEN_HEIGHT - $DZEN_HEIGHT) -h $DZEN_HEIGHT -w $SCREEN_WIDTH
+done | dzen2 -dock -ta c -y $(expr $SCREEN_HEIGHT - $DZEN_HEIGHT) -h $DZEN_HEIGHT -w $SCREEN_WIDTH
