@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 EXTERNAL="DP-1"
-INTERNAL="eDP-2"
+INTERNAL="eDP-1"
 
 MONITORS=`xrandr | grep connected | grep -v disconnected | grep -v eDP | wc -l`
 
