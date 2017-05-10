@@ -85,6 +85,7 @@ path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
 path+=("$HOME/.cask/bin")
 path+=("$HOME/.local/bin")
+path+=("$HOME/.gem/ruby/2.4.0/bin")
 
 # NVM
 [ -r /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
