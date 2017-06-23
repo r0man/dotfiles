@@ -1,0 +1,5 @@
+[Unit]
+Description=Synchronize Pacman Database
+
+[Service]
+ExecStart=/usr/bin/pacman -Sy

@@ -1,0 +1,10 @@
+[Unit]
+Description=Synchronize Pacman Database Timer
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1h
+Unit=pacman-sync-db.service
+
+[Install]
+WantedBy=multi-user.target
