@@ -56,6 +56,10 @@ prompt redhat
 
 source ~/.bash_aliases
 
+# Confluent
+
+export CONFLUENT_CURRENT="/home/roman/local/confluent-data"
+
 # Solarized color theme
 
 export SOLARIZED="dark"
