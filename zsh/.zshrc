@@ -74,8 +74,6 @@ if [ -n "$INSIDE_EMACS" ]; then
   print -P "\033AnSiTc %d"
 fi
 
-alias -s html=chromium
-alias -s clj="emacsclient -n"
 alias lein-ancient="lein ancient upgrade :interactive :check-clojure :all"
 
 # RVM
@@ -89,6 +87,11 @@ path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
 path+=("$HOME/.cask/bin")
 path+=("$HOME/.local/bin")
+path+=("$HOME/local/confluent/bin")
+
+# NPM
+path+=("$HOME/.node_modules/bin:$PATH")
+export npm_config_prefix=~/.node_modules
 
 # NVM
 [ -r /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
@@ -108,5 +111,3 @@ export WORKON_HOME=~/.virtualenv
 [ -r /usr/bin/virtualenvwrapper.sh ] && . /usr/bin/virtualenvwrapper.sh
 
 export PATH
-
-export BOOT_JVM_OPTIONS="-client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xmx2g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
