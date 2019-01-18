@@ -113,20 +113,23 @@
 
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
-  (apply #'concatenate 'string
-         (mapcar
-          (lambda (g)
-            (let* ((name (group-name g))
-                   (n-win (write-to-string (length (group-windows g))))
-                   (display-text (cond ((string-equal name "TXT") "   TXT ")
-                                       ((string-equal name "Web") "   Web ")
-                                       ((string-equal name "EXT") "   EXT ")
-                                       ((string-equal name "FLT") "   FLT ")
-                                       (t (concat "   " name "  ")))))
-              (if (eq g (current-group))
-                  (concat "%{F#ECEFF4 B#882E3440 u#8A9899 +u}" display-text "[" n-win "] " "%{F- B- u- -u}")
-                  (concat "%{F#8A9899}" display-text "[" n-win "] " "%{F-}"))))
-          (sort (screen-groups (current-screen)) #'< :key #'group-number))))
+  (concatenate
+   'string
+   (apply #'concatenate 'string
+          (mapcar
+           (lambda (g)
+             (let* ((name (group-name g))
+                    (n-win (write-to-string (length (group-windows g))))
+                    (display-text (cond ((string-equal name "TXT") "   TXT ")
+                                        ((string-equal name "Web") "   Web ")
+                                        ((string-equal name "EXT") "   EXT ")
+                                        ((string-equal name "FLT") "   FLT ")
+                                        (t (concat "   " name "  ")))))
+               (if (eq g (current-group))
+                   (concat "%{F#ECEFF4 B#882E3440 u#8A9899 +u}" display-text "[" n-win "] " "%{F- B- u- -u}")
+                   (concat "%{F#8A9899}" display-text "[" n-win "] " "%{F-}"))))
+           (sort (screen-groups (current-screen)) #'< :key #'group-number)))
+   " " (if-let (window (current-window)) (window-title window))))
 
 (add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
 (add-hook *destroy-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
