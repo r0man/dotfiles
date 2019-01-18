@@ -101,6 +101,9 @@ path+=("/usr/local/openev/bin")
 # SPARK
 path+=("/opt/apache-spark/bin")
 
+# STUMPWM
+path+=("$HOME/workspace/stumpwm/contrib/util/stumpish")
+
 # Google Application Default Credentials
 # See: https://developers.google.com/identity/protocols/application-default-credentials
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
