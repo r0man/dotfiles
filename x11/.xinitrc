@@ -23,14 +23,13 @@ fi
 # start-pulseaudio-x11 &
 
 # Start Emacs.
-emacs &
+# emacs &
 
 # Start chromium.
-chromium &
+# chromium &
 
 # Start XMonad
-dbus-launch --sh-syntax --exit-with-session xmonad
+#dbus-launch --sh-syntax --exit-with-session xmonad
 
-# Start StumpWM
-# dbus-launch --sh-syntax --exit-with-session /home/roman/workspace/stumpwm/stumpwm
-# exec dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm
+# Start Stump WM
+dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm

@@ -1,11 +1,12 @@
+;; -*- lisp -*-
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
-(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
-                                       (user-homedir-pathname))))
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
-(ql:quickload "clx")
-(ql:quickload "cl-ppcre")
 (ql:quickload "alexandria")
+(ql:quickload "cl-ppcre")
+(ql:quickload "clx")
 (ql:quickload "clx-truetype")
+(ql:quickload "stumpwm")

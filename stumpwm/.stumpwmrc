@@ -1,7 +1,4 @@
 ;; -*- lisp -*-
-(require :stumpwm)
-(require :swank)
-
 (in-package :stumpwm)
 
 ;; Don't show startup message.
@@ -27,13 +24,6 @@
 
 ;; Input focus follows the mouse on click.
 (setf *mouse-focus-policy* :click)
-
-(defun start-swank-server ()
-  (swank-loader:init)
-  (swank:create-server
-   :port 4005
-   :style swank:*communication-style*
-   :dont-close t))
 
 ;; PREFIX KEY
 ;; (set-prefix-key (kbd "s-,"))
@@ -123,14 +113,36 @@
            (lambda (g)
              (let* ((name (group-name g))
                     (n-win (write-to-string (length (group-windows g))))
+                    (display-text (cond
+                                    ((string-equal name "Emacs") "  Emacs")
+                                    ((string-equal name "Web") " Web")
+                                    ((string-equal name "EXT") " EXT")
+                                    ((string-equal name "FLT") " FLT")
+                                    (t (concat " " name "")))))
+               (if (eq g (current-group))
+                   (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text " [" n-win "]" "%{F- B- u- -u} ")
+                   (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}"))))
+           (sort (screen-groups (current-screen)) #'< :key #'group-number)))
+   " " (if-let (window (current-window)) (window-title window))))
+
+(defun polybar-groups ()
+  "Return string representation for polybar stumpgroups module"
+  (concatenate
+   'string
+   (apply #'concatenate 'string
+          (mapcar
+           (lambda (g)
+             (let* ((name (group-name g))
+                    (n-win (write-to-string (length (group-windows g))))
                     (display-text (cond ((string-equal name "TXT") "   TXT ")
                                         ((string-equal name "Web") "   Web ")
                                         ((string-equal name "EXT") "   EXT ")
                                         ((string-equal name "FLT") "   FLT ")
                                         (t (concat "   " name "  ")))))
-               (if (eq g (current-group))
-                   (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}")
-                   (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}"))))
+               (cond
+                 ((string-equal n-win "0") "")
+                 ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}"))
+                 (t (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}")))))
            (sort (screen-groups (current-screen)) #'< :key #'group-number)))
    " " (if-let (window (current-window)) (window-title window))))
 
@@ -171,6 +183,7 @@
 (define-key *root-map* (kbd "c") "terminal-new")
 (define-key *root-map* (kbd "C-c") "terminal-new")
 
+
 ;; ;; Enable the mode line
 ;; (mode-line)
 
@@ -192,6 +205,4 @@
 
 (run-shell-command "emacs")
 (run-shell-command "chromium")
-(run-shell-command "polybar example --reload")
-
-(start-swank-server)
+(run-shell-command "start-polybar")
