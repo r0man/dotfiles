@@ -28,7 +28,7 @@
 ;; PREFIX KEY
 ;; (set-prefix-key (kbd "s-,"))
 
-(set-prefix-key (kbd "s-e"))
+(set-prefix-key (kbd "s-SPC"))
 
 ;; GROUPS
 
