@@ -56,10 +56,6 @@ prompt redhat
 
 source ~/.bash_aliases
 
-# Confluent
-
-export CONFLUENT_CURRENT="/home/roman/local/confluent-data"
-
 # Solarized color theme
 
 export SOLARIZED="dark"
@@ -87,7 +83,10 @@ path+=("/usr/local/bin")
 path+=("/usr/local/heroku/bin")
 path+=("$HOME/.cask/bin")
 path+=("$HOME/.local/bin")
-path+=("$HOME/local/confluent/bin")
+
+# Confluent Platform
+path=("$HOME/local/confluent/bin" $path)
+export CONFLUENT_CURRENT=/home/roman/cp-data
 
 # NPM
 path+=("$HOME/.node_modules/bin:$PATH")
