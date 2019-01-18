@@ -67,11 +67,14 @@
 
 ;; Rule Based Window Placement
 
-(define-frame-preference "Emacs" (0 nil t :class "emacs"))
+(define-frame-preference "Emacs"
+  (0 t t :class "Emacs"))
 
-(define-frame-preference "Web" (1 nil t :class "chromium"))
+(define-frame-preference "Web"
+  (1 t t :class "Chromium"))
 
-(define-frame-preference "Top" (2 nil t :class "htop"))
+(define-frame-preference "Top"
+  (2 t t :class "htop"))
 
 ;;; COMMANDS
 
