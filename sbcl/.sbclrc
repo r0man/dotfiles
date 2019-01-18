@@ -4,3 +4,8 @@
                                        (user-homedir-pathname))))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
+
+(ql:quickload "clx")
+(ql:quickload "cl-ppcre")
+(ql:quickload "alexandria")
+(ql:quickload "clx-truetype")

@@ -36,6 +36,9 @@ height = 27
 radius = 0
 fixed-center = false
 
+; Enable support for inter-process messaging.
+enable-ipc = true
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -55,7 +58,11 @@ font-0 = Inconsolata:pixelsize=13
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = wuncon siji:pixelsize=10;1
 
-modules-left = ewhm
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=8;1"
+
+modules-left = stumpwmgroups
 modules-center = mpd
 modules-right = xbacklight xkeyboard memory cpu wlan eth battery temperature pulseaudio date powermenu
 
@@ -383,24 +390,5 @@ margin-bottom = 5
 
 [module/stumpwmgroups]
 type = custom/ipc
-hook-0 = ~/.config/polybar/stumpwmgroups.sh
+hook-0 = stumpwm-groups
 initial = 1
-
-[module/ewmh]
-type = internal/xworkspaces
-
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
-pin-workspaces = true
-
-; Create click handler used to focus desktop
-; Default: true
-enable-click = false
-
-; Create scroll handlers used to cycle desktops
-; Default: true
-enable-scroll = false

@@ -25,8 +25,8 @@
 ;; Use thin window border.
 (setf *window-border-style* :thin)
 
-;; Input focus follows the mouse.
-(setf *mouse-focus-policy* :sloppy)
+;; Input focus follows the mouse on click.
+(setf *mouse-focus-policy* :click)
 
 (defun start-swank-server ()
   (swank-loader:init)
@@ -34,6 +34,44 @@
    :port 4005
    :style swank:*communication-style*
    :dont-close t))
+
+;; PREFIX KEY
+;; (set-prefix-key (kbd "s-,"))
+
+(set-prefix-key (kbd "s-e"))
+
+;; GROUPS
+
+(run-commands
+ "grename Emacs"
+ "gnewbg Web"
+ "gnewbg Top")
+
+;; Switch to groups with S-[1-9]
+(loop for workspace from 1 to 9 do
+  (define-key *top-map* (kbd (format nil "s-~d" workspace))
+    (format nil "gselect ~d" workspace)))
+
+;; MODULES
+
+;; Modules
+
+(set-module-dir (pathname-as-directory (concat (getenv "HOME") "/workspace/stumpwm")))
+
+(load-module "ttf-fonts")
+;; (load-module "winner-mode")
+;; (load-module "globalwindows")
+;; (load-module "amixer")
+;; (load-module "swm-gaps")
+;; (load-module "kbd-layouts")
+
+;; Rule Based Window Placement
+
+(define-frame-preference "Emacs" (0 nil t :class "emacs"))
+
+(define-frame-preference "Web" (1 nil t :class "chromium"))
+
+(define-frame-preference "Top" (2 nil t :class "htop"))
 
 ;;; COMMANDS
 
@@ -71,6 +109,30 @@
 ;;   "Toggle the volume."
 ;;   (message "Toggle volume"))
 
+;; Polybar
+
+(defun polybar-groups ()
+  "Return string representation for polybar stumpgroups module"
+  (apply #'concatenate 'string
+         (mapcar
+          (lambda (g)
+            (let* ((name (group-name g))
+                   (n-win (write-to-string (length (group-windows g))))
+                   (display-text (cond ((string-equal name "TXT") "   TXT ")
+                                       ((string-equal name "Web") "   Web ")
+                                       ((string-equal name "EXT") "   EXT ")
+                                       ((string-equal name "FLT") "   FLT ")
+                                       (t (concat "   " name "  ")))))
+              (if (eq g (current-group))
+                  (concat "%{F#ECEFF4 B#882E3440 u#8A9899 +u}" display-text "[" n-win "] " "%{F- B- u- -u}")
+                  (concat "%{F#8A9899}" display-text "[" n-win "] " "%{F-}"))))
+          (sort (screen-groups (current-screen)) #'< :key #'group-number))))
+
+(add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
+(add-hook *destroy-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
+(add-hook *focus-window-hook* (lambda (win lastw) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
+(add-hook *focus-group-hook* (lambda (grp lastg) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
+
 (defun shift-windows-forward (frames win)
   (when frames
     (let ((frame (car frames)))
@@ -106,31 +168,7 @@
 ;; ;; Enable the mode line
 ;; (mode-line)
 
-;; Change prefix key
-;; (set-prefix-key (kbd "s-,"))
-
-;; (set-prefix-key (kbd "C-z"))
-
-;; (run-commands
-;;  "gnew Emacs"
-;;  "gnewbg Web"
-;;  "gnewbg Top")
-
-;; Rule Based Window Placement
-
-(define-frame-preference "Emacs"
-  (0 nil t :class "Emacs"))
-
-(define-frame-preference "Web"
-  (0 nil t :class "chromium"))
-
-(define-frame-preference "Top"
-  (0 nil t :class "htop"))
-
-;; Switch to groups with S-[1-9]
-(loop for workspace from 1 to 9
-      do (define-key *top-map* (kbd (format nil "s-~d" workspace))
-           (format nil "gselect ~d" workspace)))
+;; (resize-head 0 0 0 2880 1700)
 
 ;; ;;; KEY BINDINGS
 
@@ -146,8 +184,8 @@
 
 ;; (refresh-heads)
 
-;; (run-shell-command "emacs")
-;; (run-shell-command "chromium")
+(run-shell-command "emacs")
+(run-shell-command "chromium")
 (run-shell-command "polybar example --reload")
 
 (start-swank-server)
