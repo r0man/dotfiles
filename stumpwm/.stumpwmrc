@@ -25,22 +25,12 @@
 ;; Input focus follows the mouse on click.
 (setf *mouse-focus-policy* :click)
 
-;; PREFIX KEY
-;; (set-prefix-key (kbd "s-,"))
-
-(set-prefix-key (kbd "s-SPC"))
-
 ;; GROUPS
 
 (run-commands
  "grename Emacs"
  "gnewbg Web"
  "gnewbg Top")
-
-;; Switch to groups with S-[1-9]
-(loop for workspace from 1 to 9 do
-  (define-key *top-map* (kbd (format nil "s-~d" workspace))
-    (format nil "gselect ~d" workspace)))
 
 ;; MODULES
 
@@ -64,13 +54,13 @@
   (1 t t :class "Chromium"))
 
 (define-frame-preference "Top"
-  (2 t t :class "htop"))
+  (2 t t :title "htop"))
 
 ;;; COMMANDS
 
 (defcommand terminal () ()
   "Run or raise the urxvt terminal."
-  (run-or-raise "urxvt -e screen" '(:class "URxvt")))
+  (run-or-raise "urxvt" '(:class "URxvt")))
 
 (defcommand terminal-new () ()
   "Run or raise the urxvt terminal."
@@ -88,7 +78,7 @@
 
 (defcommand htop () ()
   "Run htop."
-  (run-or-raise "urxvt -e htop" '(:class "htop")))
+  (run-or-raise "urxvt -e htop" '(:class "urxvt" :title "htop")))
 
 ;; (defcommand volume-lower () ()
 ;;   "Lower the volume."
@@ -140,8 +130,8 @@
                                         ((string-equal name "FLT") "   FLT ")
                                         (t (concat "   " name "  ")))))
                (cond
-                 ((string-equal n-win "0") "")
                  ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}"))
+                 ((string-equal n-win "0") "")
                  (t (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}")))))
            (sort (screen-groups (current-screen)) #'< :key #'group-number)))
    " " (if-let (window (current-window)) (window-title window))))
@@ -180,20 +170,27 @@
                      (hsplit))))
         (message "Works only with 2 frames"))))
 
-(define-key *root-map* (kbd "c") "terminal-new")
-(define-key *root-map* (kbd "C-c") "terminal-new")
+;; Start programs
 
+(run-shell-command "emacs")
+(run-shell-command "chromium")
+(run-shell-command "start-polybar")
+(run-commands "htop")
 
-;; ;; Enable the mode line
-;; (mode-line)
+;; Key Bindings
 
-;; (resize-head 0 0 0 2880 1700)
+;; (set-prefix-key (kbd "s-,"))
+;; (set-prefix-key (kbd "s-SPC"))
 
-;; ;;; KEY BINDINGS
+;; (define-key *root-map* (kbd "c") "terminal")
+;; (define-key *root-map* (kbd "C-c") "terminal-new")
+;; (define-key *root-map* (kbd "t") "terminal")
+;; (define-key *root-map* (kbd "T") "terminal-new")
 
 (define-key *top-map* (kbd "s-RET") "rotate-windows")
 (define-key *top-map* (kbd "C-s-RET") "swap-windows")
-(define-key *top-map* (kbd "s-k") "other")
+;; (define-key *top-map* (kbd "s-k") "other")
+(define-key *top-map* (kbd "s-k") "next")
 
 ;; ;; Move focus to the next window.
 ;; (define-key *top-map* (kbd "s-j") "fnext")
@@ -201,8 +198,12 @@
 ;; ;; Move focus to the previous window.
 ;; (define-key *top-map* (kbd "s-k") "fprev")
 
-;; (refresh-heads)
+;; Switch to groups with S-[1-9]
+(loop for group from 1 to 9 do
+  (define-key *top-map* (kbd (format nil "s-~d" group))
+    (format nil "gselect ~d" group)))
 
-(run-shell-command "emacs")
-(run-shell-command "chromium")
-(run-shell-command "start-polybar")
+;; Switch to Emacs group
+
+;; TODO: Get this working
+;; (run-commands "gselect Emacs")
