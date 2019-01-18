@@ -47,29 +47,29 @@
   (fnext)
   (run-shell-command "urxvt"))
 
-(defcommand (fprev tile-group) () ()
-  "Cycle through the frame tree to the prev frame."
-  (focus-prev-frame (current-group)))
+;; (defcommand (fprev tile-group) () ()
+;;   "Cycle through the frame tree to the prev frame."
+;;   (focus-prev-frame (current-group)))
 
-(defcommand file-manager () ()
-  "Run or raise the file manager."
-  (run-or-raise "nautilus" '(:class "Nautilus")))
+;; (defcommand file-manager () ()
+;;   "Run or raise the file manager."
+;;   (run-or-raise "nautilus" '(:class "Nautilus")))
 
 (defcommand htop () ()
   "Run htop."
   (run-or-raise "urxvt -e htop" '(:class "htop")))
 
-(defcommand volume-lower () ()
-  "Lower the volume."
-  (message "Lower volume"))
+;; (defcommand volume-lower () ()
+;;   "Lower the volume."
+;;   (message "Lower volume"))
 
-(defcommand volume-raise () ()
-  "Raise the volume."
-  (message "Raise volume"))
+;; (defcommand volume-raise () ()
+;;   "Raise the volume."
+;;   (message "Raise volume"))
 
-(defcommand volume-toggle () ()
-  "Toggle the volume."
-  (message "Toggle volume"))
+;; (defcommand volume-toggle () ()
+;;   "Toggle the volume."
+;;   (message "Toggle volume"))
 
 (defun shift-windows-forward (frames win)
   (when frames
@@ -103,49 +103,51 @@
 (define-key *root-map* (kbd "c") "terminal-new")
 (define-key *root-map* (kbd "C-c") "terminal-new")
 
-;; Enable the mode line
-(mode-line)
+;; ;; Enable the mode line
+;; (mode-line)
 
 ;; Change prefix key
 ;; (set-prefix-key (kbd "s-,"))
 
-(set-prefix-key (kbd "C-z"))
+;; (set-prefix-key (kbd "C-z"))
 
-(run-commands
- "gnew Emacs"
- "gnewbg Web"
- "gnewbg Top")
+;; (run-commands
+;;  "gnew Emacs"
+;;  "gnewbg Web"
+;;  "gnewbg Top")
 
 ;; Rule Based Window Placement
 
 (define-frame-preference "Emacs"
-    (0 nil t :class "Emacs"))
+  (0 nil t :class "Emacs"))
 
 (define-frame-preference "Web"
-    (0 nil t :class "chromium"))
+  (0 nil t :class "chromium"))
 
 (define-frame-preference "Top"
-    (0 nil t :class "htop"))
+  (0 nil t :class "htop"))
 
 ;; Switch to groups with S-[1-9]
 (loop for workspace from 1 to 9
-   do (define-key *top-map* (kbd (format nil "s-~d" workspace))
-        (format nil "gselect ~d" workspace)))
+      do (define-key *top-map* (kbd (format nil "s-~d" workspace))
+           (format nil "gselect ~d" workspace)))
 
-;;; KEY BINDINGS
+;; ;;; KEY BINDINGS
 
 (define-key *top-map* (kbd "s-RET") "rotate-windows")
 (define-key *top-map* (kbd "C-s-RET") "swap-windows")
+(define-key *top-map* (kbd "s-k") "other")
 
-;; Move focus to the next window.
-(define-key *top-map* (kbd "s-j") "fnext")
+;; ;; Move focus to the next window.
+;; (define-key *top-map* (kbd "s-j") "fnext")
 
-;; Move focus to the previous window.
-(define-key *top-map* (kbd "s-k") "fprev")
+;; ;; Move focus to the previous window.
+;; (define-key *top-map* (kbd "s-k") "fprev")
 
 ;; (refresh-heads)
 
-(run-shell-command "emacs")
-(run-shell-command "chromium")
+;; (run-shell-command "emacs")
+;; (run-shell-command "chromium")
+(run-shell-command "polybar example --reload")
 
 (start-swank-server)
