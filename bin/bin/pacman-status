@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+ARCHITECTURE=`uname -m`
+UPDATES="/var/log/pacman-updates.log"
+
+set -e
+
+function pacman_status () {
+    PACKAGES=$(pacman -Qu | wc -l)
+    if [ $PACKAGES == 0 ]; then
+        echo "Pacman up to date"
+    else
+        echo "Pacman needs more fruit ($PACKAGES new packages)"
+    fi
+}
+
+function pacman_update () {
+    pacman -Syup --noprogressbar | sed -ne "s/^.*$ARCHITECTURE\/\([a-z-]*\)-.*$/\1/p" > $UPDATES
+}
+
+function pacman_upgrade () {
+    pacman -Su
+
+    # Remove old package log and create an empty one, so dzen shows that
+    # it is up to date.
+    [[ -f testfile ]] && sudo rm $UPDATES
+    touch $UPDATES
+
+    # Wait for input.
+    read
+}
+
+case $1 in
+    "status")
+        pacman_status
+        ;;
+    "update")
+        pacman_update
+        ;;
+    "upgrade")
+        pacman_upgrade
+        ;;
+    *)
+        pacman_status
+        ;;
+esac
