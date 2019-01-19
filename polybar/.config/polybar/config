@@ -62,7 +62,7 @@ font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
 font-5 = "Font Awesome 5 Brands:pixelsize=10;1"
 
-modules-left = stumpwmgroups
+modules-left = stumpwmgroups xwindow
 modules-center = mpd
 modules-right = xbacklight xkeyboard memory cpu wlan eth battery temperature pulseaudio date powermenu
 

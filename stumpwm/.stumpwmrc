@@ -123,26 +123,23 @@
 
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
-  (concatenate
-   'string
-   (apply #'concatenate 'string
-          (mapcar
-           (lambda (g)
-             (let* ((name (group-name g))
-                    (n-win (write-to-string (length (group-windows g))))
-                    (display-text (cond ((string-equal name "Emacs") "   Emacs ")
-                                        ((string-equal name "Web") "   Web ")
+  (apply #'concatenate 'string
+         (mapcar
+          (lambda (g)
+            (let* ((name (group-name g))
+                   (n-win (write-to-string (length (group-windows g))))
+                   (display-text (cond ((string-equal name "Emacs") "   Emacs ")
+                                       ((string-equal name "Web") "   Web ")
 
-                                        ((string-equal name "Terminal") "  Terminal ")
-                                        ((string-equal name "Top") "  Top ")
-                                        ((string-equal name "Logs") "   Logs ")
-                                        (t (concat "   " name "  ")))))
-               (cond
-                 ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}"))
-                 ((string-equal n-win "0") "")
-                 (t (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}")))))
-           (sort (screen-groups (current-screen)) #'< :key #'group-number)))
-   " " (if-let (window (current-window)) (window-title window))))
+                                       ((string-equal name "Terminal") "  Terminal ")
+                                       ((string-equal name "Top") "  Top ")
+                                       ((string-equal name "Logs") "   Logs ")
+                                       (t (concat "   " name "  ")))))
+              (cond
+                ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}"))
+                ((string-equal n-win "0") "")
+                (t (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}")))))
+          (sort (screen-groups (current-screen)) #'< :key #'group-number))))
 
 (add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
 (add-hook *destroy-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
