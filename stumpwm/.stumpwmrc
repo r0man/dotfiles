@@ -115,31 +115,10 @@
            (lambda (g)
              (let* ((name (group-name g))
                     (n-win (write-to-string (length (group-windows g))))
-                    (display-text (cond
-                                    ((string-equal name "Emacs") "  Emacs")
-                                    ((string-equal name "Web") " Web")
-                                    ((string-equal name "EXT") " EXT")
-                                    ((string-equal name "FLT") " FLT")
-                                    (t (concat " " name "")))))
-               (if (eq g (current-group))
-                   (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text " [" n-win "]" "%{F- B- u- -u} ")
-                   (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}"))))
-           (sort (screen-groups (current-screen)) #'< :key #'group-number)))
-   " " (if-let (window (current-window)) (window-title window))))
-
-(defun polybar-groups ()
-  "Return string representation for polybar stumpgroups module"
-  (concatenate
-   'string
-   (apply #'concatenate 'string
-          (mapcar
-           (lambda (g)
-             (let* ((name (group-name g))
-                    (n-win (write-to-string (length (group-windows g))))
-                    (display-text (cond ((string-equal name "TXT") "   TXT ")
+                    (display-text (cond ((string-equal name "Emacs") "   Emacs ")
                                         ((string-equal name "Web") "   Web ")
-                                        ((string-equal name "EXT") "   EXT ")
-                                        ((string-equal name "FLT") "   FLT ")
+                                        ((string-equal name "Top") "  Top ")
+                                        ((string-equal name "Logs") "   Logs ")
                                         (t (concat "   " name "  ")))))
                (cond
                  ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}"))
