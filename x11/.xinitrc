@@ -31,5 +31,7 @@ fi
 # Start XMonad
 #dbus-launch --sh-syntax --exit-with-session xmonad
 
+xcompmgr -c &
+
 # Start Stump WM
 dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm
