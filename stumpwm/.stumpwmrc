@@ -136,7 +136,7 @@
              (let* ((name (group-name g))
                     (n-win (write-to-string (length (group-windows g))))
                     (display-text (cond ((string-equal name "TXT") "   TXT ")
-                                        ((string-equal name "Web") "   Web ")
+                                        ((string-equal name "Web") "   Web ")
                                         ((string-equal name "EXT") "   EXT ")
                                         ((string-equal name "FLT") "   FLT ")
                                         (t (concat "   " name "  ")))))
