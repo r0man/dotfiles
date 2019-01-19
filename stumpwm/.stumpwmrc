@@ -234,8 +234,8 @@
 ;; ;; Move focus to the previous window.
 ;; (define-key *top-map* (kbd "s-k") "fprev")
 
-;; Switch to groups with S-[1-9]
-(loop for group from 1 to 9 do
+;; Switch to groups with S-[0-9]
+(loop for group from 0 to 9 do
   (define-key *top-map* (kbd (format nil "s-~d" group))
     (format nil "gselect ~d" group)))
 
