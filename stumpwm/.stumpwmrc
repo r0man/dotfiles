@@ -148,6 +148,21 @@
 
 ;; Polybar
 
+(defun icon-by-group (name)
+  (cond
+    ((string-equal name "Emacs")
+     "")
+    ((string-equal name "Web")
+     "")
+
+    ((string-equal name "Terminal")
+     "")
+    ((string-equal name "Top")
+     "")
+    ((string-equal name "Logs")
+     "")
+    (t (concat ""))))
+
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
   (apply #'concatenate 'string
@@ -155,17 +170,12 @@
           (lambda (g)
             (let* ((name (group-name g))
                    (n-win (write-to-string (length (group-windows g))))
-                   (display-text (cond ((string-equal name "Emacs") "   Emacs ")
-                                       ((string-equal name "Web") "   Web ")
-
-                                       ((string-equal name "Terminal") "  Terminal ")
-                                       ((string-equal name "Top") "  Top ")
-                                       ((string-equal name "Logs") "   Logs ")
-                                       (t (concat "   " name "  ")))))
+                   (icon (icon-by-group name))
+                   (text (concat " %{F#54728E}" icon "%{F-} " name " ")))
               (cond
-                ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" display-text "[" n-win "] " "%{F- B- u- -u}"))
+                ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" text "[" n-win "] " "%{F- B- u- -u}"))
                 ((string-equal n-win "0") "")
-                (t (concat "%{F#FFFFFF}" display-text "[" n-win "] " "%{F-}")))))
+                (t (concat "%{F#FFFFFF}" text "[" n-win "] " "%{F-}")))))
           (sort (screen-groups (current-screen)) #'< :key #'group-number))))
 
 (add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
