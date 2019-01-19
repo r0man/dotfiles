@@ -41,7 +41,8 @@
 (run-commands
  "grename Emacs"
  "gnewbg Web"
- "gnewbg Top")
+ "gnewbg Top"
+ "gnewbg Logs")
 
 ;; MODULES
 
