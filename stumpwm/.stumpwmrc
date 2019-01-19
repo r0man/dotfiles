@@ -9,7 +9,18 @@
 (set-bg-color "black")
 (set-border-color "black")
 
+;; Message Window
+
+(setf *message-window-gravity* :center
+      *message-window-padding* 15
+      *message-window-y-padding* 15)
+
+;; Input Window
+
+(setf *input-window-gravity* :center)
+
 ;; Mode Line
+
 (setf *mode-line-background-color* "black")
 (setf *mode-line-foreground-color* "white")
 (setf *mode-line-border-color* "black")
