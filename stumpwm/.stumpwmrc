@@ -43,7 +43,11 @@
  "gnewbg Web"
  "gnewbg Terminal"
  "gnewbg Top"
- "gnewbg Logs")
+ "gnewbg Logs"
+ "gnewbg 6"
+ "gnewbg 7"
+ "gnewbg 8"
+ "gnewbg 9")
 
 ;; MODULES
 
