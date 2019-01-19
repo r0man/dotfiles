@@ -41,6 +41,7 @@
 (run-commands
  "grename Emacs"
  "gnewbg Web"
+ "gnewbg Terminal"
  "gnewbg Top"
  "gnewbg Logs")
 
@@ -60,19 +61,25 @@
 ;; Rule Based Window Placement
 
 (define-frame-preference "Emacs"
-  (0 t t :class "Emacs"))
+    (0 t t :class "Emacs"))
 
 (define-frame-preference "Web"
-  (1 t t :class "Chromium"))
+    (1 t t :class "Chromium"))
+
+(define-frame-preference "Terminal"
+    (2 nil t :instance "Terminal"))
 
 (define-frame-preference "Top"
-  (2 t t :title "htop"))
+    (3 nil t :instance "HTop"))
+
+(define-frame-preference "Logs"
+    (4 nil t :instance "Logs"))
 
 ;;; COMMANDS
 
 (defcommand terminal () ()
   "Run or raise the urxvt terminal."
-  (run-or-raise "urxvt" '(:class "URxvt")))
+  (run-or-raise "urxvt -name Terminal" '(:instance "Terminal")))
 
 (defcommand terminal-new () ()
   "Run or raise the urxvt terminal."
@@ -90,7 +97,11 @@
 
 (defcommand htop () ()
   "Run htop."
-  (run-or-raise "urxvt -e htop" '(:class "urxvt" :title "htop")))
+  (run-or-raise "urxvt -name HTop -e htop" '(:instance "HTop")))
+
+(defcommand logs () ()
+  "Show the logs."
+  (run-or-raise "urxvt -name Logs -e sudo journalctl -f -a -n 100" '(:instance "Logs")))
 
 ;; (defcommand volume-lower () ()
 ;;   "Lower the volume."
@@ -117,6 +128,8 @@
                     (n-win (write-to-string (length (group-windows g))))
                     (display-text (cond ((string-equal name "Emacs") "   Emacs ")
                                         ((string-equal name "Web") "   Web ")
+
+                                        ((string-equal name "Terminal") "  Terminal ")
                                         ((string-equal name "Top") "  Top ")
                                         ((string-equal name "Logs") "   Logs ")
                                         (t (concat "   " name "  ")))))
@@ -166,7 +179,11 @@
 (run-shell-command "emacs")
 (run-shell-command "chromium")
 (run-shell-command "start-polybar")
+
+;; TODO: Position on group
 (run-commands "htop")
+(run-commands "logs")
+(run-commands "terminal")
 
 ;; Key Bindings
 
