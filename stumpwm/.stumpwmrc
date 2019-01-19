@@ -33,6 +33,8 @@
 
 (setf *input-window-gravity* :center)
 
+(setf *normal-border-width* 1)
+
 ;; Mode Line
 
 (setf *mode-line-background-color* "black")
