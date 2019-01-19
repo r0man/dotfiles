@@ -76,6 +76,17 @@
 ;; (load-module "swm-gaps")
 ;; (load-module "kbd-layouts")
 
+;; Fonts
+
+(xft:cache-fonts) ;; Cache fonts, so they can be found?
+
+(set-font
+ (make-instance
+  'xft:font
+  :family "Inconsolata"
+  :subfamily "Regular"
+  :size 13))
+
 ;; Rule Based Window Placement
 
 (define-frame-preference "Emacs"
