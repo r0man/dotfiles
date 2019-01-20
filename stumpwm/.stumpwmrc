@@ -57,7 +57,7 @@
 (run-commands
  "grename Emacs"
  "gnewbg Web"
- "gnewbg Terminal"
+ "gnewbg 3"
  "gnewbg 4"
  "gnewbg 5"
  "gnewbg 6"
@@ -97,9 +97,6 @@
 (define-frame-preference "Web"
   (1 t t :class "Chromium"))
 
-(define-frame-preference "Terminal"
-  (2 nil t :instance "Terminal"))
-
 (define-frame-preference "Top"
   (8 nil t :instance "HTop"))
 
@@ -137,6 +134,10 @@
   (vsplit)
   (fnext)
   (run-shell-command "urxvt"))
+
+(defcommand terminal-raise () ()
+  "Run or raise the urxvt terminal."
+  (run-or-raise "urxvt -name Terminal" '(:instance "Terminal")))
 
 ;; (defcommand (fprev tile-group) () ()
 ;;   "Cycle through the frame tree to the prev frame."
@@ -244,12 +245,12 @@
 (define-key *root-map* (kbd "e") "emacs-client")
 
 (define-key *root-map* (kbd "c") "terminal")
-(define-key *root-map* (kbd "C-c") "terminal")
+(define-key *root-map* (kbd "c") "terminal")
 
-(define-key *top-map* (kbd "s-RET") "rotate-windows")
-(define-key *top-map* (kbd "C-s-RET") "swap-windows")
-;; (define-key *top-map* (kbd "s-k") "other")
-;; (define-key *top-map* (kbd "s-k") "next")
+(define-key *top-map* (kbd "C-H-RET") "terminal")
+
+(define-key *top-map* (kbd "H-RET") "rotate-windows")
+(define-key *top-map* (kbd "S-H-RET") "swap-windows")
 
 (define-key *top-map* (kbd "H-j") "next")
 (define-key *top-map* (kbd "H-k") "prev")
@@ -257,13 +258,7 @@
 (define-key *top-map* (kbd "H-J") "fnext")
 (define-key *top-map* (kbd "H-K") "fprev")
 
-;; (define-key *top-map* (kbd "<s-return>") "next")
-
-;; ;; Move focus to the next window.
-;; (define-key *top-map* (kbd "s-j") "fnext")
-
-;; ;; Move focus to the previous window.
-;; (define-key *top-map* (kbd "s-k") "fprev")
+(define-key *top-map* (kbd "H-m") "windowlist")
 
 ;; Switch to groups with H-[0-9]
 (loop for group from 0 to 9 do
@@ -274,7 +269,6 @@
 
 ;; TODO: Get this working
 ;; (run-commands "gselect Emacs")
-
 
 ;; (print (current-head))
 
