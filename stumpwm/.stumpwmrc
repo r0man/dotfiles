@@ -131,8 +131,8 @@
 
 (defcommand terminal () ()
   "Run the urxvt terminal."
-  (vsplit)
-  (fnext)
+  ;; (vsplit)
+  ;; (fnext)
   (run-shell-command "urxvt"))
 
 (defcommand terminal-raise () ()
@@ -254,29 +254,30 @@
 
 ;; Key Bindings
 
-(set-prefix-key (kbd "\H-t"))
+(set-prefix-key (kbd "C-t"))
+(set-prefix-key (kbd "s-SPC"))
 
 (define-key *root-map* (kbd "e") "emacs-client")
 
 (define-key *root-map* (kbd "c") "terminal")
 (define-key *root-map* (kbd "c") "terminal")
 
-(define-key *top-map* (kbd "C-H-RET") "terminal")
+(define-key *top-map* (kbd "C-s-RET") "terminal")
 
-(define-key *top-map* (kbd "H-RET") "rotate-windows")
-(define-key *top-map* (kbd "S-H-RET") "swap-windows")
+(define-key *top-map* (kbd "s-RET") "rotate-windows")
+(define-key *top-map* (kbd "S-s-RET") "swap-windows")
 
-(define-key *top-map* (kbd "H-j") "next")
-(define-key *top-map* (kbd "H-k") "prev")
+(define-key *top-map* (kbd "s-j") "next")
+(define-key *top-map* (kbd "s-k") "prev")
 
-(define-key *top-map* (kbd "H-J") "fnext")
-(define-key *top-map* (kbd "H-K") "fprev")
+(define-key *top-map* (kbd "s-J") "fnext")
+(define-key *top-map* (kbd "s-K") "fprev")
 
-(define-key *top-map* (kbd "H-m") "rofi-window")
+(define-key *top-map* (kbd "s-m") "rofi-window")
 
-;; Switch to groups with H-[0-9]
+;; Switch to groups with s-[0-9]
 (loop for group from 0 to 9 do
-  (define-key *top-map* (kbd (format nil "H-~d" group))
+  (define-key *top-map* (kbd (format nil "s-~d" group))
     (format nil "gselect ~d" group)))
 
 ;; Switch to Emacs group
