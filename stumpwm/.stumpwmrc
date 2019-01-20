@@ -249,7 +249,14 @@
 (define-key *top-map* (kbd "s-RET") "rotate-windows")
 (define-key *top-map* (kbd "C-s-RET") "swap-windows")
 ;; (define-key *top-map* (kbd "s-k") "other")
-(define-key *top-map* (kbd "s-k") "next")
+;; (define-key *top-map* (kbd "s-k") "next")
+
+(define-key *top-map* (kbd "H-j") "next")
+(define-key *top-map* (kbd "H-k") "prev")
+
+(define-key *top-map* (kbd "H-J") "fnext")
+(define-key *top-map* (kbd "H-K") "fprev")
+
 ;; (define-key *top-map* (kbd "<s-return>") "next")
 
 ;; ;; Move focus to the next window.
