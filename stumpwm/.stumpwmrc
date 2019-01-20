@@ -225,6 +225,20 @@
                      (hsplit))))
         (message "Works only with 2 frames"))))
 
+;; Rofi
+
+(defun rofi (mode)
+  (run-shell-command (concat "rofi -show " mode " -m " (write-to-string (head-number (current-head))))))
+
+(defcommand rofi-run () ()
+  (rofi "run -sidebar-mode"))
+
+(defcommand rofi-window () ()
+  (rofi "window"))
+
+(defcommand rofi-windowcd () ()
+  (rofi "windowcd"))
+
 ;; Start programs
 
 (run-commands
@@ -258,7 +272,7 @@
 (define-key *top-map* (kbd "H-J") "fnext")
 (define-key *top-map* (kbd "H-K") "fprev")
 
-(define-key *top-map* (kbd "H-m") "windowlist")
+(define-key *top-map* (kbd "H-m") "rofi-window")
 
 ;; Switch to groups with H-[0-9]
 (loop for group from 0 to 9 do
