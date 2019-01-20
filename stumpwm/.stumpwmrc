@@ -62,8 +62,8 @@
  "gnewbg 5"
  "gnewbg 6"
  "gnewbg 7"
- "gnewbg Top"
- "gnewbg Logs")
+ "gnewbg Logs"
+ "gnewbg Top")
 
 ;; MODULES
 
@@ -97,11 +97,11 @@
 (define-frame-preference "Web"
   (1 t t :class "Chromium"))
 
-(define-frame-preference "Top"
-  (8 nil t :instance "HTop"))
-
 (define-frame-preference "Logs"
-  (9 nil t :instance "Logs"))
+  (8 nil t :instance "Logs"))
+
+(define-frame-preference "Top"
+  (9 nil t :instance "HTop"))
 
 ;;; COMMANDS
 
