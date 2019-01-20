@@ -124,8 +124,9 @@
     text-color: @normal-foreground;
 }
 #entry {
-    spacing:    0;
     text-color: @normal-foreground;
+    padding:    0 0 0 10px;
+
 }
 #prompt {
     spacing:    0;
