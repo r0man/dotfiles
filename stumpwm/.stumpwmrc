@@ -7,14 +7,14 @@
 ;; Colors
 
 (setf *colors*
-      (list "#111111"      ; 0 black
-            "#dc322f"      ; 1 red
-            "#859900"      ; 2 green
-            "#b58900"      ; 3 yellow
-            "#268bd2"      ; 4 blue
-            "#d33682"      ; 5 magenta
-            "#2aa198"      ; 6 cyan
-            "#fdf6e3"))    ; 7 white
+      '("#111111"   ; 0 black
+        "#dc322f"   ; 1 red
+        "#859900"   ; 2 green
+        "#b58900"   ; 3 yellow
+        "#268bd2"   ; 4 blue
+        "#d33682"   ; 5 magenta
+        "#2aa198"   ; 6 cyan
+        "#fdf6e3")) ; 7 white
 
 (update-color-map (current-screen))
 
@@ -58,12 +58,12 @@
  "grename Emacs"
  "gnewbg Web"
  "gnewbg Terminal"
- "gnewbg Top"
- "gnewbg Logs"
+ "gnewbg 4"
+ "gnewbg 5"
  "gnewbg 6"
  "gnewbg 7"
- "gnewbg 8"
- "gnewbg 9")
+ "gnewbg Top"
+ "gnewbg Logs")
 
 ;; MODULES
 
@@ -92,28 +92,48 @@
 ;; Rule Based Window Placement
 
 (define-frame-preference "Emacs"
-  (0 t t :class "Emacs"))
+    (0 t t :class "Emacs"))
 
 (define-frame-preference "Web"
-  (1 t t :class "Chromium"))
+    (1 t t :class "Chromium"))
 
 (define-frame-preference "Terminal"
-  (2 nil t :instance "Terminal"))
+    (2 nil t :instance "Terminal"))
 
 (define-frame-preference "Top"
-  (3 nil t :instance "HTop"))
+    (8 nil t :instance "HTop"))
 
 (define-frame-preference "Logs"
-  (4 nil t :instance "Logs"))
+    (9 nil t :instance "Logs"))
 
 ;;; COMMANDS
 
-(defcommand terminal () ()
-  "Run or raise the urxvt terminal."
-  (run-or-raise "urxvt -name Terminal" '(:instance "Terminal")))
+(defcommand chromium () ()
+  "Run the chromium web browser."
+  (run-shell-command "chromium"))
 
-(defcommand terminal-new () ()
-  "Run or raise the urxvt terminal."
+(defcommand emacs-client () ()
+  "Run the emacs client."
+  (run-shell-command "emacsclient --create-frame"))
+
+(defcommand firefox () ()
+  "Run the firefox web browser."
+  (run-shell-command "firefox"))
+
+(defcommand htop () ()
+  "Run htop."
+  (run-or-raise "urxvt -name HTop -e htop" '(:instance "HTop")))
+
+(defcommand logs () ()
+  "Show the logs."
+  (run-or-raise "urxvt -name Logs -e sudo journalctl -f -a -n 100" '(:instance "Logs")))
+
+(defcommand polybar () ()
+  "Run the polybar status bar."
+  (run-shell-command "start-polybar"))
+
+(defcommand terminal () ()
+  "Run the urxvt terminal."
   (vsplit)
   (fnext)
   (run-shell-command "urxvt"))
@@ -125,14 +145,6 @@
 ;; (defcommand file-manager () ()
 ;;   "Run or raise the file manager."
 ;;   (run-or-raise "nautilus" '(:class "Nautilus")))
-
-(defcommand htop () ()
-  "Run htop."
-  (run-or-raise "urxvt -name HTop -e htop" '(:instance "HTop")))
-
-(defcommand logs () ()
-  "Show the logs."
-  (run-or-raise "urxvt -name Logs -e sudo journalctl -f -a -n 100" '(:instance "Logs")))
 
 ;; (defcommand volume-lower () ()
 ;;   "Lower the volume."
@@ -214,29 +226,32 @@
 
 ;; Start programs
 
-(run-shell-command "emacs")
-(run-shell-command "chromium")
-(run-shell-command "start-polybar")
-
-;; TODO: Position on group
-(run-commands "htop")
-(run-commands "logs")
-(run-commands "terminal")
+(run-commands
+ "gselect Web"
+ "chromium"
+ "gselect Emacs"
+ "emacs-client"
+ "htop"
+ "gselect Logs"
+ "logs"
+ "polybar"
+ "gselect Emacs")
 
 ;; Key Bindings
 
 ;; (set-prefix-key (kbd "s-,"))
 ;; (set-prefix-key (kbd "s-SPC"))
 
-;; (define-key *root-map* (kbd "c") "terminal")
-;; (define-key *root-map* (kbd "C-c") "terminal-new")
-;; (define-key *root-map* (kbd "t") "terminal")
-;; (define-key *root-map* (kbd "T") "terminal-new")
+(define-key *root-map* (kbd "e") "emacs-client")
+
+(define-key *root-map* (kbd "c") "terminal")
+(define-key *root-map* (kbd "C-c") "terminal")
 
 (define-key *top-map* (kbd "s-RET") "rotate-windows")
 (define-key *top-map* (kbd "C-s-RET") "swap-windows")
 ;; (define-key *top-map* (kbd "s-k") "other")
 (define-key *top-map* (kbd "s-k") "next")
+;; (define-key *top-map* (kbd "<s-return>") "next")
 
 ;; ;; Move focus to the next window.
 ;; (define-key *top-map* (kbd "s-j") "fnext")
@@ -253,3 +268,8 @@
 
 ;; TODO: Get this working
 ;; (run-commands "gselect Emacs")
+
+
+;; (print (current-head))
+
+;; (resize-head 0 0 0 2880 (- 1800 27))
