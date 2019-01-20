@@ -28,11 +28,11 @@ fi
 # Start chromium.
 # chromium &
 
+# Start composite window manager
+#compton &
+
 # Start XMonad
 #dbus-launch --sh-syntax --exit-with-session xmonad
-
-# Start composite window manager
-compton &
 
 # Start Stump WM
 dbus-launch --sh-syntax --exit-with-session sbcl --load /home/roman/bin/start-stumpwm

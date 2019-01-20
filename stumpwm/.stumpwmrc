@@ -92,19 +92,19 @@
 ;; Rule Based Window Placement
 
 (define-frame-preference "Emacs"
-    (0 t t :class "Emacs"))
+  (0 t t :class "Emacs"))
 
 (define-frame-preference "Web"
-    (1 t t :class "Chromium"))
+  (1 t t :class "Chromium"))
 
 (define-frame-preference "Terminal"
-    (2 nil t :instance "Terminal"))
+  (2 nil t :instance "Terminal"))
 
 (define-frame-preference "Top"
-    (8 nil t :instance "HTop"))
+  (8 nil t :instance "HTop"))
 
 (define-frame-preference "Logs"
-    (9 nil t :instance "Logs"))
+  (9 nil t :instance "Logs"))
 
 ;;; COMMANDS
 
@@ -239,8 +239,7 @@
 
 ;; Key Bindings
 
-;; (set-prefix-key (kbd "s-,"))
-;; (set-prefix-key (kbd "s-SPC"))
+(set-prefix-key (kbd "\H-t"))
 
 (define-key *root-map* (kbd "e") "emacs-client")
 
@@ -259,9 +258,9 @@
 ;; ;; Move focus to the previous window.
 ;; (define-key *top-map* (kbd "s-k") "fprev")
 
-;; Switch to groups with S-[0-9]
+;; Switch to groups with H-[0-9]
 (loop for group from 0 to 9 do
-  (define-key *top-map* (kbd (format nil "s-~d" group))
+  (define-key *top-map* (kbd (format nil "H-~d" group))
     (format nil "gselect ~d" group)))
 
 ;; Switch to Emacs group

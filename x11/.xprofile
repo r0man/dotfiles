@@ -31,9 +31,8 @@ setxkbmap -option "ctrl:nocaps"
 # Enable X restart with CTRL-ALT-BACKSPACE
 setxkbmap -option terminate:ctrl_alt_bksp
 
-# Load .xmodmaprc by hostname
-XMODMAPRC="$HOSTCONF/.xmodmaprc"
-[ -f "$XMODMAPRC" ] && xmodmap $XMODMAPRC
+# Load xmodmap
+[ -f ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
 
 # Start Music Player Daemon.
 mpd &

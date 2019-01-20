@@ -1,0 +1,9 @@
+
+keycode 133 = Hyper_L NoSymbol Hyper_L
+keycode 134 = Hyper_R NoSymbol Hyper_R
+
+clear Mod4
+add Mod4 = Super_L Super_R
+
+clear Mod5
+add Mod5 = Hyper_L Hyper_R
