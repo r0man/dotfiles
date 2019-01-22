@@ -35,6 +35,9 @@
 
 (setf *normal-border-width* 1)
 
+;; Configure resize increment.
+(set-resize-increment 20)
+
 ;; Mode Line
 
 (setf *mode-line-background-color* "black")
