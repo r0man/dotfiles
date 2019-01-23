@@ -185,14 +185,17 @@
          (mapcar
           (lambda (g)
             (let* ((name (group-name g))
+                   (number (write-to-string (group-number g)))
                    (n-win (write-to-string (length (group-windows g))))
                    (icon (icon-by-group name))
-                   (text (concat " %{F#54728E}" icon "%{F-} " name " ")))
+                   (text (concat " %{F#54728E}" icon "%{F-} " number ":" name " ")))
               (cond
                 ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" text "[" n-win "] " "%{F- B- u- -u}"))
                 ((string-equal n-win "0") "")
                 (t (concat "%{F#FFFFFF}" text "[" n-win "] " "%{F-}")))))
           (sort (screen-groups (current-screen)) #'< :key #'group-number))))
+
+
 
 (add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
 (add-hook *destroy-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
