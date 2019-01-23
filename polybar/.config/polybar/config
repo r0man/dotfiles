@@ -291,7 +291,7 @@ format-disconnected =
 [module/date]
 type = internal/date
 interval = 1
-date = " %a, %m %b %Y"
+date = " %a, %d %b %Y"
 
 time = %H:%M:%S
 
