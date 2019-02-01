@@ -29,13 +29,20 @@
       *message-window-padding* 15
       *message-window-y-padding* 15)
 
+;; Set the default gravity for transient/pop-up windows.
+(set-transient-gravity :center)
+
+;; (set-normal-gravity :center)
+;; (set-maxsize-gravity :center)
+
 ;; Input Window
 
 (setf *input-window-gravity* :center)
 
 (setf *normal-border-width* 1)
 
-;; Configure resize increment.
+;; Number of pixels to increment by when interactively resizing frames.
+
 (set-resize-increment 20)
 
 ;; Mode Line
