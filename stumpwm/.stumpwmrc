@@ -300,4 +300,21 @@
 
 ;; (print (current-head))
 
-;; (resize-head 0 0 0 2880 (- 1800 27))
+;; (defparameter floating-windows
+;;   '("xclock"
+;;     "pinentry-gtk-2"))
+
+;; (defun floating-class-p (window)
+;;   (member (window-class window) floating-windows :test 'string-equal))
+
+;; (defun my-float-window-hook (window)
+;;   (print "FLOAT NEW WINDOW")
+;;   (message "HELLO")
+;;   (when (floating-class-p window)
+;;     (float-window window (current-group))
+;;     (maximize-float window)))
+
+;; (remove-hook *new-window-hook* 'my-float-window-hook)
+;; (add-hook *new-window-hook* 'my-float-window-hook)
+
+;; (resize-head 0 0 0 2880 (- 1800 (* 2 27)))
