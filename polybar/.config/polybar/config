@@ -396,6 +396,7 @@ animation-discharging-framerate = 750
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input
 
 format = <ramp> <label>
 format-underline = ${colors.red}
