@@ -139,8 +139,8 @@
 
 (defcommand terminal () ()
   "Run the urxvt terminal."
-  ;; (vsplit)
-  ;; (fnext)
+  (hsplit)
+  (fnext)
   (run-shell-command "urxvt"))
 
 (defcommand terminal-raise () ()
@@ -286,8 +286,8 @@
 
 ;; Switch to groups with s-[0-9]
 (loop for group from 0 to 9 do
-  (define-key *top-map* (kbd (format nil "s-~d" group))
-    (format nil "gselect ~d" group)))
+     (define-key *top-map* (kbd (format nil "s-~d" group))
+       (format nil "gselect ~d" group)))
 
 ;; Switch to Emacs group
 
