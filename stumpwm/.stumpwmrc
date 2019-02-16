@@ -75,11 +75,9 @@
  "gnewbg Logs"
  "gnewbg Top")
 
-;; MODULES
-
 ;; Modules
 
-(set-module-dir (pathname-as-directory (concat (getenv "HOME") "/workspace/stumpwm")))
+(set-module-dir (pathname-as-directory (concat (getenv "HOME") "/workspace/stumpwm-contrib")))
 
 (load-module "ttf-fonts")
 ;; (load-module "winner-mode")
@@ -201,8 +199,6 @@
                 ((string-equal n-win "0") "")
                 (t (concat "%{F#FFFFFF}" text "[" n-win "] " "%{F-}")))))
           (sort (screen-groups (current-screen)) #'< :key #'group-number))))
-
-
 
 (add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
 (add-hook *destroy-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
