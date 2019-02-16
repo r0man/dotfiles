@@ -102,7 +102,7 @@ path+=("/usr/local/openev/bin")
 path+=("/opt/apache-spark/bin")
 
 # STUMPWM
-path+=("$HOME/workspace/stumpwm/contrib/util/stumpish")
+path+=("$HOME/workspace/stumpwm-contrib/util/stumpish")
 
 # Google Application Default Credentials
 # See: https://developers.google.com/identity/protocols/application-default-credentials
