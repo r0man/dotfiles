@@ -139,8 +139,8 @@
 
 (defcommand terminal () ()
   "Run the urxvt terminal."
-  (hsplit)
-  (fnext)
+  ;; (hsplit)
+  ;; (fnext)
   (run-shell-command "urxvt"))
 
 (defcommand terminal-raise () ()
