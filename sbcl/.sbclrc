@@ -10,3 +10,4 @@
 (ql:quickload "clx")
 (ql:quickload "clx-truetype")
 (ql:quickload "stumpwm")
+(ql:quickload "swank")
