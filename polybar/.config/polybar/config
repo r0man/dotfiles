@@ -82,7 +82,7 @@ font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
 font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 modules-left = stumpwmgroups xwindow
-modules-right = xkeyboard memory cpu wlan eth battery temperature pulseaudio date powermenu
+modules-right = memory cpu wlan eth battery temperature pulseaudio date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -143,22 +143,6 @@ click-left = urxvt -n pacman-update -e sudo pacman-status upgrade
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -452,7 +436,7 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-[module/stumpwmgroups]
-type = custom/ipc
-hook-0 = stumpwm-groups
-initial = 1
+; [module/stumpwmgroups]
+; type = custom/ipc
+; hook-0 = stumpwm-groups
+; initial = 1
