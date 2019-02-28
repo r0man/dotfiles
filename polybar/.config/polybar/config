@@ -436,7 +436,7 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-; [module/stumpwmgroups]
-; type = custom/ipc
-; hook-0 = stumpwm-groups
-; initial = 1
+[module/stumpwmgroups]
+type = custom/ipc
+hook-0 = stumpwm-groups
+initial = 1
