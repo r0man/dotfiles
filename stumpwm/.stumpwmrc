@@ -18,6 +18,11 @@
 
 (update-color-map (current-screen))
 
+;; Debug
+
+(setf *debug-level* 10)
+(redirect-all-output (data-dir-file "debug" "log"))
+
 ;; Message bar
 (set-fg-color "white")
 (set-bg-color "#111111")
