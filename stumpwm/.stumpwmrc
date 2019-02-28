@@ -200,10 +200,13 @@
                 (t (concat "%{F#FFFFFF}" text "[" n-win "] " "%{F-}")))))
           (sort (screen-groups (current-screen)) #'< :key #'group-number))))
 
-(add-hook *new-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
-(add-hook *destroy-window-hook* (lambda (win) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
-(add-hook *focus-window-hook* (lambda (win lastw) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
-(add-hook *focus-group-hook* (lambda (grp lastg) (run-shell-command "polybar-msg hook stumpwmgroups 1")))
+(defun polybar-update-groups ()
+  (run-shell-command "polybar-msg hook stumpwmgroups 1"))
+
+(add-hook *new-window-hook* (lambda (win) (polybar-update-groups)))
+(add-hook *destroy-window-hook* (lambda (win) (polybar-update-groups)))
+(add-hook *focus-window-hook* (lambda (win lastw) (polybar-update-groups)))
+(add-hook *focus-group-hook* (lambda (grp lastg) (polybar-update-groups)))
 
 (defun shift-windows-forward (frames win)
   (when frames
