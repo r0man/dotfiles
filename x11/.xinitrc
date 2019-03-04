@@ -31,6 +31,9 @@ fi
 # Start composite window manager
 #compton &
 
+# Start Gnome
+#exec gnome-session
+
 # Start XMonad
 #dbus-launch --sh-syntax --exit-with-session xmonad
 
