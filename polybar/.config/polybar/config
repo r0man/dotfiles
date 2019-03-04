@@ -77,9 +77,9 @@ font-0 = Inconsolata:pixelsize=18
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = wuncon siji:pixelsize=10;1
 
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
-font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=16;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=16;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=16;1"
 
 modules-left = stumpwmgroups xwindow
 modules-right = memory cpu wlan eth battery temperature pulseaudio date powermenu
