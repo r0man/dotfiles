@@ -100,7 +100,7 @@
   'xft:font
   :family "Inconsolata"
   :subfamily "Regular"
-  :size 13))
+  :size 18))
 
 ;; Rule Based Window Placement
 
