@@ -1,0 +1,57 @@
+* Thinkpad
+** Keyboard
+
+  /etc/X11/xorg.conf.d/00-keyboard.conf
+
+  Section "InputClass"
+    Identifier "system-keyboard"
+    MatchIsKeyboard "on"
+    Option "XkbLayout" "de,us"
+    Option "XkbVariant" ","
+    Option "XkbOptions" "altwin:swap_lalt_lwin"
+  EndSection
+
+** Network
+
+   Auto connect to wifi.
+
+   #+BEGIN_SRC sh :results verbatim
+     sudo systemctl enable netctl-auto@wlp0s20f3.service
+   #+END_SRC
+
+   Stop auto connect.
+
+   #+BEGIN_SRC sh :results verbatim
+     sudo systemctl stop netctl-auto@wlp0s20f3.service
+   #+END_SRC
+
+** Graphics
+
+   #+BEGIN_SRC sh :results verbatim
+     lspci -k | grep -A 2 -E "(VGA|3D)"
+   #+END_SRC
+
+   #+RESULTS:
+   : 00:02.0 VGA compatible controller: Intel Corporation UHD Graphics 630 (Mobile)
+   : 	Subsystem: Lenovo UHD Graphics 630 (Mobile)
+   : 	Kernel driver in use: i915
+   : --
+   : 01:00.0 VGA compatible controller: NVIDIA Corporation GP107GLM [Quadro P2000 Mobile] (rev a1)
+   : 	Subsystem: Lenovo GP107GLM [Quadro P2000 Mobile]
+   : 	Kernel modules: nouveau
+
+*** Bumblebee
+
+    [[https://www.reddit.com/r/linux_gaming/comments/6ftq10/the_ultimate_guide_to_setting_up_nvidia_optimus/][The Ultimate Guide to Setting Up Nvidia Optimus on Linux]]
+
+    #+BEGIN_SRC sh :results verbatim
+     lspci -vnn | grep '\''[030[02]\]'
+    #+END_SRC
+
+    #+RESULTS:
+    : 00:02.0 VGA compatible controller [0300]: Intel Corporation UHD Graphics 630 (Mobile) [8086:3e9b] (prog-if 00 [VGA controller])
+    : 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107GLM [Quadro P2000 Mobile] [10de:1cba] (rev a1) (prog-if 00 [VGA controller])
+
+    #+BEGIN_SRC sh :results verbatim
+      sudo pacman -S bumblebee mesa xf86-video-intel nvidia lib32-nvidia-utils lib32-virtualgl nvidia-settings bbswitch primus lib32-primus
+    #+END_SRC
