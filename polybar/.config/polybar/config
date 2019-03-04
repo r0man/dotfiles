@@ -73,7 +73,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Inconsolata:pixelsize=13
+font-0 = Inconsolata:pixelsize=18
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = wuncon siji:pixelsize=10;1
 
@@ -108,13 +108,13 @@ width = 100%
 height = 27
 bottom = true
 
-font-0 = Inconsolata:pixelsize=13
+font-0 = Inconsolata:pixelsize=18
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = wuncon siji:pixelsize=10;1
 
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=14;1"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
-font-5 = "Font Awesome 5 Brands:pixelsize=14;1"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=16;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=16;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=16;1"
 
 modules-center = kernel pacman mpd
 
