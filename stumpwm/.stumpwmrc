@@ -134,6 +134,10 @@
   "Run htop."
   (run-or-raise "urxvt -name HTop -e htop" '(:instance "HTop")))
 
+(defcommand wifi-menu () ()
+  "Run wifi-menu."
+  (run-or-raise "urxvt -name wifi-menu -e sudo wifi-menu" '(:instance "wifi-menu")))
+
 (defcommand logs () ()
   "Show the logs."
   (run-or-raise "urxvt -name Logs -e sudo journalctl -f -a -n 100" '(:instance "Logs")))
