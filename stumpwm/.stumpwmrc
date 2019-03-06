@@ -4,6 +4,17 @@
 ;; Don't show startup message.
 (setf *startup-message* nil)
 
+;; Modules
+
+(set-module-dir (pathname-as-directory (concat (getenv "HOME") "/workspace/stumpwm-contrib")))
+
+(load-module "ttf-fonts")
+;; (load-module "winner-mode")
+;; (load-module "globalwindows")
+;; (load-module "amixer")
+;; (load-module "swm-gaps")
+;; (load-module "kbd-layouts")
+
 ;; Colors
 
 (setf *colors*
@@ -17,6 +28,17 @@
         "#fdf6e3")) ; 7 white
 
 (update-color-map (current-screen))
+
+;; Fonts
+
+(xft:cache-fonts) ;; Cache fonts, so they can be found?
+
+(set-font
+ (make-instance
+  'xft:font
+  :family "Inconsolata"
+  :subfamily "Regular"
+  :size 12))
 
 ;; Debug
 
@@ -79,28 +101,6 @@
  "gnewbg 7"
  "gnewbg Logs"
  "gnewbg Top")
-
-;; Modules
-
-(set-module-dir (pathname-as-directory (concat (getenv "HOME") "/workspace/stumpwm-contrib")))
-
-(load-module "ttf-fonts")
-;; (load-module "winner-mode")
-;; (load-module "globalwindows")
-;; (load-module "amixer")
-;; (load-module "swm-gaps")
-;; (load-module "kbd-layouts")
-
-;; Fonts
-
-(xft:cache-fonts) ;; Cache fonts, so they can be found?
-
-(set-font
- (make-instance
-  'xft:font
-  :family "Inconsolata"
-  :subfamily "Regular"
-  :size 18))
 
 ;; Rule Based Window Placement
 
@@ -260,19 +260,6 @@
 (defcommand rofi-windowcd () ()
   (rofi "windowcd"))
 
-;; Start programs
-
-(run-commands
- "gselect Web"
- "chromium"
- "gselect Emacs"
- "emacs"
- "htop"
- "gselect Logs"
- "logs"
- "polybar"
- "gselect Emacs")
-
 ;; Key Bindings
 
 (set-prefix-key (kbd "C-t"))
@@ -280,8 +267,7 @@
 
 (define-key *root-map* (kbd "e") "emacs-client")
 
-(define-key *root-map* (kbd "c") "terminal")
-(define-key *root-map* (kbd "c") "terminal")
+(define-key *root-map* (kbd "t") "terminal")
 
 (define-key *top-map* (kbd "C-s-RET") "terminal")
 
@@ -326,3 +312,17 @@
 ;; (add-hook *new-window-hook* 'my-float-window-hook)
 
 ;; (resize-head 0 0 0 2880 (- 1800 (* 2 27)))
+
+
+;; Start programs last
+
+(run-commands
+ "gselect Web"
+ "chromium"
+ "gselect Emacs"
+ "emacs"
+ "htop"
+ "gselect Logs"
+ "logs"
+ "gselect Emacs"
+ "polybar")
