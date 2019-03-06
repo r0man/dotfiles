@@ -1,15 +1,15 @@
 * Thinkpad
 ** Keyboard
 
-  /etc/X11/xorg.conf.d/00-keyboard.conf
+   /etc/X11/xorg.conf.d/00-keyboard.conf
 
-  Section "InputClass"
-    Identifier "system-keyboard"
-    MatchIsKeyboard "on"
-    Option "XkbLayout" "de,us"
-    Option "XkbVariant" ","
-    Option "XkbOptions" "altwin:swap_lalt_lwin"
-  EndSection
+   Section "InputClass"
+   Identifier "system-keyboard"
+   MatchIsKeyboard "on"
+   Option "XkbLayout" "de,us"
+   Option "XkbVariant" ","
+   Option "XkbOptions" "altwin:swap_lalt_lwin"
+   EndSection
 
 ** Network
 
@@ -55,3 +55,20 @@
     #+BEGIN_SRC sh :results verbatim
       sudo pacman -S bumblebee mesa xf86-video-intel nvidia lib32-nvidia-utils lib32-virtualgl nvidia-settings bbswitch primus lib32-primus
     #+END_SRC
+** Speeker
+
+   See: [[https://wiki.archlinux.org/index.php/PC_speaker][Arch Linux PC Speecker Wiki]]
+
+   The PC speaker can be disabled by unloading the pcspkr kernel
+   module.
+
+   #+BEGIN_SRC sh :results verbatim
+     rmmod pcspkr
+   #+END_SRC
+
+   Blacklisting the pcspkr module will prevent udev from loading it at
+   boot.
+
+   #+BEGIN_SRC sh :results verbatim
+     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+   #+END_SRC
