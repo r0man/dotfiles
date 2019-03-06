@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+nvidia() {
+    echo "Switching to Nvidia graphics card ..."
+    killall Xorg
+    modprobe nvidia_drm
+    modprobe nvidia_modeset
+    modprobe nvidia
+    tee /proc/acpi/bbswitch <<<ON
+    ln -sf /home/roman/.dotfiles/x11/xorg.thinkpad.nvidia.conf /etc/X11/xorg.conf
+}
+
+intel() {
+    echo "Switching to Intel graphics card ..."
+    killall Xorg
+    rmmod nvidia_drm
+    rmmod nvidia_modeset
+    rmmod nvidia
+    tee /proc/acpi/bbswitch <<<OFF
+    ln -sf /home/roman/.dotfiles/x11/xorg.thinkpad.intel.conf /etc/X11/xorg.conf
+}
+
+case "$1" in
+    intel)
+        intel
+        ;;
+
+    nvidia)
+        nvidia
+        ;;
+
+    status)
+        echo "status"
+        ;;
+    *)
+        echo "Usage: thinkpad-switch-screen intel|nvidia"
+        ;;
+esac

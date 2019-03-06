@@ -6,7 +6,7 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-Xft.dpi: 120
+Xft.dpi: 144
 
 ! DZEN2
 dzen2.font: Inconsolata-14
