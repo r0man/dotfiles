@@ -134,6 +134,11 @@
   "Run htop."
   (run-or-raise "urxvt -name HTop -e htop" '(:instance "HTop")))
 
+(defcommand keyboard-backlight (on-or-off)
+    ((:y-or-n " Turn Keyboard Backlight on? "))
+  "Turn the keyboard light on or off."
+  (run-shell-command (format nil "keyboard-backlight ~a" (if on-or-off "on" "off"))))
+
 (defcommand wifi-menu () ()
   "Run wifi-menu."
   (run-or-raise "urxvt -name wifi-menu -e sudo wifi-menu" '(:instance "wifi-menu")))

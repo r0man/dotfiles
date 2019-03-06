@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+set_keyboard_light () {
+    dbus-send --system --type=method_call  --dest="org.freedesktop.UPower" "/org/freedesktop/UPower/KbdBacklight" "org.freedesktop.UPower.KbdBacklight.SetBrightness" int32:$1
+}
+
+case "$1" in
+    on)
+        set_keyboard_light 1
+        ;;
+
+    off)
+        set_keyboard_light 0
+        ;;
+    *)
+        echo "Usage: keyboard-backlight on|off"
+        exit 1
+        ;;
+esac
