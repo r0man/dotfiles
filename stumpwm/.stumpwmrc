@@ -279,11 +279,11 @@
 (define-key *top-map* (kbd "s-RET") "rotate-windows")
 (define-key *top-map* (kbd "S-s-RET") "swap-windows")
 
-(define-key *top-map* (kbd "s-j") "fnext")
-(define-key *top-map* (kbd "s-k") "fprev")
+(define-key *top-map* (kbd "s-j") "fprev")
+(define-key *top-map* (kbd "s-k") "fnext")
 
-(define-key *top-map* (kbd "s-J") "next")
-(define-key *top-map* (kbd "s-K") "prev")
+(define-key *top-map* (kbd "s-J") "prev")
+(define-key *top-map* (kbd "s-K") "next")
 
 (define-key *top-map* (kbd "s-m") "rofi-window")
 
