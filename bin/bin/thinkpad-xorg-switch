@@ -7,7 +7,7 @@ nvidia() {
     modprobe nvidia_modeset
     modprobe nvidia
     tee /proc/acpi/bbswitch <<<ON
-    ln -sf /home/roman/.dotfiles/x11/xorg.thinkpad.nvidia.conf /etc/X11/xorg.conf
+    ln -sf /home/roman/.dotfiles/x11/thinkpad/xorg.nvidia.conf /etc/X11/xorg.conf
 }
 
 intel() {
@@ -17,7 +17,7 @@ intel() {
     rmmod nvidia_modeset
     rmmod nvidia
     tee /proc/acpi/bbswitch <<<OFF
-    ln -sf /home/roman/.dotfiles/x11/xorg.thinkpad.intel.conf /etc/X11/xorg.conf
+    ln -sf /home/roman/.dotfiles/x11/thinkpad/xorg.intel.conf /etc/X11/xorg.conf
 }
 
 case "$1" in
