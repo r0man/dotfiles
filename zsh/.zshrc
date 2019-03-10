@@ -112,6 +112,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_
 export WORKON_HOME=~/.virtualenv
 [ -r /usr/bin/virtualenvwrapper.sh ] && . /usr/bin/virtualenvwrapper.sh
 
-export PATH
-
 [ -r /home/roman/.nurc ] && source /home/roman/.nurc
+
+export PATH
