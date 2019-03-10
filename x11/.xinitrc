@@ -29,7 +29,7 @@ fi
 # chromium &
 
 # Start composite window manager
-compton &
+# compton &
 
 # Start Gnome
 #exec gnome-session
