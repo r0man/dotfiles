@@ -9,3 +9,5 @@ if [ "$MONITORS" == 1 ]; then
     echo "External monitor connected."
     xrandr --output $EXTERNAL --right-of $INTERNAL --auto
 fi
+
+# xrandr --output HDMI-0 --right-of DP-2 --auto --scale 1.5x1.5
