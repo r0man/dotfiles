@@ -114,4 +114,13 @@ export WORKON_HOME=~/.virtualenv
 
 [ -r /home/roman/.nurc ] && source /home/roman/.nurc
 
+# # Keychain
+
+# eval $(keychain --eval --agents "gpg,ssh" --quiet id_rsa)
+
+# # Add ssh keys.
+# for i in $(ls -1 ~/.ssh/*.pub ); do
+#     ssh-add ${i/.pub/}
+# done
+
 export PATH
