@@ -98,7 +98,7 @@
  "gnewbg 4"
  "gnewbg 5"
  "gnewbg 6"
- "gnewbg 7"
+ "gnewbg Slack"
  "gnewbg Logs"
  "gnewbg Top")
 
@@ -109,6 +109,9 @@
 
 (define-frame-preference "Web"
   (1 t t :class "Chromium"))
+
+(define-frame-preference "Slack"
+  (7 nil t :class "Slack"))
 
 (define-frame-preference "Logs"
   (8 nil t :instance "Logs"))
@@ -139,10 +142,6 @@
   "Turn the keyboard light on or off."
   (run-shell-command (format nil "keyboard-backlight ~a" (if on-or-off "on" "off"))))
 
-(defcommand wifi-menu () ()
-  "Run wifi-menu."
-  (run-or-raise "urxvt -name wifi-menu -e sudo wifi-menu" '(:instance "wifi-menu")))
-
 (defcommand logs () ()
   "Show the logs."
   (run-or-raise "urxvt -name Logs -e sudo journalctl -f -a -n 100" '(:instance "Logs")))
@@ -150,6 +149,10 @@
 (defcommand polybar () ()
   "Run the polybar status bar."
   (run-shell-command "start-polybar"))
+
+(defcommand slack () ()
+  "Run slack."
+  (run-or-raise "slack --startup" '(:instance "Slack")))
 
 (defcommand terminal () ()
   "Run the urxvt terminal."
@@ -307,17 +310,18 @@
 ;;   (member (window-class window) floating-windows :test 'string-equal))
 
 ;; (defun my-float-window-hook (window)
-;;   (print "FLOAT NEW WINDOW")
-;;   (message "HELLO")
-;;   (when (floating-class-p window)
-;;     (float-window window (current-group))
-;;     (maximize-float window)))
+;;   (message "FLOAT NEW WINDOW HOOK ~s" (floating-class-p window))
+;;   ;; (when (floating-class-p window)
+;;   ;;     (message "FLOAT NEW WINDOW HOOK")
+;;   ;;     ;; (float-window window (current-group))
+;;   ;;     ;; (maximize-float window)
+;;   ;;     )
+;;   )
 
 ;; (remove-hook *new-window-hook* 'my-float-window-hook)
 ;; (add-hook *new-window-hook* 'my-float-window-hook)
 
 ;; (resize-head 0 0 0 2880 (- 1800 (* 2 27)))
-
 
 ;; Start programs last
 
@@ -326,6 +330,7 @@
  "chromium"
  "gselect Emacs"
  "emacs"
+ "slack"
  "htop"
  "gselect Logs"
  "logs"
