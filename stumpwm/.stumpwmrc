@@ -192,7 +192,6 @@
      "")
     ((string-equal name "Web")
      "")
-
     ((string-equal name "Terminal")
      "")
     ((string-equal name "Top")
