@@ -12,6 +12,7 @@
 (load-module "cpu")
 (load-module "globalwindows")
 (load-module "mem")
+(load-module "pass")
 (load-module "ttf-fonts")
 (load-module "wifi")
 
