@@ -10,6 +10,7 @@
 
 (load-module "battery-portable")
 (load-module "cpu")
+(load-module "globalwindows")
 (load-module "mem")
 (load-module "ttf-fonts")
 (load-module "wifi")
