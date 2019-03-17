@@ -8,7 +8,12 @@
 
 (set-module-dir (pathname-as-directory (concat (getenv "HOME") "/workspace/stumpwm-contrib")))
 
+(load-module "battery-portable")
+(load-module "cpu")
+(load-module "mem")
 (load-module "ttf-fonts")
+(load-module "wifi")
+
 ;; (load-module "winner-mode")
 ;; (load-module "globalwindows")
 ;; (load-module "amixer")
@@ -80,8 +85,10 @@
 (setf *mode-line-timeout* 1)
 
 (setf *screen-mode-line-format*
-      (list "[^B%n^b] %W | %g | "
-            '(:eval (stumpwm:run-shell-command "date" t))))
+      (list "[^B%n^b] %W | %g ^> %C | %M | BAT: %B | %I | "
+            '(:eval (run-shell-command "date '+%a, %d %b %k:%M:%S'" t))))
+
+(run-commands "mode-line")
 
 ;; Use thin window border.
 (setf *window-border-style* :thin)
@@ -306,7 +313,8 @@
  "gselect Logs"
  "logs"
  "gselect Emacs"
- "polybar")
+ ;; "polybar"
+ )
 
 
 ;; Centered floating window
