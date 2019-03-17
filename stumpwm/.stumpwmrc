@@ -202,19 +202,20 @@
 
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
-  (apply #'concatenate 'string
-         (mapcar
-          (lambda (g)
-            (let* ((name (group-name g))
-                   (number (write-to-string (group-number g)))
-                   (n-win (write-to-string (length (group-windows g))))
-                   (icon (icon-by-group name))
-                   (text (concat " %{F#54728E}" icon "%{F-} " number ":" name " ")))
-              (cond
-                ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" text "[" n-win "] " "%{F- B- u- -u}"))
-                ((string-equal n-win "0") "")
-                (t (concat "%{F#FFFFFF}" text "[" n-win "] " "%{F-}")))))
-          (sort (screen-groups (current-screen)) #'< :key #'group-number))))
+  (ignore-errors
+    (apply #'concatenate 'string
+           (mapcar
+            (lambda (g)
+              (let* ((name (group-name g))
+                     (number (write-to-string (group-number g)))
+                     (n-win (write-to-string (length (group-windows g))))
+                     (icon (icon-by-group name))
+                     (text (concat " %{F#54728E}" icon "%{F-} " number ":" name " ")))
+                (cond
+                  ((eq g (current-group)) (concat "%{F#FFFFFF B#000000 u#54728E +u}" text "[" n-win "] " "%{F- B- u- -u}"))
+                  ((string-equal n-win "0") "")
+                  (t (concat "%{F#FFFFFF}" text "[" n-win "] " "%{F-}")))))
+            (sort (screen-groups (current-screen)) #'< :key #'group-number)))))
 
 (defun polybar-update-groups ()
   (run-shell-command "polybar-msg hook stumpwmgroups 1"))
@@ -294,34 +295,6 @@
      (define-key *top-map* (kbd (format nil "s-~d" group))
        (format nil "gselect ~d" group)))
 
-;; Switch to Emacs group
-
-;; TODO: Get this working
-;; (run-commands "gselect Emacs")
-
-;; (print (current-head))
-
-;; (defparameter floating-windows
-;;   '("xclock"
-;;     "pinentry-gtk-2"))
-
-;; (defun floating-class-p (window)
-;;   (member (window-class window) floating-windows :test 'string-equal))
-
-;; (defun my-float-window-hook (window)
-;;   (message "FLOAT NEW WINDOW HOOK ~s" (floating-class-p window))
-;;   ;; (when (floating-class-p window)
-;;   ;;     (message "FLOAT NEW WINDOW HOOK")
-;;   ;;     ;; (float-window window (current-group))
-;;   ;;     ;; (maximize-float window)
-;;   ;;     )
-;;   )
-
-;; (remove-hook *new-window-hook* 'my-float-window-hook)
-;; (add-hook *new-window-hook* 'my-float-window-hook)
-
-;; (resize-head 0 0 0 2880 (- 1800 (* 2 27)))
-
 ;; Start programs last
 
 (run-commands
@@ -335,3 +308,39 @@
  "logs"
  "gselect Emacs"
  "polybar")
+
+
+;; Centered floating window
+
+(defun with-open-window (cmd props function &rest args)
+  "Run a command, setup a handler to apply a function to the new window once it's open."
+  (let (handler)
+    (setf handler #'(lambda (new-window)
+                      (when (apply 'stumpwm::window-matches-properties-p new-window props)
+                        (remove-hook *new-window-hook* handler)
+                        (setf handler #'(lambda (focused-window last-focused-window)
+                                          (declare (ignore last-focused-window))
+                                          (when (eq new-window focused-window)
+                                            (remove-hook *focus-window-hook* handler)
+                                            (apply function new-window args))))
+                        (add-hook *focus-window-hook* handler))))
+    (add-hook *new-window-hook* handler)
+    (run-shell-command cmd)))
+
+(defcommand run-floating-htop () ()
+  "Run floating htop"
+  (with-open-window
+      "urxvt -name floating-htop -e htop"
+    '(:instance "floating-htop")
+    (lambda (window)
+      (let* ((head (current-head))
+             (width (/ (head-width head) 2))
+             (height (/ (head-height head) 3))
+             (x (/ (- (head-width head) width) 2))
+             (y (/ (- (head-height head) height) 2)))
+        (float-window window (current-group))
+        (float-window-move-resize window :x x :y y :width width :height height)))))
+
+;; (setf *float-window-border* 1)
+;; (set-float-focus-color "#54728E")
+;; (set-float-unfocus-color "white")
