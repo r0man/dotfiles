@@ -63,6 +63,9 @@ export PATH="$MAHOUT_HOME/bin:$PATH"
 export NUTCH_HOME="$HOME/local/nutch"
 export PATH="$NUTCH_HOME/bin:$PATH"
 
+# NUBANK
+[ -r /home/roman/.nurc ] && source /home/roman/.nurc
+
 # PIG
 export PIG_HOME="$HOME/local/pig"
 export PATH="$PIG_HOME/bin:$PATH"
