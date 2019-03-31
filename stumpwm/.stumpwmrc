@@ -90,24 +90,34 @@
   "Strip newline characters from `s`."
   (string-trim '(#\newline) s))
 
+(defun current-date ()
+  "Returns the current date."
+  (let ((cmd (format nil "date '+%a, %d %b'")))
+    (trim-newline (run-shell-command cmd t))))
+
 (defun current-time-in-zone (time-zone)
   "Returns the current time in `time-zone`."
-  (let ((cmd (format nil "TZ=~S date '+%a, %d %b %k:%M:%S'" time-zone)))
+  (let ((cmd (format nil "TZ=~S date '+%k:%M:%S'" time-zone)))
     (trim-newline (run-shell-command cmd t))))
+
+(defun current-time-utc ()
+  "Returns the current time in UTC."
+  (concatenate 'string "UTC: " (current-time-in-zone "UTC")))
 
 (defun current-time-berlin ()
   "Returns the current time in Berlin."
-  (current-time-in-zone "Europe/Berlin"))
+  (concatenate 'string "BERLIN: " (current-time-in-zone "Europe/Berlin")))
 
 (defun current-time-sao-paulo ()
   "Returns the current time in Sao Paulo."
-  (current-time-in-zone "Brazil/East"))
+  (concatenate 'string "SÃO PAULO: " (current-time-in-zone "Brazil/East")))
 
 (setf *screen-mode-line-format*
-      (list "[^B%n^b] %W | %g ^> %C | %M | BAT: %B | %I | "
-            "SAO PAULO: "'(:eval (current-time-sao-paulo))
-            " | BERLIN: "
-            '(:eval (current-time-berlin))))
+      (list "[^B%n^b] %W | %g ^> %C | %M | BAT: %B | %I"
+            " | " '(:eval (current-time-utc))
+            " | " '(:eval (current-time-sao-paulo))
+            " | " '(:eval (current-time-berlin))
+            " | " '(:eval (current-date))))
 
 (run-commands "mode-line")
 
