@@ -86,9 +86,28 @@
 (setf *mode-line-border-color* "black")
 (setf *mode-line-timeout* 1)
 
+(defun trim-newline (s)
+  "Strip newline characters from `s`."
+  (string-trim '(#\newline) s))
+
+(defun current-time-in-zone (time-zone)
+  "Returns the current time in `time-zone`."
+  (let ((cmd (format nil "TZ=~S date '+%a, %d %b %k:%M:%S'" time-zone)))
+    (trim-newline (run-shell-command cmd t))))
+
+(defun current-time-berlin ()
+  "Returns the current time in Berlin."
+  (current-time-in-zone "Europe/Berlin"))
+
+(defun current-time-sao-paulo ()
+  "Returns the current time in Sao Paulo."
+  (current-time-in-zone "Brazil/East"))
+
 (setf *screen-mode-line-format*
       (list "[^B%n^b] %W | %g ^> %C | %M | BAT: %B | %I | "
-            '(:eval (run-shell-command "date '+%a, %d %b %k:%M:%S'" t))))
+            "SAO PAULO: "'(:eval (current-time-sao-paulo))
+            " | BERLIN: "
+            '(:eval (current-time-berlin))))
 
 (run-commands "mode-line")
 
