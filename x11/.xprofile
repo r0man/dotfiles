@@ -3,18 +3,15 @@
 # ~/.xprofile
 #
 
-HOSTNAME=`hostname`
-HOSTCONF="$HOME/.dotfiles/$HOSTNAME"
-
 # Configure external monitor.
 ~/.dotfiles/bin/external-monitor
 
 # Load default .Xresources
-[[ -f ~/.Xresources ]] && xrdb -all -load ~/.Xresources
+[ -f ~/.Xresources ] && xrdb -all -load ~/.Xresources
 
 # Load default .Xresources by hostname
-XRESOURCES="$HOSTCONF/.Xresources"
-[[ -f $XRESOURCES ]] && xrdb -all -load $XRESOURCES
+XRESOURCES_HOST=~/.Xresources.$(hostname)
+[ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
 
 # Set wallpaper
 feh --bg-scale ~/.xmonad/wallpapers/stop-customizing-start-working.jpg
