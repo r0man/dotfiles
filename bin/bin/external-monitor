@@ -1,13 +1,22 @@
 #!/usr/bin/env bash
 
-EXTERNAL="DP-1"
-INTERNAL="eDP-1"
+EXTERNAL="HDMI-0"
+INTERNAL="DP-2"
 
-MONITORS=`xrandr | grep connected | grep -v disconnected | grep -v eDP | wc -l`
-
-if [ "$MONITORS" == 1 ]; then
+if xrandr | grep "$EXTERNAL disconnected"; then
+    echo "External monitor not connected."
+    xrandr --output "$INTERNAL" --primary --auto --output "$EXTERNAL" --off
+else
     echo "External monitor connected."
-    xrandr --output $EXTERNAL --right-of $INTERNAL --auto
+    xrandr --output "$INTERNAL" --mode 3840x2160 --output "$EXTERNAL" --right-of "$INTERNAL" --mode 2560x1440 --scale 1.5x1.5 --primary
 fi
 
+# xrandr --output HDMI-0 --off
+
 # xrandr --output HDMI-0 --right-of DP-2 --auto --scale 1.5x1.5
+# xrandr --output LVDS1 --mode 1600x900 --output HDMI1 --mode 1920x1080 --same-as LVDS1
+
+# Mirror
+# xrandr --output HDMI-0 --same-as DP-2
+
+# xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-2
