@@ -22,12 +22,6 @@ fi
 
 # start-pulseaudio-x11 &
 
-# Start Emacs.
-# emacs &
-
-# Start chromium.
-# chromium &
-
 # Start composite window manager
 compton &
 
