@@ -1,1 +1,4 @@
 Xft.dpi: 96
+dzen2.font: Inconsolata-15
+emacs.font: Inconsolata-15
+URxvt.font: xft:Inconsolata-15
