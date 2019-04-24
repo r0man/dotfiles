@@ -11,9 +11,6 @@ for i in $(ls -1 ~/.ssh/*.pub ); do
     ssh-add ${i/.pub/}
 done
 
-# AUTOJUMP
-[ -r /etc/profile.d/autojump.bash ] && . /etc/profile.d/autojump.bash
-
 export EDITOR="emacsclient"
 
 # SOLARIZED
