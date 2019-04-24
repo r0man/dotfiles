@@ -6,17 +6,9 @@ INTERNAL="DP-2"
 if xrandr | grep "$EXTERNAL disconnected"; then
     echo "External monitor not connected."
     xrandr --output "$INTERNAL" --primary --auto --output "$EXTERNAL" --off
+    sleep 1
 else
     echo "External monitor connected."
-    xrandr --output "$INTERNAL" --mode 3840x2160 --output "$EXTERNAL" --right-of "$INTERNAL" --mode 2560x1440 --scale 1.5x1.5 --primary
+    xrandr --output HDMI-0 --mode 2560x1440 --pos 0x0 --rotate normal --scale 1.5x1.5 --output DP-2 --primary --mode 3840x2160 --pos 0x2160 --rotate normal --output DP-1 --off --output DP-0 --off
+    sleep 1
 fi
-
-# xrandr --output HDMI-0 --off
-
-# xrandr --output HDMI-0 --right-of DP-2 --auto --scale 1.5x1.5
-# xrandr --output LVDS1 --mode 1600x900 --output HDMI1 --mode 1920x1080 --same-as LVDS1
-
-# Mirror
-# xrandr --output HDMI-0 --same-as DP-2
-
-# xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-2
