@@ -142,8 +142,8 @@
 
 ;; Rule Based Window Placement
 
-(define-frame-preference "Emacs"
-  (0 t t :class "Emacs"))
+;; (define-frame-preference "Emacs"
+;;   (0 t t :class "Emacs"))
 
 (define-frame-preference "Web"
   (1 t t :class "Chromium"))
@@ -338,7 +338,7 @@
  "gselect Web"
  "chromium"
  "gselect Emacs"
- "emacs"
+ ;; "emacs"
  "slack"
  "htop"
  "gselect Logs"
