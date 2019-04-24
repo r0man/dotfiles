@@ -17,6 +17,9 @@ if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
     eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
 fi
 
+# AUTOJUMP
+[ -r /etc/profile.d/autojump.bash ] && . /etc/profile.d/autojump.bash
+
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
