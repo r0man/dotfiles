@@ -9,5 +9,6 @@
 (ql:quickload "cl-ppcre")
 (ql:quickload "clx")
 (ql:quickload "clx-truetype")
+(ql:quickload "local-time")
 (ql:quickload "stumpwm")
 (ql:quickload "swank")

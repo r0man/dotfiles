@@ -86,19 +86,16 @@
 (setf *mode-line-border-color* "black")
 (setf *mode-line-timeout* 1)
 
-(defun trim-newline (s)
-  "Strip newline characters from `s`."
-  (string-trim '(#\newline) s))
+(local-time:reread-timezone-repository)
 
 (defun current-date ()
   "Returns the current date."
-  (let ((cmd (format nil "date '+%a, %d %b'")))
-    (trim-newline (run-shell-command cmd t))))
+  (local-time:format-timestring nil (local-time:now) :format '(:short-weekday ", " :day " " :short-month)))
 
-(defun current-time-in-zone (time-zone)
-  "Returns the current time in `time-zone`."
-  (let ((cmd (format nil "TZ=~S date '+%k:%M:%S'" time-zone)))
-    (trim-newline (run-shell-command cmd t))))
+(defun current-time-in-zone (time-zone-name)
+  "Returns the current time in `time-zone-name`."
+  (let ((local-time:*default-timezone* (local-time:find-timezone-by-location-name time-zone-name)))
+    (local-time:format-timestring nil (local-time:now) :format '((:hour 2) ":" (:min 2) ":" (:sec 2)))))
 
 (defun current-time-utc ()
   "Returns the current time in UTC."
