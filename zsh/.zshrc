@@ -53,3 +53,7 @@ setopt ALWAYS_TO_END
 autoload -U promptinit
 promptinit
 prompt redhat
+
+# FZF
+[ -r /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -r /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
