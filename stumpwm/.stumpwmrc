@@ -324,6 +324,16 @@
 
 (define-key *top-map* (kbd "s-m") "rofi-window")
 
+;; Pass Bindings
+
+(defvar *pass-bindings*
+  (let ((m (make-sparse-keymap)))
+    (define-key m (stumpwm:kbd "c") "pass-copy-menu")
+    (define-key m (stumpwm:kbd "g") "pass-generate")
+    m))
+
+(define-key *root-map* (kbd "P") '*pass-bindings*)
+
 ;; Switch to groups with s-[0-9]
 (loop for group from 0 to 9 do
      (define-key *top-map* (kbd (format nil "s-~d" group))
