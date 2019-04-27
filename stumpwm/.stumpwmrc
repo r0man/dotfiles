@@ -13,14 +13,9 @@
 (load-module "globalwindows")
 (load-module "mem")
 (load-module "pass")
+(load-module "screenshot")
 (load-module "ttf-fonts")
 (load-module "wifi")
-
-;; (load-module "winner-mode")
-;; (load-module "globalwindows")
-;; (load-module "amixer")
-;; (load-module "swm-gaps")
-;; (load-module "kbd-layouts")
 
 ;; Colors
 

@@ -12,3 +12,4 @@
 (ql:quickload "local-time")
 (ql:quickload "stumpwm")
 (ql:quickload "swank")
+(ql:quickload "zpng")
