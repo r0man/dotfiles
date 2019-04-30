@@ -16,6 +16,9 @@ XRESOURCES_HOST=~/.Xresources.$(hostname)
 # Set wallpaper
 feh --bg-scale ~/.dotfiles/wallpapers/stop-customizing-start-working.jpg
 
+# Start composite, a compositor for X11.
+compton &
+
 # Dunst
 killall dunst; dunst &
 

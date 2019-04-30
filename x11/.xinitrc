@@ -22,9 +22,6 @@ fi
 
 # start-pulseaudio-x11 &
 
-# Start composite window manager
-compton &
-
 # Start Gnome
 #exec gnome-session
 
