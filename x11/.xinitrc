@@ -25,9 +25,6 @@ fi
 # Start composite window manager
 compton &
 
-# Dunst
-killall dunst; dunst &
-
 # Start Gnome
 #exec gnome-session
 
