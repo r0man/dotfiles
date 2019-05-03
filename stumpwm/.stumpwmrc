@@ -42,6 +42,18 @@
   :subfamily "Regular"
   :size 12))
 
+;; Work around memory issue.
+;; See: https://github.com/stumpwm/stumpwm/issues/474
+(run-with-timer
+ 900 900
+ (lambda ()
+   (loop for font in (stumpwm::screen-fonts (current-screen))
+      when (typep font 'xft:font)
+      do (clrhash (xft::font-string-line-bboxes font))
+        (clrhash (xft::font-string-line-alpha-maps font))
+        (clrhash (xft::font-string-bboxes font))
+        (clrhash (xft::font-string-alpha-maps font)))))
+
 ;; Debug
 
 (setf *debug-level* 10)
