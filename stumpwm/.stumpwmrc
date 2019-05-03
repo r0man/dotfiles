@@ -1,6 +1,8 @@
 ;; -*- lisp -*-
 (in-package :stumpwm)
 
+(load "~/.stumpwm.d/time.lisp")
+
 ;; Don't show startup message.
 (setf *startup-message* nil)
 
@@ -40,7 +42,7 @@
   'xft:font
   :family "Inconsolata"
   :subfamily "Regular"
-  :size 12))
+  :size 13))
 
 ;; Work around memory issue.
 ;; See: https://github.com/stumpwm/stumpwm/issues/474
@@ -92,29 +94,6 @@
 (setf *mode-line-foreground-color* "white")
 (setf *mode-line-border-color* "black")
 (setf *mode-line-timeout* 1)
-
-(local-time:reread-timezone-repository)
-
-(defun current-date ()
-  "Returns the current date."
-  (local-time:format-timestring nil (local-time:now) :format '(:short-weekday ", " :day " " :short-month)))
-
-(defun current-time-in-zone (time-zone-name)
-  "Returns the current time in `time-zone-name`."
-  (let ((local-time:*default-timezone* (local-time:find-timezone-by-location-name time-zone-name)))
-    (local-time:format-timestring nil (local-time:now) :format '((:hour 2) ":" (:min 2) ":" (:sec 2)))))
-
-(defun current-time-utc ()
-  "Returns the current time in UTC."
-  (concatenate 'string "UTC: " (current-time-in-zone "UTC")))
-
-(defun current-time-berlin ()
-  "Returns the current time in Berlin."
-  (concatenate 'string "BERLIN: " (current-time-in-zone "Europe/Berlin")))
-
-(defun current-time-sao-paulo ()
-  "Returns the current time in Sao Paulo."
-  (concatenate 'string "SÃO PAULO: " (current-time-in-zone "Brazil/East")))
 
 (setf *screen-mode-line-format*
       (list "[^B%n^b] %W | %g ^> %C | %M | BAT: %B | %I"

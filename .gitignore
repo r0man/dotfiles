@@ -9,3 +9,5 @@
 /paktahn/.paktahn/checksums
 /stumpwm/.stumpwmrc.fasl
 /xmonad/.xmonad/prompt-history
+/stumpwm/.stumpwm.d/debug.log
+*.fasl
