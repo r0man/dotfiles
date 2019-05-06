@@ -26,3 +26,10 @@ PROMPT_COMMAND="history -a"
 # FZF
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 [ -r /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
+
+# KAFKA
+KAFKA_HOME="$HOME/local/kafka"
+if [ -d $KAFKA_HOME ]; then
+    export KAFKA_HOME
+    export PATH="$KAFKA_HOME/bin:$PATH"
+fi
