@@ -25,6 +25,10 @@ PROMPT_COMMAND="history -a"
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# Virtual Env
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
+
 # FZF
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 [ -r /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
