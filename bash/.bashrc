@@ -23,6 +23,8 @@ export HISTFILESIZE=10000
 shopt -s histappend
 PROMPT_COMMAND="history -a"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # FZF
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 [ -r /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
