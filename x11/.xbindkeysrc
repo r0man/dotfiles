@@ -44,3 +44,28 @@
 # Decrease backlight
 "light -U 10"
    XF86MonBrightnessDown
+
+# Move mouse up (Super + p)
+"xdotool mousemove_relative --sync -- 0 -40"
+Mod2+Mod4 + p
+
+# Move mouse down (Super + n)
+"xdotool mousemove_relative --sync -- 0 40"
+Mod2+Mod4 + n
+
+# Move mouse left (Super + b)
+"xdotool mousemove_relative --sync -- -40 0"
+Mod2+Mod4 + b
+
+# Move mouse right (Super + f)
+"xdotool mousemove_relative --sync -- 40 0"
+Mod2+Mod4 + f
+
+# Left click (Super + Return)
+"sleep 1 && xdotool click 1"
+Mod2+Mod4 + Return
+# Mod1+Shift+q
+
+# Right click (Super + Shift + Return)
+"sleep 1 && xdotool click 3"
+Mod2 + Mod4 + Shift + Return
