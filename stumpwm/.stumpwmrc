@@ -159,6 +159,7 @@
 (define-key *top-map* (kbd "s-K") "fnext")
 
 (define-key *top-map* (kbd "s-m") "rofi-window")
+(define-key *top-map* (kbd "s-r") "remove-split")
 
 ;; Pass Bindings
 
