@@ -107,6 +107,7 @@
 
 ;; Input focus follows the mouse on click.
 (setf *mouse-focus-policy* :click)
+;; (setf *mouse-focus-policy* :sloppy) ??
 
 ;; GROUPS
 
