@@ -46,20 +46,32 @@
    XF86MonBrightnessDown
 
 # Move mouse up (Super + p)
-"xdotool mousemove_relative --sync -- 0 -40"
+"xdotool mousemove_relative --sync -- 0 -50"
 Mod2 + Mod4 + p
 
+"xdotool mousemove_relative --sync -- 0 -25"
+Mod2 + Mod4 + Shift + p
+
 # Move mouse down (Super + n)
-"xdotool mousemove_relative --sync -- 0 40"
+"xdotool mousemove_relative --sync -- 0 50"
 Mod2 + Mod4 + n
 
+"xdotool mousemove_relative --sync -- 0 25"
+Mod2 + Mod4 + Shift + n
+
 # Move mouse left (Super + b)
-"xdotool mousemove_relative --sync -- -40 0"
+"xdotool mousemove_relative --sync -- -50 0"
 Mod2 + Mod4 + b
 
+"xdotool mousemove_relative --sync -- -25 0"
+Mod2 + Mod4 + Shift + b
+
 # Move mouse right (Super + f)
-"xdotool mousemove_relative --sync -- 40 0"
+"xdotool mousemove_relative --sync -- 50 0"
 Mod2 + Mod4 + f
+
+"xdotool mousemove_relative --sync -- 25 0"
+Mod2 + Mod4 + Shift + f
 
 # Left click (Super + Return)
 "xdotool click 1"
