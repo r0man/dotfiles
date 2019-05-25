@@ -183,15 +183,10 @@
  "gselect Web"
  "chromium"
  "gselect Emacs"
- ;; "emacs"
- "slack"
  "htop"
  "gselect Logs"
  "logs"
- "gselect Emacs"
- ;; "polybar"
- )
-
+ "gselect Emacs")
 
 ;; Centered floating window
 
