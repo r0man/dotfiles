@@ -74,12 +74,13 @@ Mod2 + Mod4 + f
 Mod2 + Mod4 + Shift + f
 
 # Left click (Super + Return)
-"xdotool click 1"
-Mod2 + Mod4 + Return
+# "xdotool click 1"
+# Mod2 + Mod4 + Return
+
 
 # Right click (Super + Shift + Return)
-"xdotool click 3"
-Mod2 + Mod4 + Shift + Return
+# "xdotool click 3"
+# Mod2 + Mod4 + Shift + Return
 
 # "xdotool key 5"
 # Mod2 + Mod4 + n
