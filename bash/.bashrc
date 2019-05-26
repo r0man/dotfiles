@@ -39,3 +39,7 @@ if [ -d $KAFKA_HOME ]; then
     export KAFKA_HOME
     export PATH="$KAFKA_HOME/bin:$PATH"
 fi
+
+# Google Application Default Credentials
+# See: https://developers.google.com/identity/protocols/application-default-credentials
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
