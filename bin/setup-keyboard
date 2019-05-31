@@ -7,7 +7,7 @@ setxkbmap -layout de
 setxkbmap -option "ctrl:nocaps"
 
 # Swap ALT and WIN keys
-setxkbmap -option altwin:swap_alt_win
+# setxkbmap -option altwin:swap_alt_win
 
 # Enable X restart with CTRL-ALT-BACKSPACE
 setxkbmap -option terminate:ctrl_alt_bksp
