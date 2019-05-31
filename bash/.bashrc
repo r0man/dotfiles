@@ -29,6 +29,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
+# Nubank
+[ -r /home/roman/.nurc ] && source /home/roman/.nurc
+
 # FZF
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 [ -r /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
