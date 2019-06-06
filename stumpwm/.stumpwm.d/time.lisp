@@ -2,6 +2,12 @@
 
 (local-time:reread-timezone-repository)
 
+(defvar modeline-fg-grey
+  "^(:fg \"#aaaaaa\")")
+
+(defvar modeline-fg-white
+  "^(:fg \"#ffffff\")")
+
 (defun current-date ()
   "Returns the current date."
   (local-time:format-timestring nil (local-time:now) :format '(:short-weekday ", " :day " " :short-month)))
@@ -13,7 +19,7 @@
 
 (defun current-time-utc ()
   "Returns the current time in UTC."
-  (concatenate 'string "UTC: " (current-time-in-zone "UTC")))
+  (concatenate 'string modeline-fg-grey "UTC: " (current-time-in-zone "UTC") modeline-fg-white))
 
 (defun current-time-berlin ()
   "Returns the current time in Berlin."
@@ -21,4 +27,4 @@
 
 (defun current-time-sao-paulo ()
   "Returns the current time in Sao Paulo."
-  (concatenate 'string "SÃO PAULO: " (current-time-in-zone "Brazil/East")))
+  (concatenate 'string modeline-fg-grey "SÃO PAULO: " (current-time-in-zone "Brazil/East") modeline-fg-white))
