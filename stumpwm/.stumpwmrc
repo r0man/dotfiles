@@ -93,10 +93,16 @@
 (setf *mode-line-border-color* "black")
 (setf *mode-line-timeout* 1)
 
+(defvar modeline-fg-grey
+  "^(:fg \"#aaaaaa\")")
+
+(defvar modeline-fg-white
+  "^(:fg \"#ffffff\")")
+
 (setf *screen-mode-line-format*
       (list "[^B%n^b] %W | %g ^> %C | %M | BAT: %B | %I"
-            " | " '(:eval (current-time-sao-paulo))
-            " | " '(:eval (current-time-utc))
+            " | " modeline-fg-grey '(:eval (current-time-sao-paulo)) modeline-fg-white
+            " | " modeline-fg-grey '(:eval (current-time-utc)) modeline-fg-white
             " | " '(:eval (current-time-berlin))
             " | " '(:eval (current-date))))
 
