@@ -13,9 +13,6 @@
 XRESOURCES_HOST=~/.Xresources.$(hostname)
 [ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
 
-# Set wallpaper
-feh --bg-scale ~/.dotfiles/wallpapers/stop-customizing-start-working.jpg
-
 # Start composite, a compositor for X11.
 compton &
 
@@ -42,3 +39,6 @@ xscreensaver -no-splash &
 
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
+
+# Set wallpaper
+feh --bg-scale ~/.dotfiles/wallpapers/stop-customizing-start-working.jpg
