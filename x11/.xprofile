@@ -14,7 +14,7 @@ XRESOURCES_HOST=~/.Xresources.$(hostname)
 [ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
 
 # Start composite, a compositor for X11.
-compton &
+#compton &
 
 # Dunst
 killall dunst; dunst &
