@@ -28,9 +28,6 @@ export PATH="$HOME/.node_modules/bin:$PATH"
 # NUBANK
 [ -r /home/roman/.nurc ] && . /home/roman/.nurc
 
-# PERL
-export PATH="/usr/bin/site_perl:$PATH"
-
 # V8
 export V8_HOME="/usr/bin"
 
