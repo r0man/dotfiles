@@ -22,9 +22,6 @@ killall dunst; dunst &
 # Use a better mouse pointer
 xsetroot -cursor_name left_ptr
 
-# Keyboard
-~/.dotfiles/bin/setup-keyboard
-
 # Load xmodmap
 [ -f ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
 
