@@ -27,8 +27,7 @@ path+=("$HOME/.cask/bin")
 path+=("$HOME/.local/bin")
 
 # Confluent Platform
-path=("$HOME/local/confluent/bin" $path)
-export CONFLUENT_CURRENT=/home/roman/cp-data
+export CONFLUENT_HOME="$HOME/confluent-home"
 
 # NPM
 path+=("$HOME/.node_modules/bin:$PATH")
