@@ -22,7 +22,7 @@ fi
 # CASK
 export PATH="$HOME/.cask/bin:$PATH"
 
-# CONFLUENT PLATFORM
+# Confluent Platform
 export CONFLUENT_HOME="$HOME/confluent-home"
 
 # NODE
