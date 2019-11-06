@@ -26,9 +26,6 @@ path+=("/usr/local/heroku/bin")
 path+=("$HOME/.cask/bin")
 path+=("$HOME/.local/bin")
 
-# Confluent Platform
-export CONFLUENT_HOME="$HOME/confluent-home"
-
 # NPM
 path+=("$HOME/.node_modules/bin:$PATH")
 export npm_config_prefix=~/.node_modules
