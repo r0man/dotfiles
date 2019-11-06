@@ -39,6 +39,9 @@ export PATH="$PATH:$HOME/local/flutter/bin"
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 [ -r /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
 
+# Fix <RET> in Emacs, see: https://github.com/akermu/emacs-libvterm/issues/40
+export FZF_DEFAULT_OPTS="--bind=ctrl-j:accept"
+
 # KAFKA
 KAFKA_HOME="$HOME/local/kafka"
 if [ -d $KAFKA_HOME ]; then
