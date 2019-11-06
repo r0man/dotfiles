@@ -25,24 +25,34 @@ PROMPT_COMMAND="history -a"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# Virtual Env
+## VIRTUAL ENV
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
-# Nubank
+## NUBANK
 [ -r /home/roman/.nurc ] && source /home/roman/.nurc
 
 # Flutter
 export PATH="$PATH:$HOME/local/flutter/bin"
 
-# FZF
+## FZF
+
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 [ -r /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
 
 # Fix <RET> in Emacs, see: https://github.com/akermu/emacs-libvterm/issues/40
 export FZF_DEFAULT_OPTS="--bind=ctrl-j:accept"
 
-# KAFKA
+## LIBVTERM
+
+# Enable directory tracking: https://github.com/akermu/emacs-libvterm#directory-tracking
+vterm_prompt_end(){
+    printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
+}
+PS1=$PS1'$(vterm_prompt_end)'
+
+## KAFKA
+
 KAFKA_HOME="$HOME/local/kafka"
 if [ -d $KAFKA_HOME ]; then
     export KAFKA_HOME
