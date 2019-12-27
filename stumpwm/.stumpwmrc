@@ -147,7 +147,8 @@
 
 ;; Key Bindings
 
-(set-prefix-key (kbd "C-t"))
+;; (set-prefix-key (kbd "C-t"))
+(set-prefix-key (kbd "s-t"))
 ;; (set-prefix-key (kbd "s-SPC"))
 
 (define-key *root-map* (kbd "c") "terminal")
