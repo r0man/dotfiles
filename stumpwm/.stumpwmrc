@@ -150,8 +150,8 @@
 (set-prefix-key (kbd "C-t"))
 ;; (set-prefix-key (kbd "s-SPC"))
 
+(define-key *root-map* (kbd "c") "terminal")
 (define-key *root-map* (kbd "e") "emacs-client")
-(define-key *root-map* (kbd "t") "terminal")
 
 ;; (define-key *top-map* (kbd "C-s-RET") "terminal")
 
