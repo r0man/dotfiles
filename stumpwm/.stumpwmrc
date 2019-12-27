@@ -148,25 +148,24 @@
 ;; Key Bindings
 
 (set-prefix-key (kbd "C-t"))
-(set-prefix-key (kbd "s-SPC"))
+;; (set-prefix-key (kbd "s-SPC"))
 
 (define-key *root-map* (kbd "e") "emacs-client")
-
 (define-key *root-map* (kbd "t") "terminal")
 
-(define-key *top-map* (kbd "C-s-RET") "terminal")
+;; (define-key *top-map* (kbd "C-s-RET") "terminal")
 
-(define-key *top-map* (kbd "s-RET") "rotate-windows")
-(define-key *top-map* (kbd "S-s-RET") "swap-windows")
+;; (define-key *top-map* (kbd "s-RET") "rotate-windows")
+;; (define-key *top-map* (kbd "S-s-RET") "swap-windows")
 
-(define-key *top-map* (kbd "s-j") "prev")
-(define-key *top-map* (kbd "s-k") "next")
+;; (define-key *top-map* (kbd "s-j") "prev")
+;; (define-key *top-map* (kbd "s-k") "next")
 
-(define-key *top-map* (kbd "s-J") "fprev")
-(define-key *top-map* (kbd "s-K") "fnext")
+;; (define-key *top-map* (kbd "s-J") "fprev")
+;; (define-key *top-map* (kbd "s-K") "fnext")
 
-(define-key *top-map* (kbd "s-m") "rofi-window")
-(define-key *top-map* (kbd "s-r") "remove-split")
+;; (define-key *top-map* (kbd "s-m") "rofi-window")
+;; (define-key *top-map* (kbd "s-r") "remove-split")
 
 ;; Pass Bindings
 
