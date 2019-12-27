@@ -21,42 +21,42 @@
 "light -U 10"
    XF86MonBrightnessDown
 
-# Move mouse up (Super + p)
+### Move mouse up (Super + k)
 "xdotool mousemove_relative --sync -- 0 -100"
-Mod2 + Mod4 + p
+Mod2 + Mod4 + k
 
 "xdotool mousemove_relative --sync -- 0 -25"
-Mod2 + Mod4 + Shift + p
+Mod2 + Mod4 + Shift + k
 
-# Move mouse down (Super + n)
+### Move mouse down (Super + j)
 "xdotool mousemove_relative --sync -- 0 100"
-Mod2 + Mod4 + n
+Mod2 + Mod4 + j
 
 "xdotool mousemove_relative --sync -- 0 25"
-Mod2 + Mod4 + Shift + n
+Mod2 + Mod4 + Shift + j
 
-# Move mouse left (Super + b)
+### Move mouse left (Super + h)
 "xdotool mousemove_relative --sync -- -100 0"
-Mod2 + Mod4 + b
+Mod2 + Mod4 + h
 
-"xdotool mousemove_relative --sync -- -25 0"
-Mod2 + Mod4 + Shift + b
+"xdotool mousemove_relative --sync -- 0 25"
+Mod2 + Mod4 + Shift + h
 
-# Move mouse right (Super + f)
+### Move mouse right (Super + l)
 "xdotool mousemove_relative --sync -- 100 0"
-Mod2 + Mod4 + f
+Mod2 + Mod4 + l
 
 "xdotool mousemove_relative --sync -- 25 0"
-Mod2 + Mod4 + Shift + f
+Mod2 + Mod4 + Shift + l
 
-# Left click (Super + Return)
-# "xdotool click 1"
-# Mod2 + Mod4 + Return
+### Left click (Super + Return)
+"xdotool click 1"
+Mod2 + Mod4 + Return
 
+### Middle click (Super + Control + Return)
+"xdotool click 2"
+Mod2 + Control + Return
 
-# Right click (Super + Shift + Return)
-# "xdotool click 3"
-# Mod2 + Mod4 + Shift + Return
-
-# "xdotool key 5"
-# Mod2 + Mod4 + n
+### Right click (Super + Shift + Return)
+"xdotool click 3"
+Mod2 + Mod4 + Shift + Return
