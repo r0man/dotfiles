@@ -21,6 +21,8 @@
 "light -U 10"
    XF86MonBrightnessDown
 
+## MOUSE MOVEMENT // EMACS STYLE
+
 ### Move mouse up (Super + p)
 "xdotool mousemove_relative --sync -- 0 -100"
 Mod2 + Mod4 + p
@@ -48,6 +50,38 @@ Mod2 + Mod4 + f
 
 "xdotool mousemove_relative --sync -- 25 0"
 Mod2 + Mod4 + Shift + f
+
+## MOUSE MOVEMENT // VIM STYLE
+
+### Move mouse up (Super + k)
+"xdotool mousemove_relative --sync -- 0 -100"
+Mod2 + Mod4 + k
+
+"xdotool mousemove_relative --sync -- 0 -25"
+Mod2 + Mod4 + Shift + k
+
+### Move mouse down (Super + j)
+"xdotool mousemove_relative --sync -- 0 100"
+Mod2 + Mod4 + j
+
+"xdotool mousemove_relative --sync -- 0 25"
+Mod2 + Mod4 + Shift + j
+
+### Move mouse left (Super + h)
+"xdotool mousemove_relative --sync -- -100 0"
+Mod2 + Mod4 + h
+
+"xdotool mousemove_relative --sync -- 0 25"
+Mod2 + Mod4 + Shift + h
+
+### Move mouse right (Super + l)
+"xdotool mousemove_relative --sync -- 100 0"
+Mod2 + Mod4 + l
+
+"xdotool mousemove_relative --sync -- 25 0"
+Mod2 + Mod4 + Shift + l
+
+## MOUSE CLICKS
 
 ### Left click (Super + Return)
 "xdotool click 1"
