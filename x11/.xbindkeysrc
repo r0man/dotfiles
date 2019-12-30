@@ -41,7 +41,7 @@ Mod2 + Mod4 + Shift + n
 "xdotool mousemove_relative --sync -- -100 0"
 Mod2 + Mod4 + b
 
-"xdotool mousemove_relative --sync -- 0 25"
+"xdotool mousemove_relative --sync -- -25 0"
 Mod2 + Mod4 + Shift + b
 
 ### Move mouse right (Super + f)
@@ -71,7 +71,7 @@ Mod2 + Mod4 + Shift + j
 "xdotool mousemove_relative --sync -- -100 0"
 Mod2 + Mod4 + h
 
-"xdotool mousemove_relative --sync -- 0 25"
+"xdotool mousemove_relative --sync -- -25 0"
 Mod2 + Mod4 + Shift + h
 
 ### Move mouse right (Super + l)
