@@ -154,6 +154,7 @@
 (define-key *root-map* (kbd "b") "chromium")
 (define-key *root-map* (kbd "c") "terminal")
 (define-key *root-map* (kbd "e") "emacs-client")
+(define-key *root-map* (kbd "w") "rofi-window")
 
 ;; (define-key *top-map* (kbd "C-s-RET") "terminal")
 
