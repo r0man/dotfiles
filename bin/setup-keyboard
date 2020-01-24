@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# Use the German keyboard layout
-setxkbmap -layout de
+# # Use the German keyboard layout
+# setxkbmap -layout de
 
-# Use the CAPS-LOCK key as an additional control
-setxkbmap -option "ctrl:nocaps"
+# # Use the CAPS-LOCK key as an additional control
+# setxkbmap -option "ctrl:nocaps"
 
-# Swap ALT and WIN keys
-# setxkbmap -option altwin:swap_alt_win
+# # Swap ALT and WIN keys
+# # setxkbmap -option altwin:swap_alt_win
 
-# Enable X restart with CTRL-ALT-BACKSPACE
-setxkbmap -option terminate:ctrl_alt_bksp
+# # Enable X restart with CTRL-ALT-BACKSPACE
+# setxkbmap -option terminate:ctrl_alt_bksp
