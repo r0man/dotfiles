@@ -33,6 +33,19 @@ export PATH="$CONFLUENT_HOME/bin:$PATH"
 
 source <(hetzner-kube completion bash)
 
+## KAFKA
+
+KAFKA_HOME="$HOME/local/kafka"
+if [ -d $KAFKA_HOME ]; then
+    export KAFKA_HOME
+    export PATH="$KAFKA_HOME/bin:$PATH"
+fi
+
+# GOOGLE
+
+# See: https://developers.google.com/identity/protocols/application-default-credentials
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
+
 # NODE
 
 export PATH="$HOME/.node_modules/bin:$PATH"
@@ -47,6 +60,11 @@ export PGO_CA_CERT="$HOME/.pgo/pgo/client.crt"
 export PGO_CLIENT_CERT="$HOME/.pgo/pgo/client.crt"
 export PGO_CLIENT_KEY="$HOME/.pgo/pgo/client.pem"
 export PGO_APISERVER_URL='https://127.0.0.1:8443'
+
+export PGOUSER="/home/roman/.pgo/pgo/pgouser"
+
+# SPARK
+export SPARK_HOME="$HOME/workspace/nu/spark/2.4.3"
 
 # V8
 export V8_HOME="/usr/bin"
