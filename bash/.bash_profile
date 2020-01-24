@@ -14,23 +14,39 @@ done
 export EDITOR="emacsclient"
 
 # SOLARIZED
+
 export SOLARIZED="dark"
 if [ -e ~/.dotfiles/dircolors.ansi-$SOLARIZED ]; then
     eval `dircolors ~/.dotfiles/dircolors.ansi-$SOLARIZED`
 fi
 
 # CASK
+
 export PATH="$HOME/.cask/bin:$PATH"
 
-# Confluent Platform
+# CONFLUENT PLATFORM
+
 export CONFLUENT_HOME="$HOME/local/confluent"
 export PATH="$CONFLUENT_HOME/bin:$PATH"
 
+# HETZNER KUBE
+
+source <(hetzner-kube completion bash)
+
 # NODE
+
 export PATH="$HOME/.node_modules/bin:$PATH"
 
 # NUBANK
+
 [ -r /home/roman/.nurc ] && . /home/roman/.nurc
+
+# POSTGRESQL OPERATOR
+
+export PGO_CA_CERT="$HOME/.pgo/pgo/client.crt"
+export PGO_CLIENT_CERT="$HOME/.pgo/pgo/client.crt"
+export PGO_CLIENT_KEY="$HOME/.pgo/pgo/client.pem"
+export PGO_APISERVER_URL='https://127.0.0.1:8443'
 
 # V8
 export V8_HOME="/usr/bin"
