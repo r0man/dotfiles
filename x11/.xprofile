@@ -44,9 +44,6 @@ xsetroot -cursor_name left_ptr
 # Load xmodmap
 [ -f ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
 
-# Start Pulse Audio
-start-pulseaudio-x11 &
-
 # Start Music Player Daemon.
 mpd &
 
