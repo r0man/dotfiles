@@ -47,6 +47,9 @@ xsetroot -cursor_name left_ptr
 # Start Music Player Daemon.
 mpd &
 
+# Start Redshift
+redshift &
+
 # Hide mouse cursor when idle.
 unclutter -idle 5 -noevents &
 
