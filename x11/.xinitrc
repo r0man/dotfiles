@@ -14,8 +14,6 @@ fi
 # Load ~/.xprofile
 [[ -f ~/.xprofile ]] && . ~/.xprofile
 
-# start-pulseaudio-x11 &
-
 # Start Gnome
 #exec gnome-session
 
