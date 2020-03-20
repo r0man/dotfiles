@@ -3,7 +3,14 @@
 # ~/.xprofile
 #
 
-# Configure external monitor.
+# Setup xrandr
+xrandr --listproviders
+xrandr --listmonitors
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --setprovideroutputsource modesetting NVIDIA-G0
+xrandr --auto
+
+# configure external monitor.
 ~/.dotfiles/bin/external-monitor
 
 # Load default .Xresources
