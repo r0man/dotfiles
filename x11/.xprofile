@@ -10,7 +10,7 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 # xrandr --setprovideroutputsource modesetting NVIDIA-G0
 xrandr --auto
 
-# configure external monitor.
+# Configure external monitor.
 ~/.dotfiles/bin/external-monitor
 
 # Load default .Xresources
@@ -19,6 +19,15 @@ xrandr --auto
 # Load default .Xresources by hostname
 XRESOURCES_HOST=~/.Xresources.$(hostname)
 [ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
+
+# # Set color profile
+
+# export COLOR_PROFILE="$HOME/.color-profiles/color-lcd-46fa2088-5175-1712-04a4-8183272cf248.icc"
+
+# if [ -f $COLOR_PROFILE ]; then
+#     xcalib $COLOR_PROFILE
+#     echo "Loaded color profile."
+# fi
 
 # Start composite, a compositor for X11.
 #compton &
