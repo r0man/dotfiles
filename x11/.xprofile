@@ -48,7 +48,7 @@ xsetroot -cursor_name left_ptr
 mpd &
 
 # Start Redshift
-redshift &
+systemctl --user start redshift
 
 # Hide mouse cursor when idle.
 unclutter -idle 5 -noevents &
