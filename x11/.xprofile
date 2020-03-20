@@ -5,13 +5,9 @@
 
 # Setup xrandr
 xrandr --listproviders
-xrandr --listmonitors
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 # xrandr --setprovideroutputsource modesetting NVIDIA-G0
 xrandr --auto
-
-# Configure external monitor.
-~/.dotfiles/bin/external-monitor
 
 # Load default .Xresources
 [ -f ~/.Xresources ] && xrdb -all -load ~/.Xresources
@@ -58,6 +54,9 @@ xscreensaver -no-splash &
 
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
+
+# Setup external monitor.
+~/.dotfiles/bin/external-monitor
 
 # Set wallpaper
 feh --bg-scale ~/.dotfiles/wallpapers/stop-customizing-start-working.jpg
