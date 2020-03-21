@@ -107,3 +107,28 @@
 
 (defcommand rofi-windowcd () ()
   (rofi "windowcd"))
+
+;; Slop
+
+(defun executable-find (name)
+  "Tell if given executable is present in PATH."
+  (let ((which-out (string-trim '(#\  #\linefeed) (run-shell-command (concat "which " name) t))))
+    (unless (string-equal "" which-out) which-out)))
+
+(defun slop-get-pos ()
+  (mapcar #'parse-integer (ppcre:split "[^0-9]" (run-shell-command "slop -f \"%x %y %w %h\"" t))))
+
+(defun slop-or-float ()
+  "Slop the current window or just float if slop cli not present."
+  (if (executable-find "slop")
+      (let ((window (current-window))
+            (pos (slop-get-pos)))
+        (float-window window (current-group))
+        (float-window-move-resize window
+                                  :x (nth 0 pos)
+                                  :y (nth 1 pos)
+                                  :width (nth 2 pos)
+                                  :height (nth 3 pos)))
+      (run-commands "float-this")))
+
+(defcommand slop-this () () (slop-or-float))
