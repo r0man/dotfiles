@@ -1,6 +1,10 @@
 ;; -*- lisp -*-
 (in-package :stumpwm)
 
+;; Interesting StumpWM configs on the web:
+;; - https://github.com/lepisma/cfg/blob/master/stumpwm/.stumpwmrc
+;; - https://github.com/herbertjones/my-stumpwm-config
+
 (load "~/.stumpwm.d/commands.lisp")
 (load "~/.stumpwm.d/time.lisp")
 
