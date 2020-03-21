@@ -21,7 +21,7 @@
 (load-module "mem")
 (load-module "pass")
 (load-module "screenshot")
-(load-module "ttf-fonts")
+;;(load-module "ttf-fonts")
 (load-module "wifi")
 
 ;; Colors
@@ -42,26 +42,30 @@
 
 ;; Fonts
 
-(xft:cache-fonts) ;; Cache fonts, so they can be found?
+(set-font "-*-terminus-medium-*-*-*-17-*-*-*-*-*-*-*")
 
-(set-font
- (make-instance
-  'xft:font
-  :family "Inconsolata"
-  :subfamily "Regular"
-  :size 13))
+;; clx-truetype
 
-;; Work around memory issue.
-;; See: https://github.com/stumpwm/stumpwm/issues/474
-(run-with-timer
- 900 900
- (lambda ()
-   (loop for font in (stumpwm::screen-fonts (current-screen))
-      when (typep font 'xft:font)
-      do (clrhash (xft::font-string-line-bboxes font))
-        (clrhash (xft::font-string-line-alpha-maps font))
-        (clrhash (xft::font-string-bboxes font))
-        (clrhash (xft::font-string-alpha-maps font)))))
+;; (xft:cache-fonts) ;; Cache fonts, so they can be found?
+
+ ;; (set-font
+ ;; (make-instance
+ ;;  'xft:font
+ ;;  :family "Inconsolata"
+ ;;  :subfamily "Regular"
+ ;;  :size 13))
+
+;; ;; Work around memory issue.
+;; ;; See: https://github.com/stumpwm/stumpwm/issues/474
+;; (run-with-timer
+;;  900 900
+;;  (lambda ()
+;;    (loop for font in (stumpwm::screen-fonts (current-screen))
+;;       when (typep font 'xft:font)
+;;       do (clrhash (xft::font-string-line-bboxes font))
+;;         (clrhash (xft::font-string-line-alpha-maps font))
+;;         (clrhash (xft::font-string-bboxes font))
+;;         (clrhash (xft::font-string-alpha-maps font)))))
 
 ;; Debug
 
@@ -236,7 +240,3 @@
              (y (/ (- (head-height head) height) 2)))
         (float-window window (current-group))
         (float-window-move-resize window :x x :y y :width width :height height)))))
-
-;; (setf *float-window-border* 1)
-;; (set-float-focus-color "#54728E")
-;; (set-float-unfocus-color "white")
