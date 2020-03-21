@@ -6,8 +6,11 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
+! Howto calculate Xft.dpi
+! See: https://winaero.com/blog/find-change-screen-dpi-linux/
 ! Xft.dpi: 144
-Xft.dpi: 130
+! Xft.dpi: 130
+Xft.dpi: 137
 
 ! DZEN2
 dzen2.font: Inconsolata-14
