@@ -9,12 +9,11 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 # xrandr --setprovideroutputsource modesetting NVIDIA-G0
 xrandr --auto
 
-# Load default .Xresources
+# X Resources
 [ -f ~/.Xresources ] && xrdb -all -load ~/.Xresources
-
-# Load default .Xresources by hostname
 XRESOURCES_HOST=~/.Xresources.$(hostname)
 [ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
+xrdb -query -all
 
 # # Set color profile
 
