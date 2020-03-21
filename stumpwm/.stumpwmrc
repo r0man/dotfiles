@@ -36,6 +36,8 @@
         "#2aa198"   ; 6 cyan
         "#fdf6e3")) ; 7 white
 
+(set-float-focus-color "#54728e")
+
 (update-color-map (current-screen))
 
 ;; Fonts
