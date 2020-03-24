@@ -3,17 +3,19 @@
 # ~/.xprofile
 #
 
-# Setup xrandr
-xrandr --listproviders
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-# xrandr --setprovideroutputsource modesetting NVIDIA-G0
-xrandr --auto
-
-# X Resources
+# Load X Resources
 [ -f ~/.Xresources ] && xrdb -all -load ~/.Xresources
+
+# Load host specific X Resources
 XRESOURCES_HOST=~/.Xresources.$(hostname)
 [ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
-xrdb -query -all
+
+# Setup provider output source
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+
+# Setup external monitor.
+~/.dotfiles/bin/external-monitor
 
 # # Set color profile
 
@@ -24,8 +26,8 @@ xrdb -query -all
 #     echo "Loaded color profile."
 # fi
 
-# Start composite, a compositor for X11.
-#compton &
+# Start picom, a compositor for X11.
+picom &
 
 # Dunst
 killall dunst; dunst &
@@ -53,9 +55,6 @@ xscreensaver -no-splash &
 
 # Start xbindkeys - a grabbing keys program for X.
 xbindkeys
-
-# Setup external monitor.
-~/.dotfiles/bin/external-monitor
 
 # Set wallpaper
 feh --bg-scale ~/.dotfiles/wallpapers/stop-customizing-start-working.jpg

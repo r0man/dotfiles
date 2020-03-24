@@ -10,6 +10,5 @@ if xrandr | grep "$EXTERNAL disconnected"; then
     xrandr --output "$INTERNAL" --primary --auto --output "$EXTERNAL" --off
 else
     echo "External monitor $EXTERNAL connected."
-    xrandr --setprovideroutputsource modesetting NVIDIA-0
     xrandr --output "$EXTERNAL" --primary --mode 3840x2160 --pos 0x0 --rotate normal --output "$INTERNAL" --mode 3840x2160 --pos 0x2160 --rotate normal
 fi
