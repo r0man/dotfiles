@@ -87,9 +87,10 @@ Mod2 + Mod4 + Shift + l
 "xdotool click 1"
 Mod2 + Mod4 + Return
 
+# TODO: Does not work with databricks CTRL-ENTER
 ### Middle click (Super + Control + Return)
-"xdotool click 2"
-Mod2 + Control + Return
+# "xdotool click 2"
+# Mod2 + Control + Return
 
 ### Right click (Super + Shift + Return)
 "xdotool click 3"
