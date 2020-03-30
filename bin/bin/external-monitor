@@ -5,10 +5,10 @@ export INTERNAL="eDP-1-1"
 
 xrandr --listmonitors
 
-if xrandr | grep "$EXTERNAL disconnected"; then
-    echo "External monitor $EXTERNAL not connected."
-    xrandr --output "$INTERNAL" --primary --auto --output "$EXTERNAL" --off
-else
-    echo "External monitor $EXTERNAL connected."
+if xrandr --listmonitors | grep "$EXTERNAL" > /dev/null 2>&1 ; then
+    echo "Monitor $EXTERNAL connected."
     xrandr --output "$EXTERNAL" --primary --mode 3840x2160 --pos 0x0 --rotate normal --output "$INTERNAL" --mode 3840x2160 --pos 0x2160 --rotate normal
+else
+    echo "Monitor $EXTERNAL not connected."
+    xrandr --output "$INTERNAL" --primary --mode 3840x2160 --output "$EXTERNAL" --off
 fi
