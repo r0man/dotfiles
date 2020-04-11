@@ -32,6 +32,8 @@ export PATH="$CONFLUENT_HOME/bin:$PATH"
 # HETZNER KUBE
 
 source <(hetzner-kube completion bash)
+# FLUTTER
+export CHROME_EXECUTABLE="chromium"
 
 ## KAFKA
 
