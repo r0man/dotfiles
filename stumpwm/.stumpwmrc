@@ -246,3 +246,20 @@
            (format t "Floating window: ~s~%" win)
            (stumpwm::float-window win (current-group)))))
 
+(define-remapped-keys
+    '(("(Firefox|Chromium)"
+       ("C-n"   . "Down")
+       ("C-p"   . "Up")
+       ;; ("C-f"   . "Right")
+       ;; ("C-b"   . "Left")
+       ("C-v"   . "Next")
+       ("M-v"   . "Prior")
+       ;; ("M-w"   . "C-c")
+       ;; ("C-w"   . "C-x")
+       ("C-y"   . "C-v")
+       ;; ("M-<"   . "Home")
+       ;; ("M->"   . "End")
+       ;; ("C-M-b" . "M-Left")
+       ;; ("C-M-f" . "M-Right")
+       ;; ("C-k"   . ("C-S-End" "C-x"))
+       )))
