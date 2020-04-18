@@ -29,6 +29,10 @@ export PATH="$HOME/.cask/bin:$PATH"
 export CONFLUENT_HOME="$HOME/local/confluent"
 export PATH="$CONFLUENT_HOME/bin:$PATH"
 
+## Flutter
+export CHROME_EXECUTABLE="chromium"
+export PATH="$PATH:$HOME/local/flutter/bin"
+
 ## KAFKA
 
 KAFKA_HOME="$HOME/local/kafka"

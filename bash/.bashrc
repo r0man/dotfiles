@@ -42,10 +42,6 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
-## Flutter
-export CHROME_EXECUTABLE="chromium"
-export PATH="$PATH:$HOME/workspace/flutter/bin"
-
 ## FZF
 
 [ -r /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
