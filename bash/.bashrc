@@ -43,7 +43,8 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 ## Flutter
-export PATH="$PATH:$HOME/local/flutter/bin"
+export CHROME_EXECUTABLE="chromium"
+export PATH="$PATH:$HOME/workspace/flutter/bin"
 
 ## FZF
 
