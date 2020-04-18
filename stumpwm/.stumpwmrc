@@ -216,3 +216,33 @@
              (y (/ (- (head-height head) height) 2)))
         (float-window window (current-group))
         (float-window-move-resize window :x x :y y :width width :height height)))))
+(defun emulator-title-p (name)
+  (or (alexandria:starts-with-subseq "Android Emulator" name)
+      (equal name "Emulator")
+      (equal name "Extended controls")))
+
+(defun emulator-p (win)
+  (and (equal (group-name (window-group win)) "Android")
+       (emulator-title-p (window-title win))))
+
+(defun handle-new-window-created (win)
+  (format t "Window created: ~s~%" win)
+  (when (or (and (member (window-class win) '("jetbrains-idea" "jetbrains-studio") :test #'equal)
+                 (eq (window-type win) :dialog))
+            ;; (equal (window-class win) "XTerm")
+            (emulator-p win))
+    (push-event (lambda ()
+                  (stumpwm::float-window win (window-group win))))))
+
+(add-hook *new-window-hook* 'handle-new-window-created)
+
+(defcommand android-float () ()
+  (loop
+    for win in (group-windows (current-group))
+    do (format t "Checking window: ~s, type: ~s~%" win (type-of win))
+    when (and (typep win 'stumpwm::tile-window)
+              (emulator-title-p (window-title win)))
+      do (progn
+           (format t "Floating window: ~s~%" win)
+           (stumpwm::float-window win (current-group)))))
+
