@@ -169,8 +169,8 @@
 
 ;; Switch to groups with s-[1-9]
 (loop for group from 1 to 9 do
-     (define-key *top-map* (kbd (format nil "s-~d" group))
-       (format nil "gselect ~d" group)))
+  (define-key *top-map* (kbd (format nil "s-~d" group))
+    (format nil "gselect ~d" group)))
 
 ;; Set background image. TODO: Used to work with .xprofile, but it stopped working :/
 (run-shell-command "feh --bg-scale ~/.dotfiles/wallpapers/stop-customizing-start-working.jpg")
@@ -206,7 +206,7 @@
 (defcommand run-floating-htop () ()
   "Run floating htop"
   (with-open-window
-      "urxvt -name floating-htop -e htop"
+    "urxvt -name floating-htop -e htop"
     '(:instance "floating-htop")
     (lambda (window)
       (let* ((head (current-head))
@@ -216,6 +216,7 @@
              (y (/ (- (head-height head) height) 2)))
         (float-window window (current-group))
         (float-window-move-resize window :x x :y y :width width :height height)))))
+
 (defun emulator-title-p (name)
   (or (alexandria:starts-with-subseq "Android Emulator" name)
       (equal name "Emulator")
