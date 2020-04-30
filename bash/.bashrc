@@ -29,10 +29,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
-## NUBANK
-[ -r /home/roman/.nurc ] && source /home/roman/.nurc
-export NU_COUNTRY="br"
-
 ## NPM
 NPM_PACKAGES="${HOME}/.npm-packages"
 

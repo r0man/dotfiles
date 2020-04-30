@@ -50,9 +50,9 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_
 
 export PATH="$HOME/.node_modules/bin:$PATH"
 
-# NUBANK
-
-[ -r /home/roman/.nurc ] && . /home/roman/.nurc
+## NUBANK
+[ -r /home/roman/.nurc ] && source /home/roman/.nurc
+export NU_COUNTRY="br"
 
 # POSTGRESQL OPERATOR
 
