@@ -21,7 +21,8 @@ dzen2.background: black
 Emacs.font: Inconsolata-14
 
 ! URXVT
-URxvt.font: xft:Inconsolata-14
+! URxvt.font: xft:Inconsolata-14
+URxvt.font: xft:Hack-14
 URxvt.perl-ext-common: clipboard,url-select,keyboard-select
 
 URvxt.url-select.button: 2
