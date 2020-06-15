@@ -33,6 +33,10 @@ export PATH="$CONFLUENT_HOME/bin:$PATH"
 export CHROME_EXECUTABLE="chromium"
 export PATH="$PATH:$HOME/local/flutter/bin"
 
+## High DPI
+export GDK_SCALE=1.5
+export GDK_DPI_SCALE=1.5
+
 ## KAFKA
 
 KAFKA_HOME="$HOME/local/kafka"
