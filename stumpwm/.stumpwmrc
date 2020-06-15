@@ -41,7 +41,7 @@
 
 ;; Fonts
 
-(set-font "-*-terminus-medium-*-*-*-17-*-*-*-*-*-*-*")
+(set-font "-*-terminus-medium-*-*-*-22-*-*-*-*-*-*-*")
 
 ;; Debug
 
