@@ -120,7 +120,7 @@
 ;;   (0 t t :class "Emacs"))
 
 (define-frame-preference "Web"
-  (1 t t :class "Chromium"))
+  (1 t t :class "Firefox"))
 
 (define-frame-preference "Slack"
   (7 nil t :class "Slack"))
@@ -138,7 +138,7 @@
 ;; (set-prefix-key (kbd "s-SPC"))
 
 (define-key *root-map* (kbd "!") "rofi-run")
-(define-key *root-map* (kbd "b") "chromium")
+(define-key *root-map* (kbd "b") "firefox")
 (define-key *root-map* (kbd "c") "terminal")
 (define-key *root-map* (kbd "e") "emacs-client")
 (define-key *root-map* (kbd "w") "rofi-window")
@@ -179,7 +179,7 @@
 
 (run-commands
  "gselect Web"
- "chromium"
+ "firefox"
  "gselect Emacs"
  "htop"
  "gselect Logs"
