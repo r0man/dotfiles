@@ -58,6 +58,9 @@ export PATH="$HOME/.node_modules/bin:$PATH"
 [ -r /home/roman/.nurc ] && source /home/roman/.nurc
 export NU_COUNTRY="br"
 
+## NUCLI.PY
+export PATH="$NU_HOME/nucli.py/bin:$PATH"
+
 # POSTGRESQL OPERATOR
 
 export PGO_CA_CERT="$HOME/.pgo/pgo/client.crt"
