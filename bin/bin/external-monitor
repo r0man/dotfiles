@@ -5,7 +5,7 @@ export INTERNAL="eDP-1-1"
 
 xrandr --listmonitors
 
-if xrandr --listmonitors | grep "$EXTERNAL" > /dev/null 2>&1 ; then
+if xrandr --listmonitors | grep "+$EXTERNAL " > /dev/null 2>&1 ; then
     echo "Monitor $EXTERNAL connected."
     xrandr --output "$EXTERNAL" --primary --mode 3840x2160 --pos 0x0 --rotate normal --output "$INTERNAL" --mode 3840x2160 --pos 0x2160 --rotate normal
 else
