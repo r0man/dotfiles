@@ -64,12 +64,12 @@ export NUCLI_PY_FORMATTER_STYLE="bw"
 
 # POSTGRESQL OPERATOR
 
-export PGO_CA_CERT="$HOME/.pgo/pgo/client.crt"
-export PGO_CLIENT_CERT="$HOME/.pgo/pgo/client.crt"
-export PGO_CLIENT_KEY="$HOME/.pgo/pgo/client.pem"
+export PGOUSER="${HOME?}/.pgo/pgo/pgouser"
 export PGO_APISERVER_URL='https://127.0.0.1:8443'
-
-export PGOUSER="/home/roman/.pgo/pgo/pgouser"
+export PGO_CA_CERT="${HOME?}/.pgo/pgo/client.crt"
+export PGO_CLIENT_CERT="${HOME?}/.pgo/pgo/client.crt"
+export PGO_CLIENT_KEY="${HOME?}/.pgo/pgo/client.key"
+export PGO_NAMESPACE=pgo
 
 # SPARK
 export SPARK_HOME="$HOME/workspace/nu/spark/2.4.3"
