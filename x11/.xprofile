@@ -10,9 +10,12 @@
 XRESOURCES_HOST=~/.Xresources.$(hostname)
 [ -f $XRESOURCES_HOST ] && xrdb -merge $XRESOURCES_HOST
 
-# Setup provider output source
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
+# Optimus Manager
+/usr/bin/prime-offload
+
+# # Setup provider output source
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
 
 # Setup external monitor.
 ~/.dotfiles/bin/external-monitor
