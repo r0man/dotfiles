@@ -64,6 +64,8 @@ export NUCLI_PY_FORMATTER_STYLE="bw"
 
 # POSTGRESQL OPERATOR
 
+export PATH="${HOME?}/.pgo/pgo:$PATH"
+
 export PGOUSER="${HOME?}/.pgo/pgo/pgouser"
 export PGO_APISERVER_URL='https://127.0.0.1:8443'
 export PGO_CA_CERT="${HOME?}/.pgo/pgo/client.crt"
