@@ -29,6 +29,9 @@ export PATH="$HOME/.cask/bin:$PATH"
 export CONFLUENT_HOME="$HOME/local/confluent"
 export PATH="$CONFLUENT_HOME/bin:$PATH"
 
+# Coursier
+export PATH="$PATH:/home/roman/.local/share/coursier/bin"
+
 ## Flutter
 export CHROME_EXECUTABLE="chromium"
 export PATH="$PATH:$HOME/local/flutter/bin"
