@@ -65,10 +65,6 @@ export NU_COUNTRY="br"
 export PATH="$NU_HOME/nucli.py/bin:$PATH"
 export NUCLI_PY_FORMATTER_STYLE="bw"
 
-## METALS
-export METALS_JAVA_OPTS="-XX:+UseG1GC -XX:+UseStringDeduplication -Xss4m -Xms100m"
-export METALS_JDK_PATH="/usr/lib/jvm/java-8-openjdk/bin"
-
 # POSTGRESQL OPERATOR
 
 export PATH="${HOME?}/.pgo/pgo:$PATH"
