@@ -111,6 +111,7 @@
    "sbcl-stumpwm-ttf-fonts"
    "sbcl-stumpwm-wifi"
    "sbcl-stumpwm-winner-mode"
+   "sqitch"
    "stumpish"
    "stumpwm"
    ;;;;
