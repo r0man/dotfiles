@@ -1,17 +1,17 @@
 ;; -*- lisp -*-
 ;;; The following lines added by ql:add-to-init-file:
-#-quicklisp
-(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
-  (when (probe-file quicklisp-init)
-    (load quicklisp-init)))
+;; #-quicklisp
+;; (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
+;;   (when (probe-file quicklisp-init)
+;;     (load quicklisp-init)))
 
-(ql:quickload "alexandria")
-(ql:quickload "cl-ppcre")
-(ql:quickload "clx")
-;; (ql:quickload "clx-truetype")
-(ql:quickload "local-time")
-(ql:quickload "swank")
-(ql:quickload "zpng")
+;; (ql:quickload "alexandria")
+;; (ql:quickload "cl-ppcre")
+;; (ql:quickload "clx")
+;; ;; (ql:quickload "clx-truetype")
+;; (ql:quickload "local-time")
+;; (ql:quickload "swank")
+;; (ql:quickload "zpng")
 
-;; (ql:quickload "stumpwm")
-(push "~/workspace/stumpwm/" ql:*local-project-directories*)
+;; ;; (ql:quickload "stumpwm")
+;; (push "~/workspace/stumpwm/" ql:*local-project-directories*)

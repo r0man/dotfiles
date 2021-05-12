@@ -1,4 +1,5 @@
 (in-package :stumpwm)
+(require :local-time)
 
 (local-time:reread-timezone-repository)
 
