@@ -15,6 +15,7 @@
    "emacs-docker-compose-mode"
    "emacs-dockerfile-mode"
    "emacs-edit-indirect"
+   "emacs-el-mock"
    "emacs-elfeed"
    "emacs-elisp-slime-nav"
    "emacs-elpy"
