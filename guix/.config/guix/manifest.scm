@@ -115,6 +115,7 @@
    "sbcl-stumpwm-wifi"
    "sbcl-stumpwm-winner-mode"
    "sqitch"
+   "sqlite"
    "stumpish"
    "stumpwm"
    ;;;;
