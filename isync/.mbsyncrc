@@ -1,0 +1,54 @@
+IMAPAccount burningswell
+Host imap.gmail.com
+User roman.scherer@burningswell.com
+PassCmd "pass Gmail/Burningswell"
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore burningswell-remote
+Account burningswell
+
+MaildirStore burningswell-local
+Path ~/Mail/burningswell/
+Inbox ~/Mail/burningswell/inbox
+Trash ~/Mail/burningswell/trash
+SubFolders Verbatim
+
+Channel burningswell
+Far :burningswell-remote:
+Near :burningswell-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Trash"
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+
+
+IMAPAccount nubank
+Host imap.gmail.com
+User roman.scherer@nubank.com.br
+PassCmd "pass Gmail/Nubank"
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore nubank-remote
+Account nubank
+
+MaildirStore nubank-local
+Path ~/Mail/nubank/
+Inbox ~/Mail/nubank/inbox
+Trash ~/Mail/nubank/trash
+SubFolders Verbatim
+
+Channel nubank
+Far :nubank-remote:
+Near :nubank-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Trash"
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
