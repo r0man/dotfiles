@@ -94,6 +94,7 @@
    "gdal"
    "glibc-locales"
    "guile"
+   "isync"
    "libvterm"
    "make"
    "nss-certs"
