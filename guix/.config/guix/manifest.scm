@@ -97,6 +97,7 @@
    "isync"
    "libvterm"
    "make"
+   "mu"
    "nss-certs"
    "sbcl"
    "sbcl-local-time"
