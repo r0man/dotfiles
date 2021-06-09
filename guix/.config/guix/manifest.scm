@@ -63,7 +63,6 @@
    "emacs-parsec"
    "emacs-pass"
    "emacs-plantuml-mode"
-   "emacs-plantuml-mode"
    "emacs-posframe"
    "emacs-projectile"
    "emacs-rainbow-mode"
