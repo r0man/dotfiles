@@ -1,6 +1,0 @@
-[Default Applications]
-application/pdf=evince.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-text/html=firefox.desktop
-application/xml=firefox.desktop
