@@ -88,6 +88,7 @@
    "emacs-yasnippet-snippets"
    "font-dejavu"
    "font-gnu-freefont"
+   "font-google-roboto"
    "font-inconsolata"
    "font-terminus"
    "fontconfig"
