@@ -22,6 +22,7 @@
    "emacs-elpy"
    "emacs-embark"
    "emacs-emms"
+   "emacs-emojify"
    "emacs-engine-mode"
    "emacs-exec-path-from-shell"
    "emacs-expand-region"
