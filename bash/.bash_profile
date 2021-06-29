@@ -51,7 +51,7 @@ fi
 # GOOGLE
 
 # See: https://developers.google.com/identity/protocols/application-default-credentials
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
+#export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 
 # NODE
 
