@@ -97,6 +97,7 @@
    "gcc-toolchain"
    "gdal"
    "glibc-locales"
+   "gnuplot"
    "guile"
    "isync"
    "libvterm"
