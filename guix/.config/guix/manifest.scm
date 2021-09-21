@@ -34,6 +34,7 @@
    "emacs-geiser"
    "emacs-geiser-guile"
    "emacs-gif-screencast"
+   "emacs-gnuplot"
    "emacs-go-mode"
    "emacs-graphql"
    "emacs-graphql-mode"
