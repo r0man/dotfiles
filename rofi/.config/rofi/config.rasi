@@ -37,7 +37,7 @@ configuration {
 /*	filter: ;*/
 	separator-style: "dash";
 /*	hide-scrollbar: false;*/
-  fullscreen: false;
+        fullscreen: false;
 /*	fake-transparency: false;*/
 /*	dpi: -1;*/
 /*	threads: 0;*/
@@ -47,7 +47,6 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "~/.config/rofi/theme";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -133,3 +132,5 @@ configuration {
 /*	me-accept-entry: "MouseD1";*/
 /*	me-accept-custom: "Control+MouseD1";*/
 }
+
+@theme "~/.config/rofi/theme"
