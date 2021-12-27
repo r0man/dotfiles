@@ -102,6 +102,7 @@
    "guile"
    "inkscape"
    "isync"
+   "libffi"
    "libvterm"
    "make"
    "mu"
