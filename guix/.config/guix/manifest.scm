@@ -58,6 +58,7 @@
    "emacs-org"
    "emacs-org-present"
    "emacs-org-reveal"
+   "emacs-org-tree-slide"
    "emacs-ox-pandoc"
    "emacs-pandoc-mode"
    "emacs-paredit"
