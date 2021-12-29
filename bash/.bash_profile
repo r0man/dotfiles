@@ -82,10 +82,6 @@ export SPARK_HOME="$HOME/workspace/nu/spark/2.4.3"
 # V8
 export V8_HOME="/usr/bin"
 
-# VIRTUAL ENV
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-
 # PATH
 export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
