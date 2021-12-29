@@ -64,6 +64,7 @@ export NU_COUNTRY="br"
 ## NUCLI.PY
 export PATH="$NU_HOME/nucli.py/bin:$PATH"
 export NUCLI_PY_FORMATTER_STYLE="bw"
+# export NUCLI_PY_FULL=1
 
 # POSTGRESQL OPERATOR
 
