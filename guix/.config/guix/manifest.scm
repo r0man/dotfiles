@@ -101,6 +101,7 @@
    "gfortran-toolchain"
    "gimp"
    "git"
+   "git-crypt"
    "glibc-locales"
    "gnuplot"
    "guile"
