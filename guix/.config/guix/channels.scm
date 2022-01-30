@@ -15,4 +15,13 @@
           "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
           (openpgp-fingerprint
            "2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5"))))
+       (channel
+        (name 'r0man)
+        (url "https://github.com/r0man/guix-channel.git")
+        (branch "main")
+        (introduction
+         (make-channel-introduction
+          "b3ae462983b153b6163b4ab410decedd8129499d"
+          (openpgp-fingerprint
+           "D226 A339 D8DF 4481 5DDE  0CA0 3DDA 5252 7D2A C199"))))
        %default-channels)
